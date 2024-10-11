@@ -7,11 +7,279 @@
     <groupId>com.zh</groupId>
     <artifactId>stream-dev</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>stream-common</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <flink.version>1.17.1</flink.version>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <lombok.version>1.18.20</lombok.version>
+        <fastjson.version>1.2.78</fastjson.version>
+        <guava.version>30.0-android</guava.version>
+        <okhttp.version>3.8.1</okhttp.version>
+        <hutool.version>5.7.8</hutool.version>
+        <hadoop.version>3.0.0</hadoop.version>
+        <neo4j.version>4.2.7</neo4j.version>
+        <flink.hbase.version>1.10.3</flink.hbase.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- flink 相关依赖 开始 -->
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-hbase_2.11</artifactId>
+                <version>1.10.3</version>
+            </dependency>
+
+            <!--        flink 流批开发依赖包-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-clients</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <!--        flink 本地WebUI 依赖-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-runtime-web</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <!--        kafka 依赖-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-kafka</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <!--        flink RocksDB 依赖-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-statebackend-rocksdb</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <!--        flink table 依赖环境-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-table-runtime</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-table-planner-loader</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <!--        Table API 依赖-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-table-api-java</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <!--        Table API + DataStream 相互集成 -->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-table-api-java-bridge</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <!--        Flink 解析JSON-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-json</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <!--        Flink CDC MySQL connector-->
+            <dependency>
+                <groupId>com.ververica</groupId>
+                <artifactId>flink-connector-mysql-cdc</artifactId>
+                <version>2.4.0</version>
+            </dependency>
+
+
+
+            <dependency>
+                <groupId>com.alibaba.hologres</groupId>
+                <artifactId>hologres-connector-flink-1.17</artifactId>
+                <version>1.4.2</version>
+                <!--            <classifier>jar-with-dependencies</classifier>-->
+            </dependency>
+
+
+
+
+            <!-- flink 相关依赖 结束 -->
+
+            <!-- hadoop 相关依赖 开发 -->
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-common</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>
+            <!-- hadoop 相关依赖 结束 -->
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.25</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-yaml</artifactId>
+                <version>2.11.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-jsr310</artifactId>
+                <version>2.11.0</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <dependency>
+                <artifactId>commons-cli</artifactId>
+                <groupId>commons-cli</groupId>
+                <version>1.3.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
+            </dependency>
+
+            <!-- parquet 文件格式相关依赖 开始 -->
+            <dependency>
+                <groupId>org.apache.parquet</groupId>
+                <artifactId>parquet-avro</artifactId>
+                <version>1.10.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.parquet</groupId>
+                <artifactId>parquet-hadoop</artifactId>
+                <version>1.10.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-parquet</artifactId>
+                <version>1.8.0</version>
+            </dependency>
+            <!-- parquet 文件格式相关依赖 结束 -->
+
+            <!-- mysql 相关依赖 开始 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.15</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-dbutils</groupId>
+                <artifactId>commons-dbutils</artifactId>
+                <version>1.7</version>
+            </dependency>
+            <!-- mysql 相关依赖 结束 -->
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <!-- 在maven项目中既有java又有scala代码时配置 maven-scala-plugin 插件打包时可以将两类代码一起打包 -->
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>3.2.2</version>
+                <executions>
+                    <execution>
+                        <id>scala-compile-first</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>scala-test-compile</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-conf</id>
+                        <!--default生命周期的哪个阶段-->
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <!--负责处理项目资源文件并拷贝到输出目录-->
+        <resources>
+            <resource>
+                <directory>src/main/resources/</directory>
+                <targetPath>./</targetPath>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.conf</include>
+                    <include>**/*.csv</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <!-- 排除标签 -->
+                <excludes>
+                    <exclude>filter/*</exclude>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
 
 </project>
