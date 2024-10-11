@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>stream-common</module>
+        <module>stream-realtime</module>
     </modules>
 
     <properties>
@@ -115,7 +116,7 @@
                 <groupId>com.alibaba.hologres</groupId>
                 <artifactId>hologres-connector-flink-1.17</artifactId>
                 <version>1.4.2</version>
-                <!--            <classifier>jar-with-dependencies</classifier>-->
+                <classifier>jar-with-dependencies</classifier>
             </dependency>
 
 
@@ -198,16 +199,14 @@
             <!-- parquet 文件格式相关依赖 结束 -->
 
             <!-- mysql 相关依赖 开始 -->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>8.0.15</version>
-            </dependency>
+
+
             <dependency>
                 <groupId>commons-dbutils</groupId>
                 <artifactId>commons-dbutils</artifactId>
                 <version>1.7</version>
             </dependency>
+
             <!-- mysql 相关依赖 结束 -->
         </dependencies>
     </dependencyManagement>

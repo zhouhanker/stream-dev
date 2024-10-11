@@ -11,7 +11,7 @@ import com.stream.common.utils.ConfigUtils;
 public class CommonTest {
 
     public static void main(String[] args) {
-        System.err.println(ConfigUtils.getString("mysql.host"));
+        System.err.println(ConfigUtils.getString("mysql.port"));
     }
 
 }
