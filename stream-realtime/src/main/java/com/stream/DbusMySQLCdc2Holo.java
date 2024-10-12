@@ -21,6 +21,7 @@ import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.DataTypes;
+import org.apache.flink.table.api.Schema;
 import org.apache.flink.table.api.TableSchema;
 
 
@@ -51,21 +52,18 @@ public class DbusMySQLCdc2Holo {
 
 
         DataStreamSource<String> dataStreamSource = env.fromSource(mySqlSource, WatermarkStrategy.noWatermarks(), "mysql-source-cdc-listen");
-        SingleOutputStreamOperator<JSONObject> map = dataStreamSource.map((MapFunction<String, JSONObject>) JSONObject::parseObject);
+        SingleOutputStreamOperator<JSONObject> map = dataStreamSource.map(JSONObject::parseObject);
 
-        SingleOutputStreamOperator<MySQLMessageInfo> res = map.map(new MapFunction<JSONObject, MySQLMessageInfo>() {
-            @Override
-            public MySQLMessageInfo map(JSONObject jsonObject) throws Exception {
-                MySQLMessageInfo mySQLMessageInfo = new MySQLMessageInfo();
-                mySQLMessageInfo.setId(jsonObject.getString("id"));
-                mySQLMessageInfo.setOp(jsonObject.getString("op"));
-                mySQLMessageInfo.setDb_name(jsonObject.getString("database"));
-                mySQLMessageInfo.setLog_before(jsonObject.getString("before"));
-                mySQLMessageInfo.setLog_after(jsonObject.getString("after"));
-                mySQLMessageInfo.setT_name(jsonObject.getString("tableName"));
-                mySQLMessageInfo.setTs(jsonObject.getString("ts"));
-                return mySQLMessageInfo;
-            }
+        SingleOutputStreamOperator<MySQLMessageInfo> res = map.map(json -> {
+            MySQLMessageInfo mySQLMessageInfo = new MySQLMessageInfo();
+            mySQLMessageInfo.setId(json.getString("id"));
+            mySQLMessageInfo.setOp(json.getString("op"));
+            mySQLMessageInfo.setDb_name(json.getString("database"));
+            mySQLMessageInfo.setLog_before(json.getString("before"));
+            mySQLMessageInfo.setLog_after(json.getString("after"));
+            mySQLMessageInfo.setT_name(json.getString("tableName"));
+            mySQLMessageInfo.setTs(json.getString("ts"));
+            return mySQLMessageInfo;
         });
 
 
@@ -78,6 +76,19 @@ public class DbusMySQLCdc2Holo {
                 .field("t_name", DataTypes.STRING())
                 .field("ts", DataTypes.STRING())
                 .build();
+
+/*        Schema tableSchema = Schema.newBuilder()
+                .column("id", DataTypes.STRING())
+                .column("op", DataTypes.STRING())
+                .column("db_name", DataTypes.STRING())
+                .column("log_before", DataTypes.STRING())
+                .column("log_after", DataTypes.STRING())
+                .column("id", DataTypes.STRING())
+                .column("t_name", DataTypes.STRING())
+                .column("ts", DataTypes.STRING())
+                .build();
+                */
+
         HologresConnectionParam hologresConnectionParam = hologresConfig();
 
         res.print();
