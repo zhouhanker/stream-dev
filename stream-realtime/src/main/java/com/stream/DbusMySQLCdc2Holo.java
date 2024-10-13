@@ -99,7 +99,9 @@ public class DbusMySQLCdc2Holo {
                                 new HologresJDBCWriter<>(
                                         hologresConnectionParam,
                                         tableSchema,
-                                        new RecordConverter(hologresConnectionParam))))
+                                        new RecordConverter(hologresConnectionParam)
+                                ))
+                )
         );
 
 
