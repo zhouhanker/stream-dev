@@ -11,7 +11,9 @@ import com.stream.common.utils.ConfigUtils;
 public class CommonTest {
 
     public static void main(String[] args) {
-        System.err.println(ConfigUtils.getString("mysql.port"));
+        String t = "2024-11-01 10:45:57";
+        long l = Long.parseLong(t);
+        System.err.println(l);
     }
 
 }
