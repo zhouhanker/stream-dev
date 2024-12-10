@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.stream.common.utils.ConfigUtils;
 import com.stream.domain.MySQLMessageInfo;
 import lombok.SneakyThrows;
+import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
@@ -25,6 +26,7 @@ import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.DataTypes;
+import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.TableSchema;
 
 import java.math.BigDecimal;
@@ -37,5 +39,21 @@ import java.sql.Timestamp;
  * @description: Test
  */
 public class StreamTest {
+    @SneakyThrows
+    public static void main(String[] args) {
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        DataStreamSource<String> dataStreamSource = env.socketTextStream("cdh03", 13444);
+//        dataStreamSource.print();
 
+
+        dataStreamSource.map(new MapFunction<String, JSONObject>() {
+            @Override
+            public JSONObject map(String s) throws Exception {
+                return JSONObject.parseObject(s);
+            }
+        }).print();
+
+
+        env.execute();
+    }
 }

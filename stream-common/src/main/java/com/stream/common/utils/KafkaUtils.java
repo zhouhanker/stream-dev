@@ -1,8 +1,13 @@
 package com.stream.common.utils;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
+import java.util.ArrayList;
 import java.util.Properties;
 
 /**
@@ -26,7 +31,7 @@ public final class KafkaUtils {
         props.setProperty("group.id", groupId);
         props.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        props.setProperty("auto.offset.reset", "latest");
+        props.setProperty("auto.offset.reset", "earliest");
         //props.setProperty("auto.offset.reset", "earliest");
         return props;
     }
@@ -48,10 +53,23 @@ public final class KafkaUtils {
      */
     public static Properties buildPropsByProducer() {
         final Properties props = new Properties();
-        props.setProperty("bootstrap.servers", ConfigUtils.getString("bootstrap.servers"));
-        props.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+        props.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, ConfigUtils.getString("kafka.bootstrap.servers"));
+        props.setProperty("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.setProperty("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         props.setProperty("max.request.size", "10485760");
         return props;
+    }
+
+    public static void sinkJson2KafkaMessage(String topicName, ArrayList<JSONObject> jsonObjectArrayList){
+        Properties properties = buildPropsByProducer();
+        try(KafkaProducer<String, String> producer = new KafkaProducer<>(properties)) {
+            for (JSONObject jsonObject : jsonObjectArrayList) {
+                producer.send(new ProducerRecord<>(topicName,jsonObject.toString()));
+            }
+            System.out.println("数据已成功发送到Kafka主题: " + topicName);
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("发送数据到Kafka主题时出现错误");
+        }
     }
 }

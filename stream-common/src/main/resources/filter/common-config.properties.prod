@@ -1,4 +1,0 @@
-##env
-env=prod
-
-mysql.host=10.1.12.124

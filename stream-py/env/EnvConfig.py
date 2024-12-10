@@ -3,7 +3,7 @@ import os
 
 
 local_file_path = '../../../../../user_prop_file/common-config.properties.local'
-target_file_path = '../../stream-common/src/main/resources/filter/common-config.properties.dev'
+target_file_path = '../../stream-common/src/main/resources/filter/common-config.properties.prod'
 
 
 def copy_local_prop_2_dev(source_file, target_file):
