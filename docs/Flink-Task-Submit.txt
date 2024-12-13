@@ -9,7 +9,7 @@ flink run-application \
 -c com.stream.StreamTest /opt/soft/flink-1.17.1/local_jars/stream-test.jar
 
 # 应用模式提交任务 HDFS提交
-flink run-application \
+./flink run-application \
 -d \
 -t yarn-application \
 -yjm 900 \
@@ -17,7 +17,7 @@ flink run-application \
 -ytm 900 \
 -yqu root.default \
 -Dyarn.provided.lib.dirs="hdfs://cdh01:8020/flink-dist" \
--c com.stream.StreamTest hdfs://cdh01:8020/flink-jars/stream-test.jar
+-c com.retailersv1.DbusCdc2KafkaTopic hdfs://cdh01:8020/flink-jars/stream-realtime_v1_cdc_to_kafka.jar
 
 
 

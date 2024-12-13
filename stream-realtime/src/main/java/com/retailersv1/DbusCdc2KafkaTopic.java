@@ -20,8 +20,9 @@ public class DbusCdc2KafkaTopic {
 
     @SneakyThrows
     public static void main(String[] args) {
-        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        env.setParallelism(1);
 
         MySqlSource<String> mySqlCdcSource = MySqlSource.<String>builder()
                 .hostname(ConfigUtils.getString("mysql.host"))
@@ -38,9 +39,13 @@ public class DbusCdc2KafkaTopic {
 
         DataStreamSource<String> cdcStream = env.fromSource(mySqlCdcSource, WatermarkStrategy.noWatermarks(), "mysql_cdc_source");
 
+        cdcStream.print();
+
         cdcStream.sinkTo(
                 KafkaUtils.buildKafkaSink(ConfigUtils.getString("kafka.bootstrap.servers"),"realtime_v1_mysql_db")
         ).uid("sink_to_kafka_realtime_v1_mysql_db").name("sink_to_kafka_realtime_v1_mysql_db");
+
+
 
 
 
