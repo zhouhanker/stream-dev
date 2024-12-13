@@ -2,35 +2,18 @@ package com.stream;
 
 import com.alibaba.fastjson.JSONObject;
 import com.stream.common.utils.ConfigUtils;
+import com.stream.common.utils.KafkaUtils;
 import com.stream.domain.MySQLMessageInfo;
 import lombok.SneakyThrows;
+import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.MapFunction;
+import org.apache.flink.connector.kafka.source.KafkaSource;
+import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
-import com.alibaba.hologres.client.Put.MutationType;
-import com.alibaba.hologres.client.model.Record;
-import com.alibaba.ververica.connectors.common.sink.OutputFormatSinkFunction;
-import com.alibaba.ververica.connectors.hologres.api.HologresRecordConverter;
-import com.alibaba.ververica.connectors.hologres.api.HologresTableSchema;
-import com.alibaba.ververica.connectors.hologres.config.HologresConfigs;
-import com.alibaba.ververica.connectors.hologres.config.HologresConnectionParam;
-import com.alibaba.ververica.connectors.hologres.jdbc.HologresJDBCWriter;
-import com.alibaba.ververica.connectors.hologres.sink.HologresOutputFormat;
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.Options;
-import org.apache.flink.api.common.typeinfo.Types;
-import org.apache.flink.configuration.Configuration;
-import org.apache.flink.streaming.api.datastream.DataStreamSource;
-import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.table.api.DataTypes;
-import org.apache.flink.table.api.EnvironmentSettings;
-import org.apache.flink.table.api.TableSchema;
 
-import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @Package com.stream.StreamTest
@@ -42,16 +25,10 @@ public class StreamTest {
     @SneakyThrows
     public static void main(String[] args) {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        DataStreamSource<String> dataStreamSource = env.socketTextStream("cdh03", 13444);
-//        dataStreamSource.print();
+        KafkaSource<String> kafkaSource = KafkaUtils.buildKafkaSource("cdh01:9092", "topic_db", new Date().toString(), OffsetsInitializer.earliest());
 
-
-        dataStreamSource.map(new MapFunction<String, JSONObject>() {
-            @Override
-            public JSONObject map(String s) throws Exception {
-                return JSONObject.parseObject(s);
-            }
-        }).print();
+        DataStreamSource<String> dataStreamSource = env.fromSource(kafkaSource, WatermarkStrategy.noWatermarks(), "kafka-source");
+        dataStreamSource.print();
 
 
         env.execute();

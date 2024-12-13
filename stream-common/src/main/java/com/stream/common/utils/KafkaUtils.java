@@ -1,9 +1,16 @@
 package com.stream.common.utils;
 
-import com.alibaba.fastjson.JSON;
+
 import com.alibaba.fastjson.JSONObject;
+import org.apache.flink.api.common.serialization.SimpleStringSchema;
+import org.apache.flink.connector.base.DeliveryGuarantee;
+import org.apache.flink.connector.kafka.sink.KafkaRecordSerializationSchema;
+import org.apache.flink.connector.kafka.sink.KafkaSink;
+import org.apache.flink.connector.kafka.source.KafkaSource;
+import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
@@ -71,5 +78,30 @@ public final class KafkaUtils {
             e.printStackTrace();
             System.out.println("发送数据到Kafka主题时出现错误");
         }
+    }
+
+    public static KafkaSource<String> buildKafkaSource(String bootServerList,String kafkaTopic,String group,OffsetsInitializer offset){
+        return KafkaSource.<String>builder()
+                .setBootstrapServers(bootServerList)
+                .setTopics(kafkaTopic)
+                .setGroupId(group)
+                .setStartingOffsets(offset)
+                .setValueOnlyDeserializer(new SimpleStringSchema())
+                .build();
+    }
+
+    public static KafkaSink<String> buildKafkaSink(String bootServerList,String kafkaTopic){
+        return KafkaSink.<String>builder()
+                .setBootstrapServers(bootServerList)
+                .setRecordSerializer(
+                        KafkaRecordSerializationSchema.<String>builder()
+                                .setTopic(kafkaTopic)
+                                .setValueSerializationSchema(new SimpleStringSchema())
+                                .build()
+                )
+//                .setDeliveryGuarantee(DeliveryGuarantee.EXACTLY_ONCE)
+//                .setTransactionalIdPrefix("mysql_cdc_")
+//                .setProperty(ProducerConfig.TRANSACTION_TIMEOUT_CONFIG, 10 * 60 * 1000 + "")
+                .build();
     }
 }
