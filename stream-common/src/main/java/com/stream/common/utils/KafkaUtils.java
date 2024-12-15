@@ -118,19 +118,5 @@ public final class KafkaUtils {
                 .build();
     }
 
-//    public static KafkaSink<String> buildKafkaSink(String bootServerList,String kafkaTopic){
-//        return KafkaSink.<String>builder()
-//                .setBootstrapServers(bootServerList)
-//                .setRecordSerializer(
-//                        KafkaRecordSerializationSchema.<String>builder()
-//                                .setTopic(kafkaTopic)
-//                                .setValueSerializationSchema(new SimpleStringSchema())
-//                                .build()
-//                )
-////                .setDeliveryGuarantee(DeliveryGuarantee.EXACTLY_ONCE)
-////                .setTransactionalIdPrefix("mysql_cdc_")
-////                .setProperty(ProducerConfig.TRANSACTION_TIMEOUT_CONFIG, 10 * 60 * 1000 + "")
-//                .build();
-//    }
 
 }
