@@ -5,6 +5,7 @@ import cn.hutool.crypto.SecureUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 import com.stream.common.domain.HBaseInfo;
+import lombok.SneakyThrows;
 import org.apache.flink.api.java.tuple.Tuple3;
 import org.apache.hadoop.hbase.*;
 import org.apache.hadoop.hbase.client.*;
@@ -162,5 +163,11 @@ public class HbaseUtils {
         }
         long stopTime = System.currentTimeMillis();
         return "表 -> "+tableName + "共计: "+rowCount +" 条"+" , 统计耗时 -> "+(stopTime - startTime);
+    }
+
+    @SneakyThrows
+    public static void main(String[] args) {
+        HbaseUtils hbaseUtils = new HbaseUtils("cdh01,cdh02,cdh03");
+//        hbaseUtils.getConnection()
     }
 }

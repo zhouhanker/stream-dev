@@ -9,14 +9,13 @@ import com.alibaba.ververica.connectors.hologres.config.HologresConfigs;
 import com.alibaba.ververica.connectors.hologres.config.HologresConnectionParam;
 import com.alibaba.ververica.connectors.hologres.jdbc.HologresJDBCWriter;
 import com.alibaba.ververica.connectors.hologres.sink.HologresOutputFormat;
-import com.stream.cdc.CustomerDeserialization;
 import com.stream.common.utils.ConfigUtils;
 import com.stream.domain.MySQLMessageInfo;
 import com.ververica.cdc.connectors.mysql.source.MySqlSource;
 import com.ververica.cdc.connectors.mysql.table.StartupOptions;
 import com.ververica.cdc.debezium.JsonDebeziumDeserializationSchema;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
-import org.apache.flink.api.common.functions.MapFunction;
+
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
@@ -54,63 +53,62 @@ public class DbusMySQLCdc2Holo {
 
         DataStreamSource<String> dataStreamSource = env.fromSource(mySqlSource, WatermarkStrategy.noWatermarks(), "mysql-source-cdc-listen");
         dataStreamSource.print();
-//        SingleOutputStreamOperator<JSONObject> map = dataStreamSource.map(JSONObject::parseObject);
+        SingleOutputStreamOperator<JSONObject> map = dataStreamSource.map(JSONObject::parseObject);
 
-//        SingleOutputStreamOperator<MySQLMessageInfo> res = map.map(json -> {
-//            MySQLMessageInfo mySQLMessageInfo = new MySQLMessageInfo();
-//            mySQLMessageInfo.setId(json.getString("id"));
-//            mySQLMessageInfo.setOp(json.getString("op"));
-//            mySQLMessageInfo.setDb_name(json.getString("database"));
-//            mySQLMessageInfo.setLog_before(json.getString("before"));
-//            mySQLMessageInfo.setLog_after(json.getString("after"));
-//            mySQLMessageInfo.setT_name(json.getString("tableName"));
-//            mySQLMessageInfo.setTs(json.getString("ts"));
-//            return mySQLMessageInfo;
-//        });
+        SingleOutputStreamOperator<MySQLMessageInfo> res = map.map(json -> {
+            MySQLMessageInfo mySQLMessageInfo = new MySQLMessageInfo();
+            mySQLMessageInfo.setId(json.getString("id"));
+            mySQLMessageInfo.setOp(json.getString("op"));
+            mySQLMessageInfo.setDb_name(json.getString("database"));
+            mySQLMessageInfo.setLog_before(json.getString("before"));
+            mySQLMessageInfo.setLog_after(json.getString("after"));
+            mySQLMessageInfo.setT_name(json.getString("tableName"));
+            mySQLMessageInfo.setTs(json.getString("ts"));
+            return mySQLMessageInfo;
+        });
 
 
-//        TableSchema tableSchema = TableSchema.builder()
-//                .field("id", DataTypes.STRING())
-//                .field("op", DataTypes.STRING())
-//                .field("db_name", DataTypes.STRING())
-//                .field("log_before", DataTypes.STRING())
-//                .field("log_after", DataTypes.STRING())
-//                .field("t_name", DataTypes.STRING())
-//                .field("ts", DataTypes.STRING())
+        TableSchema tableSchema = TableSchema.builder()
+                .field("id", DataTypes.STRING())
+                .field("op", DataTypes.STRING())
+                .field("db_name", DataTypes.STRING())
+                .field("log_before", DataTypes.STRING())
+                .field("log_after", DataTypes.STRING())
+                .field("t_name", DataTypes.STRING())
+                .field("ts", DataTypes.STRING())
+                .build();
+
+//        Schema tableSchema = Schema.newBuilder()
+//                .column("id", DataTypes.STRING())
+//                .column("op", DataTypes.STRING())
+//                .column("db_name", DataTypes.STRING())
+//                .column("log_before", DataTypes.STRING())
+//                .column("log_after", DataTypes.STRING())
+//                .column("id", DataTypes.STRING())
+//                .column("t_name", DataTypes.STRING())
+//                .column("ts", DataTypes.STRING())
 //                .build();
 
-/*        Schema tableSchema = Schema.newBuilder()
-                .column("id", DataTypes.STRING())
-                .column("op", DataTypes.STRING())
-                .column("db_name", DataTypes.STRING())
-                .column("log_before", DataTypes.STRING())
-                .column("log_after", DataTypes.STRING())
-                .column("id", DataTypes.STRING())
-                .column("t_name", DataTypes.STRING())
-                .column("ts", DataTypes.STRING())
-                .build();
-                */
+        HologresConnectionParam hologresConnectionParam = hologresConfig();
 
-//        HologresConnectionParam hologresConnectionParam = hologresConfig();
-
-//        res.print();
-//        res.addSink(
-//                new OutputFormatSinkFunction<MySQLMessageInfo>(
-//                        new HologresOutputFormat<>(
-//                                hologresConnectionParam,
-//                                new HologresJDBCWriter<>(
-//                                        hologresConnectionParam,
-//                                        tableSchema,
-//                                        new RecordConverter(hologresConnectionParam)
-//                                ))
-//                )
-//        );
+        res.print();
+        res.addSink(
+                new OutputFormatSinkFunction<MySQLMessageInfo>(
+                        new HologresOutputFormat<>(
+                                hologresConnectionParam,
+                                new HologresJDBCWriter<>(
+                                        hologresConnectionParam,
+                                        tableSchema,
+                                        new RecordConverter(hologresConnectionParam)
+                                ))
+                )
+        );
 
 
 
 
-        env.disableOperatorChaining();
-        env.execute();
+//        env.disableOperatorChaining();
+//        env.execute();
     }
 
     private static HologresConnectionParam hologresConfig(){
@@ -127,7 +125,7 @@ public class DbusMySQLCdc2Holo {
         return new HologresConnectionParam(configuration);
     }
 
-    public static class RecordConverter implements HologresRecordConverter<MySQLMessageInfo,Record>{
+    public static class RecordConverter implements HologresRecordConverter<MySQLMessageInfo, Record> {
 
         private final HologresConnectionParam hologresConnectionParam;
         private HologresTableSchema tableSchema;

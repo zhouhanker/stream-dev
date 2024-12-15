@@ -41,14 +41,14 @@
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-hbase_2.11</artifactId>
                 <version>1.10.3</version>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
             </dependency>
 
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-streaming-java</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
             </dependency>
 
             <!--        flink 流批开发依赖包-->
@@ -56,7 +56,7 @@
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-clients</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
             </dependency>
 
             <!--        flink 本地WebUI 依赖-->
@@ -64,7 +64,7 @@
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-runtime-web</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
             </dependency>
 
             <!--        kafka 依赖-->
@@ -72,7 +72,6 @@
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-connector-kafka</artifactId>
                 <version>${flink.version}</version>
-<!--                <scope>provided</scope>-->
             </dependency>
 
             <!--        flink RocksDB 依赖-->
@@ -80,7 +79,7 @@
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-statebackend-rocksdb</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
             </dependency>
 
             <!--        flink table 依赖环境-->
@@ -88,21 +87,21 @@
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-table-runtime</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
             </dependency>
 
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-table-planner-loader</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
             </dependency>
 
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-connector-files</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
             </dependency>
 
             <!--        Table API 依赖-->
@@ -110,7 +109,7 @@
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-table-api-java</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
             </dependency>
 
             <!--        Table API + DataStream 相互集成 -->
@@ -118,7 +117,7 @@
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-table-api-java-bridge</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
             </dependency>
 
             <!--        Flink 解析JSON-->
@@ -126,7 +125,7 @@
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-json</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
             </dependency>
 
             <!--        Flink CDC MySQL connector-->
@@ -164,13 +163,13 @@
                 <groupId>org.apache.hadoop</groupId>
                 <artifactId>hadoop-client</artifactId>
                 <version>${hadoop.version}</version>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
             </dependency>
 
             <dependency>
                 <groupId>org.apache.hadoop</groupId>
                 <artifactId>hadoop-auth</artifactId>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
                 <exclusions>
                     <exclusion>
                         <groupId>org.slf4j</groupId>
@@ -186,21 +185,21 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>1.7.25</version>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
             </dependency>
 
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-to-slf4j</artifactId>
                 <version>2.14.0</version>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
             </dependency>
 
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
             </dependency>
 
             <dependency>

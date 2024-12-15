@@ -37,7 +37,7 @@
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-kafka</artifactId>
-            <scope>provided</scope>
+<!--            <scope>provided</scope>-->
         </dependency>
 
         <!--        flink RocksDB 依赖-->
@@ -90,7 +90,7 @@
             <groupId>com.alibaba.hologres</groupId>
             <artifactId>hologres-connector-flink-1.17</artifactId>
             <version>1.4.2</version>
-            <!--            <classifier>jar-with-dependencies</classifier>-->
+                        <classifier>jar-with-dependencies</classifier>
         </dependency>
 
         <dependency>
@@ -177,5 +177,4 @@
             </resource>
         </resources>
     </build>
-
 </project>

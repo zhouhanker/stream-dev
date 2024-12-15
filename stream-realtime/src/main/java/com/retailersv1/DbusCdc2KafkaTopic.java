@@ -10,6 +10,9 @@ import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
+
+
+
 /**
  * @Package com.retailersv1.DbusCdc2KafkaTopic
  * @Author zhou.han
@@ -44,10 +47,6 @@ public class DbusCdc2KafkaTopic {
         cdcStream.sinkTo(
                 KafkaUtils.buildKafkaSink(ConfigUtils.getString("kafka.bootstrap.servers"),"realtime_v1_mysql_db")
         ).uid("sink_to_kafka_realtime_v1_mysql_db").name("sink_to_kafka_realtime_v1_mysql_db");
-
-
-
-
 
         env.execute();
     }

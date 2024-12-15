@@ -3,13 +3,17 @@ package com.stream.common.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
+
+import org.apache.flink.api.java.typeutils.runtime.ValueSerializer;
 import org.apache.flink.connector.base.DeliveryGuarantee;
 import org.apache.flink.connector.kafka.sink.KafkaRecordSerializationSchema;
 import org.apache.flink.connector.kafka.sink.KafkaSink;
 import org.apache.flink.connector.kafka.source.KafkaSource;
 import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.KafkaProducer;
+
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -90,18 +94,43 @@ public final class KafkaUtils {
                 .build();
     }
 
-    public static KafkaSink<String> buildKafkaSink(String bootServerList,String kafkaTopic){
+    public static KafkaSink<String> buildKafkaSink(String bootServerList, String kafkaTopic) {
+        Properties producerProperties = new Properties();
+        producerProperties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootServerList);
+        producerProperties.setProperty(ProducerConfig.ACKS_CONFIG, "all");
+        producerProperties.setProperty(ProducerConfig.RETRIES_CONFIG, String.valueOf(Integer.MAX_VALUE));
+        producerProperties.setProperty(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG,"true");
+        producerProperties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, org.apache.kafka.common.serialization.ByteArraySerializer.class.getName());
+        producerProperties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, org.apache.kafka.common.serialization.ByteArraySerializer.class.getName());
+
+        System.err.println("Kafka Producer配置参数：");
+        producerProperties.forEach((key, value) -> System.out.println(key + " = " + value));
+
         return KafkaSink.<String>builder()
                 .setBootstrapServers(bootServerList)
                 .setRecordSerializer(
-                        KafkaRecordSerializationSchema.<String>builder()
+                        KafkaRecordSerializationSchema.builder()
                                 .setTopic(kafkaTopic)
                                 .setValueSerializationSchema(new SimpleStringSchema())
                                 .build()
                 )
-//                .setDeliveryGuarantee(DeliveryGuarantee.EXACTLY_ONCE)
-//                .setTransactionalIdPrefix("mysql_cdc_")
-//                .setProperty(ProducerConfig.TRANSACTION_TIMEOUT_CONFIG, 10 * 60 * 1000 + "")
+                .setKafkaProducerConfig(producerProperties)
                 .build();
     }
+
+//    public static KafkaSink<String> buildKafkaSink(String bootServerList,String kafkaTopic){
+//        return KafkaSink.<String>builder()
+//                .setBootstrapServers(bootServerList)
+//                .setRecordSerializer(
+//                        KafkaRecordSerializationSchema.<String>builder()
+//                                .setTopic(kafkaTopic)
+//                                .setValueSerializationSchema(new SimpleStringSchema())
+//                                .build()
+//                )
+////                .setDeliveryGuarantee(DeliveryGuarantee.EXACTLY_ONCE)
+////                .setTransactionalIdPrefix("mysql_cdc_")
+////                .setProperty(ProducerConfig.TRANSACTION_TIMEOUT_CONFIG, 10 * 60 * 1000 + "")
+//                .build();
+//    }
+
 }
