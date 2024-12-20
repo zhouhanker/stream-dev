@@ -24,8 +24,13 @@ import java.util.Date;
 public class StreamTest {
     @SneakyThrows
     public static void main(String[] args) {
+
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        KafkaSource<String> kafkaSource = KafkaUtils.buildKafkaSource("cdh01:9092", "realtime_log", new Date().toString(), OffsetsInitializer.earliest());
+        KafkaSource<String> kafkaSource = KafkaUtils.buildKafkaSource(
+                "cdh01:9092",
+                "realtime_log",
+                new Date().toString(),
+                OffsetsInitializer.earliest());
 
         DataStreamSource<String> dataStreamSource = env.fromSource(kafkaSource, WatermarkStrategy.noWatermarks(), "kafka-source");
         dataStreamSource.print();

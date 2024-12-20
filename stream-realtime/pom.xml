@@ -86,6 +86,12 @@
             <artifactId>fastjson</artifactId>
         </dependency>
 
+        <!-- Flink 流批一体 Stream 写入HDFS 并指定ORC的存储格式-->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-orc</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.alibaba.hologres</groupId>
             <artifactId>hologres-connector-flink-1.17</artifactId>
@@ -123,6 +129,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
                 <executions>
                     <execution>
                         <id>copy-conf</id>

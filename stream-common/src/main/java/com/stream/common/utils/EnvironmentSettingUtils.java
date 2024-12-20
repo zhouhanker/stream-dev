@@ -38,7 +38,7 @@ public final class EnvironmentSettingUtils {
         config.setMaxConcurrentCheckpoints(1);
         // 外部检查点
         // 不会在任务正常停止的过程中清理掉检查点数据，而是会一直保存在外部系统介质中，另外也可以通过从外部检查点中对任务恢复
-        config.enableExternalizedCheckpoints(CheckpointConfig.ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION);
+        config.setExternalizedCheckpointCleanup(CheckpointConfig.ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION);
         // 如果有更近的保存点时，是否作业回退到该检查点
 //        config.setPreferCheckpointForRecovery(true);
         // 设置可以允许的 checkpoint 失败数

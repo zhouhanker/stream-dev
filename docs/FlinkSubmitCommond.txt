@@ -2,8 +2,8 @@
 ./flink run-application \
 -d \
 -t yarn-application \
--yjm 900 \
 -ynm flink-test \
+-yjm 900 \
 -ytm 900 \
 -yqu root.default \
 -c com.retailersv1.DbusCdc2KafkaTopic /opt/soft/flink-1.17.1/local_jars/stream-realtime-1.0-SNAPSHOT-jar-with-dependencies.jar

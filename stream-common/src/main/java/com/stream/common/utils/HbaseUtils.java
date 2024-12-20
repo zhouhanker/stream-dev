@@ -47,13 +47,13 @@ public class HbaseUtils {
         return connection;
     }
 
-    public boolean createTable(String tableName, String... columnFamily) throws Exception {
+    public boolean createTable(String nameSpace,String tableName, String... columnFamily) throws Exception {
         boolean b = tableIsExists(tableName);
         if (b) {
             return true;
         }
         Admin admin = connection.getAdmin();
-        TableDescriptorBuilder tableDescriptorBuilder = TableDescriptorBuilder.newBuilder(TableName.valueOf(tableName));
+        TableDescriptorBuilder tableDescriptorBuilder = TableDescriptorBuilder.newBuilder(TableName.valueOf(nameSpace,tableName));
         if (columnFamily.length > 0) {
             for (String s : columnFamily) {
                 ColumnFamilyDescriptor build = ColumnFamilyDescriptorBuilder.newBuilder(s.getBytes()).setCompressionType(Compression.Algorithm.SNAPPY).build();
@@ -166,8 +166,23 @@ public class HbaseUtils {
     }
 
     @SneakyThrows
+    public void dropHbaseNameSpace(String nameSpace){
+        Admin admin = connection.getAdmin();
+        TableName[] tableNamesByNamespace = admin.listTableNamesByNamespace(nameSpace);
+        ArrayList<TableName> tableNames = new ArrayList<>(Arrays.asList(tableNamesByNamespace));
+        if (!tableNames.isEmpty()){
+            for (TableName tableName : tableNames) {
+                Table table = connection.getTable(tableName);
+                admin.disableTable(table.getName());
+                admin.deleteTable(tableName);
+                System.err.println("del -> "+table.getName());
+            }
+        }
+    }
+
+    @SneakyThrows
     public static void main(String[] args) {
         HbaseUtils hbaseUtils = new HbaseUtils("cdh01,cdh02,cdh03");
-//        hbaseUtils.getConnection()
+        hbaseUtils.dropHbaseNameSpace("realtime_v2");
     }
 }
