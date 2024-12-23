@@ -2,8 +2,10 @@
 
 >   Version
 >
->   JDK oracle8
+>   JDK Oracle8
 >
 >   Flink 1.17.1
 > 
 >   Flink CDC 2.4.0
+> 
+> Platform CDH 6.3.2

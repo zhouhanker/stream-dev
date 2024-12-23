@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * @Package com.retailersv1.domain.TableProcessDim
  * @Author zhou.han
@@ -14,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TableProcessDim {
+public class TableProcessDim implements Serializable {
     // 来源表名
     String sourceTable;
 

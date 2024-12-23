@@ -1,7 +1,6 @@
 package com.retailersv1;
 
 import com.alibaba.fastjson.JSONObject;
-import com.retailersv1.domain.TableProcessDim;
 import com.retailersv1.func.ProcessSpiltStreamToHBaseDim;
 import com.stream.common.utils.ConfigUtils;
 import com.stream.common.utils.EnvironmentSettingUtils;
@@ -11,7 +10,6 @@ import com.ververica.cdc.connectors.mysql.source.MySqlSource;
 import com.ververica.cdc.connectors.mysql.table.StartupOptions;
 import lombok.SneakyThrows;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
-import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.state.MapStateDescriptor;
 import org.apache.flink.streaming.api.datastream.BroadcastConnectedStream;
 import org.apache.flink.streaming.api.datastream.BroadcastStream;
@@ -23,12 +21,12 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 
 /**
- * @Package com.retailersv1.DbusCdc2KafkaTopic
+ * @Package com.retailersv1.DbusCdc2DimHbase
  * @Author zhou.han
  * @Date 2024/12/12 12:56
  * @description: mysql db cdc to kafka realtime_db topic
  */
-public class DbusCdc2KafkaTopic {
+public class DbusCdc2DimHbase {
 
     private static final String CDH_ZOOKEEPER_SERVER = ConfigUtils.getString("zookeeper.server.host.list");
     private static final String CDH_HBASE_NAME_SPACE = ConfigUtils.getString("hbase.namespace");
@@ -45,7 +43,7 @@ public class DbusCdc2KafkaTopic {
                 "",
                 ConfigUtils.getString("mysql.user"),
                 ConfigUtils.getString("mysql.pwd"),
-                StartupOptions.latest()
+                StartupOptions.initial()
         );
 
         MySqlSource<String> mySQLCdcDimConfSource = CdcSourceUtils.getMySQLCdcSource(
@@ -83,15 +81,16 @@ public class DbusCdc2KafkaTopic {
                 }).uid("clean_json_column_map")
                 .name("clean_json_column_map");
 
+
         SingleOutputStreamOperator<JSONObject> tpDS = cdcDbDimStreamMapCleanColumn.map(new MapUpdateHbaseDimTableFunc(CDH_ZOOKEEPER_SERVER, CDH_HBASE_NAME_SPACE))
                 .uid("map_create_hbase_dim_table")
                 .name("map_create_hbase_dim_table");
 
 
+
         MapStateDescriptor<String, JSONObject> mapStageDesc = new MapStateDescriptor<>("mapStageDesc", String.class, JSONObject.class);
         BroadcastStream<JSONObject> broadcastDs = tpDS.broadcast(mapStageDesc);
         BroadcastConnectedStream<JSONObject, JSONObject> connectDs = cdcDbMainStreamMap.connect(broadcastDs);
-
         connectDs.process(new ProcessSpiltStreamToHBaseDim(mapStageDesc));
 
 
@@ -100,6 +99,7 @@ public class DbusCdc2KafkaTopic {
 //                KafkaUtils.buildKafkaSink(ConfigUtils.getString("kafka.bootstrap.servers"),"realtime_v1_mysql_db")
 //        ).uid("sink_to_kafka_realtime_v1_mysql_db").name("sink_to_kafka_realtime_v1_mysql_db");
 
+        env.disableOperatorChaining();
         env.execute();
     }
 

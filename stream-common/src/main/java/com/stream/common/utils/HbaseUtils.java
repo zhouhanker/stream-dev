@@ -12,6 +12,8 @@ import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.filter.FirstKeyOnlyFilter;
 import org.apache.hadoop.hbase.io.compress.Compression;
 import org.apache.hadoop.hbase.util.Bytes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.*;
@@ -28,6 +30,7 @@ import static org.apache.hadoop.hbase.CellUtil.cloneValue;
  */
 public class HbaseUtils {
     private Connection connection;
+    private static final Logger LOG = LoggerFactory.getLogger(HbaseUtils.class.getName());
 
     public HbaseUtils(String zookeeper_quorum) throws Exception {
         org.apache.hadoop.conf.Configuration entries = HBaseConfiguration.create();
@@ -45,6 +48,21 @@ public class HbaseUtils {
 
     public Connection getConnection() {
         return connection;
+    }
+
+    public static void put(String rowKey, JSONObject value, BufferedMutator mutator) throws IOException {
+        Put put = new Put(Bytes.toBytes(rowKey));
+        for (Map.Entry<String, Object> entry : value.entrySet()) {
+            put.addColumn(Bytes.toBytes("info"), Bytes.toBytes(entry.getKey()), Bytes.toBytes(String.valueOf(entry.getValue())));
+        }
+        mutator.mutate(put);
+    }
+
+    public static void put(String rowKey, JSONObject value){
+        Put put = new Put(Bytes.toBytes(rowKey));
+        for (Map.Entry<String, Object> entry : value.entrySet()) {
+            put.addColumn(Bytes.toBytes("info"), Bytes.toBytes(entry.getKey()), Bytes.toBytes(String.valueOf(entry.getValue())));
+        }
     }
 
     public boolean createTable(String nameSpace,String tableName, String... columnFamily) throws Exception {
@@ -69,7 +87,7 @@ public class HbaseUtils {
                 .build();
         admin.createTable(build);
         admin.close();
-        System.err.println("创建表 ：" + tableName);
+        LOG.info("Create Table {}",tableName);
         return tableIsExists(tableName);
     }
 
@@ -183,6 +201,7 @@ public class HbaseUtils {
     @SneakyThrows
     public static void main(String[] args) {
         HbaseUtils hbaseUtils = new HbaseUtils("cdh01,cdh02,cdh03");
-        hbaseUtils.dropHbaseNameSpace("realtime_v2");
+//        hbaseUtils.dropHbaseNameSpace("realtime_v2");
+        System.err.println(hbaseUtils.tableIsExists("realtime_v2:dim_user_info"));
     }
 }

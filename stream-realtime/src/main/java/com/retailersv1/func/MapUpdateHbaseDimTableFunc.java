@@ -37,14 +37,16 @@ public class MapUpdateHbaseDimTableFunc extends RichMapFunction<JSONObject,JSONO
         if ("d".equals(op)){
             hbaseUtils.deleteTable(jsonObject.getJSONObject("before").getString("sink_table"));
         }else if ("r".equals(op) || "c".equals(op)){
-            String[] columnName = jsonObject.getJSONObject("after").getString("sink_columns").split(",");
+            // String[] columnName = jsonObject.getJSONObject("after").getString("sink_columns").split(",");
             String tableName = jsonObject.getJSONObject("after").getString("sink_table");
-            hbaseUtils.createTable(hbaseNameSpace,tableName,columnName);
+            if (!hbaseUtils.tableIsExists(hbaseNameSpace+":"+tableName)){
+                hbaseUtils.createTable(hbaseNameSpace,tableName);
+            }
         }else {
             hbaseUtils.deleteTable(jsonObject.getJSONObject("before").getString("sink_table"));
-            String[] columnName = jsonObject.getJSONObject("after").getString("sink_columns").split(",");
+            // String[] columnName = jsonObject.getJSONObject("after").getString("sink_columns").split(",");
             String tableName = jsonObject.getJSONObject("after").getString("sink_table");
-            hbaseUtils.createTable(hbaseNameSpace,tableName,columnName);
+            hbaseUtils.createTable(hbaseNameSpace,tableName);
         }
         return jsonObject;
     }
