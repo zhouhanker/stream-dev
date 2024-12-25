@@ -11,6 +11,7 @@ import java.lang.management.ManagementFactory;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -114,13 +115,6 @@ public class CommonUtils {
 
     public static void main(String[] args) {
 
-
-        for (Object item : data2List("0x000000000000000000000000000000000000000065e85842466dbd8bab15370900000000000000000000000000000000000000000000000144eff30ef070332e000000000000000000000000000000000000000065e85842466dbd8bab15370900000000000000000000000000000000000000000000000144eff30ef070332e000000000000000000000000000000000000000065e85842466dbd8bab15370900000000000000000000000000000000000000000000000144eff30ef070332e")) {
-            System.out.println(item);
-        }
-
-//        System.out.print("123");
-
     }
 
     public static boolean isStage() {
@@ -130,4 +124,24 @@ public class CommonUtils {
     public static boolean isProd() {
         return "prod".equals(ConfigUtils.getString("env"));
     }
+
+    public static void printCheckPropEnv(boolean isExit, String... args) {
+        if (args.length == 0) {
+            System.err.println("Error at least one parameter");
+            return;
+        }
+        if (isExit || isIdeaEnv()) {
+            printArgs(args);
+        }
+        if (isExit) {
+            System.exit(1);
+        }
+    }
+
+    private static void printArgs(String ... args){
+        for (String arg : args) {
+            System.err.println(arg);
+        }
+    }
+
 }
