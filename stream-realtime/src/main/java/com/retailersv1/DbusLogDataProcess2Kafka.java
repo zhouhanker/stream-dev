@@ -29,7 +29,7 @@ import java.util.HashMap;
  * @Package com.retailersv1.DbusLogDataProcess2Kafka
  * @Author zhou.han
  * @Date 2024/12/23 14:27
- * @description: Log
+ * @description: Log Task-02
  */
 public class DbusLogDataProcess2Kafka {
 
