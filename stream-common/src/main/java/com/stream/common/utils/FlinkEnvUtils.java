@@ -15,9 +15,8 @@ public class FlinkEnvUtils {
     public static StreamExecutionEnvironment getFlinkRuntimeEnv(){
         if (CommonUtils.isIdeaEnv()){
             System.err.println("Action Local Env");
-            return StreamExecutionEnvironment.getExecutionEnvironment(new Configuration());
+            return StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(new Configuration());
         }
         return StreamExecutionEnvironment.getExecutionEnvironment();
     }
-
 }

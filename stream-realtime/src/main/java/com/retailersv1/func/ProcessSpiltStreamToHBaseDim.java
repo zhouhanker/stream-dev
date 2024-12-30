@@ -17,7 +17,9 @@ import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Table;
 import org.apache.hadoop.hbase.util.Bytes;
+import org.apache.hadoop.hbase.util.MD5Hash;
 
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.util.*;
 
@@ -77,7 +79,7 @@ public class ProcessSpiltStreamToHBaseDim extends BroadcastProcessFunction<JSONO
                     sinkTableName = "realtime_v2:"+sinkTableName;
                     String hbaseRowKey = after.getString(configMap.get(tableName).getSinkRowKey());
                     Table hbaseConnectionTable = hbaseConnection.getTable(TableName.valueOf(sinkTableName));
-                    Put put = new Put(Bytes.toBytes(hbaseRowKey));
+                    Put put = new Put(Bytes.toBytes(MD5Hash.getMD5AsHex(hbaseRowKey.getBytes(StandardCharsets.UTF_8))));
                     for (Map.Entry<String, Object> entry : after.entrySet()) {
                         put.addColumn(Bytes.toBytes("info"),Bytes.toBytes(entry.getKey()),Bytes.toBytes(String.valueOf(entry.getValue())));
                     }

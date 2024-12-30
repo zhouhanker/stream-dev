@@ -11,8 +11,10 @@ import org.apache.flink.connector.kafka.source.KafkaSource;
 import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.hadoop.hbase.util.MD5Hash;
 
 
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 /**
@@ -25,19 +27,9 @@ public class StreamTest {
     @SneakyThrows
     public static void main(String[] args) {
 
-        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        KafkaSource<String> kafkaSource = KafkaUtils.buildKafkaSource(
-                "cdh01:9092",
-                "realtime_log",
-                new Date().toString(),
-                OffsetsInitializer.earliest());
-
-        DataStreamSource<String> dataStreamSource = env.fromSource(kafkaSource, WatermarkStrategy.noWatermarks(), "kafka-source");
-        dataStreamSource.print();
+        System.err.println(MD5Hash.getMD5AsHex("15".getBytes(StandardCharsets.UTF_8)));
 
 
 
-
-        env.execute();
     }
 }

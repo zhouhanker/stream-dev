@@ -65,7 +65,7 @@
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-yarn-client</artifactId>
-            <version>3.0.0-cdh6.3.2</version>
+            <version>${cdh.dep.version}</version>
         </dependency>
 
         <dependency>
@@ -83,7 +83,7 @@
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
-            <version>3.0.0-cdh6.3.2</version>
+            <version>${cdh.dep.version}</version>
             <!--            <scope>provided</scope>-->
         </dependency>
 
@@ -95,13 +95,13 @@
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-hdfs-client</artifactId>
-            <version>3.0.0-cdh6.3.2</version>
+            <version>${cdh.dep.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
-            <version>3.0.0-cdh6.3.2</version>
+            <version>${cdh.dep.version}</version>
         </dependency>
 
 
@@ -109,8 +109,69 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>copy-conf</id>
+                        <!--default生命周期的哪个阶段-->
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
-            <!-- Java Compiler -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <!-- 设置false后是去掉 xxx-jar-with-dependencies.jar 后的 “-jar-with-dependencies” -->
+                    <!--                    <appendAssemblyId>false</appendAssemblyId>-->
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>assembly</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+        <!--负责处理项目资源文件并拷贝到输出目录-->
+        <resources>
+            <resource>
+                <directory>src/main/resources/</directory>
+                <targetPath>./</targetPath>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.conf</include>
+                    <include>**/*.csv</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <!-- 排除标签 -->
+                <excludes>
+                    <exclude>filter/*</exclude>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
+
+    <!--<build>
+        <plugins>
+
+            &lt;!&ndash; Java Compiler &ndash;&gt;
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -121,14 +182,14 @@
                 </configuration>
             </plugin>
 
-            <!-- We use the maven-shade plugin to create a fat jar that contains all necessary dependencies. -->
-            <!-- Change the value of <mainClass>...</mainClass> if your program entry point changes. -->
+            &lt;!&ndash; We use the maven-shade plugin to create a fat jar that contains all necessary dependencies. &ndash;&gt;
+            &lt;!&ndash; Change the value of <mainClass>...</mainClass> if your program entry point changes. &ndash;&gt;
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.1.1</version>
                 <executions>
-                    <!-- Run shade goal on package phase -->
+                    &lt;!&ndash; Run shade goal on package phase &ndash;&gt;
                     <execution>
                         <phase>package</phase>
                         <goals>
@@ -145,8 +206,8 @@
                             </artifactSet>
                             <filters>
                                 <filter>
-                                    <!-- Do not copy the signatures in the META-INF folder.
-                                    Otherwise, this might cause SecurityExceptions when using the JAR. -->
+                                    &lt;!&ndash; Do not copy the signatures in the META-INF folder.
+                                    Otherwise, this might cause SecurityExceptions when using the JAR. &ndash;&gt;
                                     <artifact>*:*</artifact>
                                     <excludes>
                                         <exclude>META-INF/*.SF</exclude>
@@ -155,11 +216,11 @@
                                     </excludes>
                                 </filter>
                             </filters>
-<!--                            <transformers>-->
-<!--                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
-<!--                                    <mainClass>com.bigdata.WordCount</mainClass>-->
-<!--                                </transformer>-->
-<!--                            </transformers>-->
+&lt;!&ndash;                            <transformers>&ndash;&gt;
+&lt;!&ndash;                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">&ndash;&gt;
+&lt;!&ndash;                                    <mainClass>com.bigdata.WordCount</mainClass>&ndash;&gt;
+&lt;!&ndash;                                </transformer>&ndash;&gt;
+&lt;!&ndash;                            </transformers>&ndash;&gt;
                         </configuration>
                     </execution>
                 </executions>
@@ -169,7 +230,7 @@
         <pluginManagement>
             <plugins>
 
-                <!-- This improves the out-of-the-box experience in Eclipse by resolving some warnings. -->
+                &lt;!&ndash; This improves the out-of-the-box experience in Eclipse by resolving some warnings. &ndash;&gt;
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
                     <artifactId>lifecycle-mapping</artifactId>
@@ -210,6 +271,6 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-    </build>
+    </build>-->
 
 </project>

@@ -1,8 +1,10 @@
 package com.stream.common.utils;
 
 import com.alibaba.fastjson.JSONObject;
+import org.apache.hadoop.hbase.ClassFinder;
 
 import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -53,6 +55,19 @@ public class FileUtils {
             ioException.printStackTrace();
         }
         return res;
+    }
+
+    public static String getResourceDicPath(){
+        ClassLoader classLoader = FileUtils.class.getClassLoader();
+        URL resource = classLoader.getResource("");
+        if (resource != null){
+            return resource.getPath();
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        System.err.println(getResourceDicPath());
     }
 
 

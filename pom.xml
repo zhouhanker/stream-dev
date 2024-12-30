@@ -32,6 +32,7 @@
         <neo4j.version>4.2.7</neo4j.version>
         <flink.hbase.version>1.10.3</flink.hbase.version>
         <hbase.version>2.4.11</hbase.version>
+        <cdh.dep.version>3.0.0-cdh6.3.2</cdh.dep.version>
     </properties>
 
     <dependencyManagement>
@@ -323,6 +324,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
                 <executions>
                     <execution>
                         <id>copy-conf</id>
