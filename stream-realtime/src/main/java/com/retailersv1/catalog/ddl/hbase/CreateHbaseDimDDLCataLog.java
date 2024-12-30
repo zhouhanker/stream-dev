@@ -40,11 +40,11 @@ public class CreateHbaseDimDDLCataLog {
         HiveCatalog hiveCatalog = HiveCatalogUtils.getHiveCatalog("hive-catalog");
         tenv.registerCatalog("hive-catalog",hiveCatalog);
         tenv.useCatalog("hive-catalog");
-//        tenv.executeSql("show tables;").print();
-//        tenv.executeSql(DROP_TABEL_PREFIX + getCreateTableDDLTableName(createHbaseDimBaseDicDDL));
-//        tenv.executeSql("show tables;").print();
-//        tenv.executeSql(createHbaseDimBaseDicDDL).print();
-//        tenv.executeSql("show tables;").print();
+        tenv.executeSql("show tables;").print();
+        tenv.executeSql(DROP_TABEL_PREFIX + getCreateTableDDLTableName(createHbaseDimBaseDicDDL));
+        tenv.executeSql("show tables;").print();
+        tenv.executeSql(createHbaseDimBaseDicDDL).print();
+        tenv.executeSql("show tables;").print();
         tenv.executeSql("select * from hbase_dim_base_dic").print();
 
 
@@ -53,5 +53,7 @@ public class CreateHbaseDimDDLCataLog {
     public static String getCreateTableDDLTableName(String createDDL){
         return createDDL.split(" ")[2].trim();
     }
+
+
 
 }
