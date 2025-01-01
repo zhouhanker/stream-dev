@@ -2,11 +2,11 @@
 ./flink run-application \
 -d \
 -t yarn-application \
--ynm app-DbusCdc2KafkaTopic \
+-ynm DbusLogDataProcess2Kafka \
 -yjm 900 \
 -ytm 900 \
 -yqu root.default \
--c com.retailersv1.DbusCdc2DimHbaseAnd2DbKafka /opt/soft/flink-1.17.1/local_jars/stream-realtime-1.0-SNAPSHOT-jar-with-dependencies.jar
+-c com.retailersv1.DbusLogDataProcess2Kafka /opt/soft/flink-1.17.1/local_jars/stream-realtime-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 # 应用模式提交任务 HDFS提交
 ./flink run-application \
@@ -17,7 +17,11 @@
 -ytm 900 \
 -yqu root.default \
 -Dyarn.provided.lib.dirs="hdfs://cdh01:8020/flink-dist" \
--c com.retailersv1.DbusLogDataProcess2Kafka hdfs://cdh01:8020/flink-jars/stream-realtime_v1_log_dispense_to_kafka.jar
+-c com.retailersv1.DbusLogDataProcess2Kafka hdfs://cdh01:8020/flink-jars/stream-realtime-1.0-SNAPSHOT-jar-with-dependencies.jar
 
+# Flink 保存SavePoint 命令
+$ bin/flink savepoint :jobId [:targetDirectory] -yid :yarnAppId
+# 使用SavePoint 停止Task
+$ bin/flink stop --type [native/canonical] --savepointPath [:targetDirectory] :jobId
 
 

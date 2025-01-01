@@ -45,9 +45,9 @@ public class FlinkJobSubmitToYarnApplicationModel {
         // RestFul
         SubFlinkTask(
                 FLINK_SUBMIT_USER,
-                "/opt/soft/flink-1.17.1/conf",
+                FLINK_COMMON_CONF_DIR,
                 FLINK_CLUSTER_LIBS_DIR,
-                "hdfs://cdh01:8020/flink-jars/stream-realtime_v1_log_dispense_to_kafka.jar",
+                "hdfs://cdh01:8020/flink-jars/stream-realtime-1.0-SNAPSHOT-jar-with-dependencies.jar",
                 "DbusLogDataProcess2Kafka",
                 "com.retailersv1.DbusLogDataProcess2Kafka"
         );

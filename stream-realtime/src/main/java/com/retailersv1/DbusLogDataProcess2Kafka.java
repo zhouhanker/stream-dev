@@ -2,10 +2,7 @@ package com.retailersv1;
 
 import com.alibaba.fastjson.JSONObject;
 import com.retailersv1.func.ProcessSplitStream;
-import com.stream.common.utils.CommonUtils;
-import com.stream.common.utils.ConfigUtils;
-import com.stream.common.utils.DateTimeUtils;
-import com.stream.common.utils.KafkaUtils;
+import com.stream.common.utils.*;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
@@ -64,6 +61,7 @@ public class DbusLogDataProcess2Kafka {
         );
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        EnvironmentSettingUtils.defaultParameter(env);
 
         DataStreamSource<String> kafkaSourceDs = env.fromSource(
                 KafkaUtils.buildKafkaSource(
@@ -165,7 +163,7 @@ public class DbusLogDataProcess2Kafka {
         SplitDs2kafkaTopicMsg(collectDsMap);
 
         env.disableOperatorChaining();
-        env.execute();
+        env.execute("Job-DbusLogDataProcess2Kafka");
     }
 
     public static void SplitDs2kafkaTopicMsg(HashMap<String,DataStream<String>> dataStreamHashMap){

@@ -36,12 +36,14 @@
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-hdfs-client</artifactId>
             <version>3.0.0-cdh6.3.2</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
             <version>3.0.0-cdh6.3.2</version>
+            <scope>provided</scope>
         </dependency>
 
 
@@ -78,6 +80,7 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.7</version>
+            <scope>provided</scope>
         </dependency>
 
 
@@ -92,6 +95,7 @@
                     <groupId>org.apache.logging.log4j</groupId>
                 </exclusion>
             </exclusions>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -104,6 +108,7 @@
                     <groupId>org.apache.logging.log4j</groupId>
                 </exclusion>
             </exclusions>
+            <scope>provided</scope>
         </dependency>
 
 
@@ -125,6 +130,7 @@
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-runtime</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -183,6 +189,7 @@
             <groupId>com.alibaba.hologres</groupId>
             <artifactId>hologres-connector-flink-1.17</artifactId>
             <version>1.4.2</version>
+            <scope>provided</scope>
             <classifier>jar-with-dependencies</classifier>
         </dependency>
 
@@ -207,7 +214,7 @@
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
             <version>${cdh.dep.version}</version>
-            <!--            <scope>provided</scope>-->
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -227,6 +234,11 @@
             <artifactId>flink-connector-jdbc</artifactId>
             <version>3.1.1-1.17</version>
         </dependency>
+
+
+
+
+
 
 
     </dependencies>
