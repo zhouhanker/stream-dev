@@ -122,8 +122,12 @@ public class FlinkJobSubmitToYarnApplicationModel {
 
             ApplicationId applicationId = clusterClient.getClusterId();
             String webInterfaceURL = clusterClient.getWebInterfaceURL();
-            LOG.info("applicationId is {}", applicationId);
-            LOG.info("webInterfaceURL is {}", webInterfaceURL);
+
+            LOG.info("\n\n" +
+                    "|-------------------------------<<APPLICATIONID>>-------------------------------|\n"+
+                    "|Flink Job Started ApplicationId: " + applicationId + "           \t\t|\n" +
+                    "|Flink Job Web Url: " + webInterfaceURL + "                        \t\t\t\t\t|\n" +
+                    "|_______________________________________________________________________________|");
 
         } catch (Exception e){
             LOG.error(e.getMessage(), e);
