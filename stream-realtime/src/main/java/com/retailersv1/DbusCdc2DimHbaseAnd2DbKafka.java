@@ -19,7 +19,7 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 
 /**
- * @Package com.retailersv1.DbusCdc2DimHbase
+ * @Package com.retailersv1.DbusCdc2DimHbaseAnd2DbKafka
  * @Author zhou.han
  * @Date 2024/12/12 12:56
  * @description: mysql db cdc to kafka realtime_db topic Task-01
@@ -33,6 +33,7 @@ public class DbusCdc2DimHbaseAnd2DbKafka {
     @SneakyThrows
     public static void main(String[] args) {
 
+        System.setProperty("HADOOP_USER_NAME","root");
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         EnvironmentSettingUtils.defaultParameter(env);
 
@@ -90,6 +91,7 @@ public class DbusCdc2DimHbaseAnd2DbKafka {
         MapStateDescriptor<String, JSONObject> mapStageDesc = new MapStateDescriptor<>("mapStageDesc", String.class, JSONObject.class);
         BroadcastStream<JSONObject> broadcastDs = tpDS.broadcast(mapStageDesc);
         BroadcastConnectedStream<JSONObject, JSONObject> connectDs = cdcDbMainStreamMap.connect(broadcastDs);
+        cdcDbMainStreamMap.print();
         cdcDbMainStreamMap.map(JSONObject::toString)
                 .sinkTo(
                         KafkaUtils.buildKafkaSink(CDH_ZOOKEEPER_SERVER, MYSQL_CDC_TO_KAFKA_TOPIC)

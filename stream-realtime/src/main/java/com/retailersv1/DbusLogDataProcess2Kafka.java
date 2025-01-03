@@ -48,6 +48,8 @@ public class DbusLogDataProcess2Kafka {
     @SneakyThrows
     public static void main(String[] args) {
 
+        System.setProperty("HADOOP_USER_NAME","root");
+
         CommonUtils.printCheckPropEnv(
                 false,
                 kafka_topic_base_log_data,

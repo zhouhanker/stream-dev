@@ -2,6 +2,9 @@ import com.zh.deploy.FlinkJobSubmitToYarnApplicationModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 /**
  * @Package PACKAGE_NAME.TestLog
  * @Author zhou.han
@@ -10,13 +13,10 @@ import org.slf4j.LoggerFactory;
  */
 public class TestLog {
     private static final Logger LOG = LoggerFactory.getLogger(TestLog.class.getName());
-    public static void main(String[] args) {
-        String applicationId = "application_1733973984011_0121";
-        String webInterfaceURL = "http://cdh02:35290";
-        LOG.info("\n\n" +
-                "|-------------------------------<<applicationId>>-------------------------------|\n"+
-                "|Flink Job Started ApplicationId: " + applicationId + "           \t\t|\n" +
-                "|Flink Job Web Url: " + webInterfaceURL + "                        \t\t\t\t\t|\n" +
-                "|_______________________________________________________________________________|");
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        String encodedPassword = URLEncoder.encode("zh1028,./", "UTF-8");
+        // 然后使用编码后的密码重新构建 URI，这里假设其他部分不变，仅替换密码部分
+        String newUri = "s3://root:" + encodedPassword + "@10.39.48.35:9000/flk-data/ck";
+        System.err.println(newUri);
     }
 }

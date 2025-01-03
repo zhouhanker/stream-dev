@@ -73,7 +73,7 @@
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-runtime-web</artifactId>
                 <version>${flink.version}</version>
-<!--                <scope>provided</scope>-->
+                <scope>provided</scope>
             </dependency>
 
             <!--        kafka 依赖-->
@@ -153,6 +153,7 @@
                 <artifactId>hologres-connector-flink-1.17</artifactId>
                 <version>1.4.2</version>
                 <classifier>jar-with-dependencies</classifier>
+                <scope>provided</scope>
             </dependency>
 
 

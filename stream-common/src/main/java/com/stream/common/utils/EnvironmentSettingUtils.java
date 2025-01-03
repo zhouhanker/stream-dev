@@ -7,6 +7,7 @@ import org.apache.flink.runtime.state.storage.FileSystemCheckpointStorage;
 import org.apache.flink.streaming.api.CheckpointingMode;
 import org.apache.flink.streaming.api.environment.CheckpointConfig;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.hadoop.conf.Configuration;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 public final class EnvironmentSettingUtils {
 
     private static final String HDFS_CHECKPOINT_PATH = ConfigUtils.getString("flink.checkpoint.hdfs.dir");
+    // s3a://10.39.48.35:9000/flk-data
     private static final String MINIO_CHECKPOINT_PATH = ConfigUtils.getString("flink.checkpoint.minio.dir");
 
     /**
@@ -58,5 +60,12 @@ public final class EnvironmentSettingUtils {
         env.setRestartStrategy(RestartStrategies.fixedDelayRestart(3, 10000L));
         // 在5分钟内，只能重启5次，每次失败后最少需要等待10秒
         env.setRestartStrategy(RestartStrategies.failureRateRestart(5, Time.of(5, TimeUnit.MINUTES), Time.of(10, TimeUnit.SECONDS)));
+    }
+
+    public static Configuration getMinioConfiguration() {
+        Configuration configuration = new Configuration();
+        configuration.set("fs.s3a.access.key", "NbX7zbq05FI0pvuRMFUy");
+        configuration.set("fs.s3a.secret.key", "MX6yFEaajlsyPAnG6BUZB6FAGReLnJGCc8qAUZ5U");
+        return configuration;
     }
 }

@@ -47,7 +47,7 @@ public class FlinkJobSubmitToYarnApplicationModel {
                 FLINK_SUBMIT_USER,
                 FLINK_COMMON_CONF_DIR,
                 FLINK_CLUSTER_LIBS_DIR,
-                "hdfs://cdh01:8020/flink-jars/stream-realtime-1.0-SNAPSHOT-jar-with-dependencies.jar",
+                "hdfs://cdh01:8020/flink-jars/v2-project_1.jar",
                 "DbusLogDataProcess2Kafka",
                 "com.retailersv1.DbusLogDataProcess2Kafka"
         );
