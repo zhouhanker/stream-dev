@@ -13,11 +13,11 @@
 -d \
 -t yarn-application \
 -yjm 900 \
--ynm DbusCdc2DimHbase \
+-ynm DbusLogDataProcess2Kafka \
 -ytm 900 \
 -yqu root.default \
 -Dyarn.provided.lib.dirs="hdfs://cdh01:8020/flink-dist" \
--c com.retailersv1.DbusCdc2DimHbase hdfs://cdh01:8020/flink-jars/v2-project.jar
+-c com.retailersv1.DbusLogDataProcess2Kafka hdfs://cdh01:8020/flink-jars/DbusLogDataProcess2Kafka.jar
 
 # Flink 保存SavePoint 命令
 $ bin/flink savepoint :jobId [:targetDirectory] -yid :yarnAppId

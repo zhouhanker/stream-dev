@@ -10,6 +10,16 @@ import com.stream.common.utils.FileUtils;
  */
 public class Test {
     public static void main(String[] args) {
-        System.err.println(FileUtils.getResourceDicPath());
+        String fullClassName = "com.retailersv1.DbusLogDataProcess2Kafka";
+        System.err.println(getClassName(fullClassName));
+    }
+
+    public static String getClassName(String fullClassName) {
+        String[] parts = fullClassName.split("\\.");
+        if (parts.length > 0) {
+            String lastName = parts[parts.length - 1];
+            return lastName.trim();
+        }
+        return null;
     }
 }

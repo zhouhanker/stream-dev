@@ -3,6 +3,7 @@ package com.zh.deploy;
 
 import com.stream.common.utils.CommonUtils;
 import com.stream.common.utils.ConfigUtils;
+import com.zh.deploy.utils.DeployFlinkUtils;
 import org.apache.flink.client.deployment.ClusterSpecification;
 import org.apache.flink.client.deployment.application.ApplicationConfiguration;
 import org.apache.flink.client.program.ClusterClient;
@@ -38,18 +39,22 @@ public class FlinkJobSubmitToYarnApplicationModel {
     private static final String FLINK_SUBMIT_USER = ConfigUtils.getString("flink.submit.user");
     private static final String FLINK_COMMON_CONF_DIR = ConfigUtils.getString("flink.conf.configurationDirectory");
     private static final String FLINK_CLUSTER_LIBS_DIR = ConfigUtils.getString("flink.cluster.libs");
+    private static final String FLINK_REMOTE_JAR_PATH = "hdfs://cdh01:8020/flink-jars/stream-realtime-1.0-SNAPSHOT-jar-with-dependencies.jar";
     public static void main(String[] args) {
 
         CommonUtils.printCheckPropEnv(false,FLINK_SUBMIT_USER,FLINK_COMMON_CONF_DIR,FLINK_CLUSTER_LIBS_DIR);
 
+        String fullClassName = "com.retailersv1.DbusLogDataProcess2Kafka";
+        DeployFlinkUtils.preparationEnvUploadJars(fullClassName);
         // RestFul
         SubFlinkTask(
                 FLINK_SUBMIT_USER,
                 FLINK_COMMON_CONF_DIR,
                 FLINK_CLUSTER_LIBS_DIR,
-                "hdfs://cdh01:8020/flink-jars/v2-project_1.jar",
-                "DbusLogDataProcess2Kafka",
-                "com.retailersv1.DbusLogDataProcess2Kafka"
+//                FLINK_REMOTE_JAR_PATH + DeployFlinkUtils.getClassName(fullClassName) + ".jar",
+                FLINK_REMOTE_JAR_PATH,
+                DeployFlinkUtils.getClassName(fullClassName),
+                fullClassName
         );
 
     }

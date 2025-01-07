@@ -33,7 +33,7 @@ public final class KafkaUtils {
      * 构建基于字符串序列化的Kafka属性
      *
      * @param groupId 消费组ID
-     * @return
+     *
      */
     public static Properties buildPropsStringDeserializer(String groupId) {
         final Properties props = new Properties();

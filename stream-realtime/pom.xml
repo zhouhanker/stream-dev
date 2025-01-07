@@ -144,29 +144,6 @@
             <version>${flink.version}</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>io.minio</groupId>-->
-<!--            <artifactId>minio</artifactId>-->
-<!--            <version>8.5.14</version>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.apache.flink</groupId>-->
-<!--            <artifactId>flink-s3-fs-hadoop</artifactId>-->
-<!--            <version>1.17.1</version>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.apache.flink</groupId>-->
-<!--            <artifactId>flink-s3-fs-presto</artifactId>-->
-<!--            <version>1.17.1</version>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
-
-
-
-
 
 
 
