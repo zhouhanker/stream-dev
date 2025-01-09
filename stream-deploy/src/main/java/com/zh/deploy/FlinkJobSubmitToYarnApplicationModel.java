@@ -26,6 +26,8 @@ import org.slf4j.LoggerFactory;
 
 
 import java.util.Collections;
+import java.util.Locale;
+import java.util.Objects;
 
 
 /**
@@ -45,14 +47,14 @@ public class FlinkJobSubmitToYarnApplicationModel {
         CommonUtils.printCheckPropEnv(false,FLINK_SUBMIT_USER,FLINK_COMMON_CONF_DIR,FLINK_CLUSTER_LIBS_DIR);
 
         String fullClassName = "com.retailersv1.DbusLogDataProcess2Kafka";
-        DeployFlinkUtils.preparationEnvUploadJars(fullClassName);
+        DeployFlinkUtils.preparationEnvUploadJars(true,fullClassName);
         // RestFul
         SubFlinkTask(
                 FLINK_SUBMIT_USER,
                 FLINK_COMMON_CONF_DIR,
                 FLINK_CLUSTER_LIBS_DIR,
-//                FLINK_REMOTE_JAR_PATH + DeployFlinkUtils.getClassName(fullClassName) + ".jar",
-                FLINK_REMOTE_JAR_PATH,
+                FLINK_REMOTE_JAR_PATH,// + DeployFlinkUtils.getClassName(fullClassName) + ".jar",
+//                FLINK_REMOTE_JAR_PATH,
                 DeployFlinkUtils.getClassName(fullClassName),
                 fullClassName
         );

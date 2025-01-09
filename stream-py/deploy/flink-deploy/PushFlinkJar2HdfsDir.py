@@ -5,6 +5,7 @@ import sys
 import time
 from pathlib import Path
 from hdfs import InsecureClient
+from fabric import Connection
 
 maven_clean_command = "mvn -DskipTests clean -P prod"
 maven_package_command = "mvn package -Dfile.encoding=UTF-8 -DskipTests=true -P prod"
@@ -65,6 +66,10 @@ def find_hdfs_jars_is_exist(hdfs_jar_path: str):
     return hdfs_cli.status(hdfs_jar_path, strict=False)
 
 
+def get_remote_server_client():
+    return Connection(host="cdh01", user="root", connect_kwargs={"password": "zh1028,./"})
+
+
 def clean_local_maven_project():
     if len(sys.argv) > 1:
         class_name = sys.argv[1].split(".")[-1]
@@ -110,8 +115,23 @@ def main():
         print("没有找到jar包")
 
 
+def upload_jar_remote_server():
+    conn = get_remote_server_client()
+    jar_path = clean_local_maven_project()
+    local_jar_path = jar_path.split("&")[0]
+    try:
+        conn.put(local_jar_path, "/opt/soft/flink-1.17.1/local_jars/")
+        print("===================================上传jar包到远程服务器成功===================================")
+        conn.run("mv /opt/soft/flink-1.17.1/local_jars/"+os.path.basename(local_jar_path)+" /opt/soft/flink-1.17.1/local_jars/"+sys.argv[1].split(".")[-1] + ".jar")
+        conn.run("hdfs dfs -put /opt/soft/flink-1.17.1/local_jars/" + sys.argv[1].split(".")[-1]+".jar" + " /flink-jars/")
+        print("=====================================上传jar包到hdfs成功=====================================")
+    except Exception as e:
+        print(f"上传jar包到远程服务器失败: {e}")
+
+
 if __name__ == '__main__':
     main()
+    # upload_jar_remote_server()
     # print(clean_local_maven_project())
     # print(maven_package_command)
     # print(get_project_root_path())

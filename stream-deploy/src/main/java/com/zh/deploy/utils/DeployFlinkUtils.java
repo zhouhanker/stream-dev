@@ -17,17 +17,19 @@ public class DeployFlinkUtils {
 
 
     @lombok.SneakyThrows
-    public static void preparationEnvUploadJars(String fullClassName) {
-        ProcessBuilder processBuilder = new ProcessBuilder(python_conda_env, python_file_path, fullClassName);
-        Process process = processBuilder.start();
-        InputStream inputStream = process.getInputStream();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        String line;
-        while ((line = reader.readLine())!= null) {
-            System.out.println(line);
+    public static void preparationEnvUploadJars(boolean isCommodShell,String fullClassName) {
+        if (isCommodShell){
+            ProcessBuilder processBuilder = new ProcessBuilder(python_conda_env, python_file_path, fullClassName);
+            Process process = processBuilder.start();
+            InputStream inputStream = process.getInputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line;
+            while ((line = reader.readLine())!= null) {
+                System.out.println(line);
+            }
+            int exitValue = process.waitFor();
+            System.out.println("Python脚本退出值: " + exitValue);
         }
-        int exitValue = process.waitFor();
-        System.out.println("Python脚本退出值: " + exitValue);
     }
 
     public static String getClassName(String fullClassName) {
@@ -40,6 +42,6 @@ public class DeployFlinkUtils {
     }
 
     public static void main(String[] args) {
-        preparationEnvUploadJars("com.retailersv1.DbusLogDataProcess2Kafka");
+        preparationEnvUploadJars(false,"com.retailersv1.DbusLogDataProcess2Kafka");
     }
 }

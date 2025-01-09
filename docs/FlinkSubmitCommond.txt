@@ -23,5 +23,6 @@
 $ bin/flink savepoint :jobId [:targetDirectory] -yid :yarnAppId
 # 使用SavePoint 停止Task
 $ bin/flink stop --type [native/canonical] --savepointPath [:targetDirectory] :jobId
+./flink stop  --savepointPath hdfs://cdh01:8020/flink-point/savepoint application_1733973984011_0166
 
 
