@@ -100,6 +100,17 @@ public class HbaseUtils {
         return b;
     }
 
+    public void getHbaseNameSpaceAllTablesList(String nameSpace) throws IOException {
+        Admin admin = connection.getAdmin();
+        TableName[] tableNamesByNamespace = admin.listTableNamesByNamespace(nameSpace);
+        ArrayList<TableName> tableNames = new ArrayList<>(Arrays.asList(tableNamesByNamespace));
+        if (!tableNames.isEmpty()){
+            for (TableName tableName : tableNames) {
+                System.err.println("table -> "+tableName);
+            }
+        }
+    }
+
     public boolean deleteTable(String tableName) throws Exception {
         boolean b = tableIsExists(tableName);
         if (!b) {
@@ -202,6 +213,7 @@ public class HbaseUtils {
     public static void main(String[] args) {
         HbaseUtils hbaseUtils = new HbaseUtils("cdh01,cdh02,cdh03");
 //        hbaseUtils.dropHbaseNameSpace("realtime_v2");
-        System.err.println(hbaseUtils.tableIsExists("realtime_v2:dim_user_info"));
+//        System.err.println(hbaseUtils.tableIsExists("realtime_v2:dim_user_info"));
+        hbaseUtils.getHbaseNameSpaceAllTablesList("realtime_v2");
     }
 }

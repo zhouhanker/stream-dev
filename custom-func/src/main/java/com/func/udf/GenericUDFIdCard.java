@@ -40,7 +40,6 @@ public class GenericUDFIdCard extends GenericUDF {
 
         return PrimitiveObjectInspectorFactory.getPrimitiveWritableObjectInspector(PrimitiveObjectInspector.PrimitiveCategory.STRING);
     }
-
     @Override
     public Object evaluate(DeferredObject[] deferredObjects) throws HiveException {
         if (deferredObjects[0] == null) {

@@ -20,7 +20,8 @@ public class CreateHbaseDimDDLCataLog {
     private static final String HBASE_CONNECTION_VERSION = "hbase-2.2";
     private static final String DROP_TABEL_PREFIX = "drop table if exists ";
 
-    private static final String createHbaseDimBaseDicDDL = "create table hbase_dim_base_dic (" +
+    private static final String createHbaseDimBaseDicDDL =
+            "create table hbase_dim_base_dic (" +
             "    rk string," +
             "    info row<dic_name string, parent_code string>," +
             "    primary key (rk) not enforced" +

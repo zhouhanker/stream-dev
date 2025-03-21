@@ -11,10 +11,8 @@ import com.stream.common.utils.ConfigUtils;
 public class CommonTest {
 
     public static void main(String[] args) {
-        String version1 = "1.0.0";
-        String version2 = "1.0.1";
-        String result = compareVersions(version1, version2);
-        System.out.println(result);
+        String kafka_err_log = ConfigUtils.getString("kafka.err.log");
+        System.err.println(kafka_err_log);
     }
 
     public static String compareVersions(String version1, String version2) {
