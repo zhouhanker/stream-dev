@@ -244,6 +244,13 @@
             <artifactId>guava</artifactId>
         </dependency>
 
+<!--        敏感词检测-->
+        <dependency>
+            <groupId>com.github.houbb</groupId>
+            <artifactId>sensitive-word</artifactId>
+            <version>0.25.0</version>
+        </dependency>
+
 
 
 

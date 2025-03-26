@@ -1,8 +1,10 @@
 package com.stream;
 
 import cn.hutool.core.date.DateUtil;
+import com.github.houbb.sensitive.word.core.SensitiveWordHelper;
 import com.stream.common.utils.DateTimeUtils;
 import com.stream.common.utils.FileUtils;
+import com.stream.utils.SensitiveWordsUtils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -20,9 +22,9 @@ import java.util.Objects;
  */
 public class Test {
     public static void main(String[] args) {
-        long ts = 1742031349752L;
-        String s = DateTimeUtils.tsToDate(ts);
-        System.err.println(DateTimeUtils.format(new Date(ts), "yyyyMMdd"));
+        String s = "金沙河银丝挂面900g*3包狗屎不如！一破就漏！外卖包装都破了！吃起来像纸一样！连这点都做不好！垃圾！,gcd,发票";
+        System.err.println(SensitiveWordHelper.contains(s));
+        System.err.println(SensitiveWordHelper.findAll(s));
     }
 
     private static BigDecimal tryDecodeAndParse(String input, Charset charset) {
