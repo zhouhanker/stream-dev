@@ -17,13 +17,13 @@ import java.util.*;
  * @description: Lua check redis words
  */
 
-public class RedisUtils {
-    private static final Logger logger = LoggerFactory.getLogger(RedisUtils.class);
-    private static final String REDIS_HOST = "10.39.48.36";
-    private static final int REDIS_PORT = 6379;
-    private static final String REDIS_USER = "default";
-    private static final String REDIS_PASSWORD = "zh1028";
-    private static final int REDIS_DB = 0;
+public class RedisLuaUtils {
+    private static final Logger logger = LoggerFactory.getLogger(RedisLuaUtils.class);
+    private static final String REDIS_HOST = ConfigUtils.getString("redis.host");
+    private static final int REDIS_PORT = ConfigUtils.getInt("redis.port");
+    private static final String REDIS_USER = ConfigUtils.getString("redis.user");
+    private static final String REDIS_PASSWORD = ConfigUtils.getString("redis.pwd");
+    private static final int REDIS_DB = ConfigUtils.getInt("redis.blacklist.db");
     private static final String SET_KEY = "sensitive_words";
 
     // Lua脚本（支持批量/单条查询）
@@ -120,7 +120,7 @@ public class RedisUtils {
 
     private static void ensureScriptLoaded(Jedis jedis) {
         if (luaScriptSha == null) {
-            synchronized (RedisUtils.class) {
+            synchronized (RedisLuaUtils.class) {
                 if (luaScriptSha == null) {
                     luaScriptSha = jedis.scriptLoad(LUA_SCRIPT);
                     logger.info("运行时重新加载Lua脚本SHA: {}", luaScriptSha);
@@ -200,6 +200,6 @@ public class RedisUtils {
             System.out.printf("[单条] 关键词 [%s] 存在: %s%n", word, exists ? "是" : "否");
         });
 
-        System.out.println("服务健康状态: " + (new RedisUtils().healthCheck() ? "正常" : "异常"));
+        System.out.println("服务健康状态: " + (new RedisLuaUtils().healthCheck() ? "正常" : "异常"));
     }
 }
