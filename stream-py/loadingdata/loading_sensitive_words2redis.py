@@ -1,10 +1,8 @@
 import time
-from datetime import timedelta
-from idlelib.multicall import r
 from typing import Awaitable
 
 import redis
-from minio import S3Error, Minio
+from minio import Minio
 from loguru import logger
 
 minio_endpoint = "10.39.48.35:9000"
@@ -92,6 +90,7 @@ def sink_sensitive_words_to_redis():
 
     except Exception as e:
         logger.error("敏感词同步失败！", exc_info=True)
+        print(e)
         raise  # 根据业务需求决定是否重新抛出异常
 
 

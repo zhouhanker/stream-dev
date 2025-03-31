@@ -189,7 +189,7 @@ public class RedisLuaUtils {
             return;
         }
         // 测试批量检查
-        List<String> testWords = Arrays.asList("真理部", "性爱体位", "test");
+        List<String> testWords = Arrays.asList("真理部", "性爱体位", "胡金淘");
         Map<String, Boolean> batchResults = batchCheck(testWords);
         batchResults.forEach((word, exist) ->
                 System.out.printf("[批量] 关键词 [%s] 存在: %s%n", word, exist ? "是" : "否"));

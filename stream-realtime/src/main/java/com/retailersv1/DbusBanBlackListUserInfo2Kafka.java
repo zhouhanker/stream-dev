@@ -1,18 +1,16 @@
 package com.retailersv1;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.retailersv1.func.FilterBloomDeduplicatorFunc;
 import com.stream.common.utils.ConfigUtils;
 import com.stream.common.utils.EnvironmentSettingUtils;
 import com.stream.common.utils.KafkaUtils;
-import com.stream.utils.SensitiveWordsUtils;
 import lombok.SneakyThrows;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-
-import java.time.Duration;
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -20,13 +18,10 @@ import java.util.Date;
  * @Author zhou.han
  * @Date 2025/3/29 15:09
  * @description: 黑名单封禁 Task 04
+ * @Test
+ * DataStreamSource<String> kafkaCdcDbSource = env.socketTextStream("127.0.0.1", 9999);
  */
 public class DbusBanBlackListUserInfo2Kafka {
-    private static final ArrayList<String> sensitiveWordsLists;
-
-    static {
-        sensitiveWordsLists = SensitiveWordsUtils.getSensitiveWordsLists();
-    }
 
     private static final String kafka_botstrap_servers = ConfigUtils.getString("kafka.bootstrap.servers");
     private static final String kafka_db_fact_comment_topic = ConfigUtils.getString("kafka.db.fact.comment.topic");
@@ -36,12 +31,6 @@ public class DbusBanBlackListUserInfo2Kafka {
 
         System.setProperty("HADOOP_USER_NAME","root");
 
-        for (String sensitiveWordsList : sensitiveWordsLists) {
-            System.err.println(sensitiveWordsList);
-        }
-
-
-        System.exit(0);
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         EnvironmentSettingUtils.defaultParameter(env);
 
@@ -56,9 +45,14 @@ public class DbusBanBlackListUserInfo2Kafka {
                 "kafka_cdc_db_source"
         ).uid("kafka_fact_comment_source").name("kafka_fact_comment_source");
 
-        kafkaCdcDbSource.print();
 
 
+        SingleOutputStreamOperator<JSONObject> mapJsonStr = kafkaCdcDbSource.map(JSON::parseObject).uid("to_json_string").name("to_json_string");
+
+        SingleOutputStreamOperator<JSONObject> bloomFilterDs = mapJsonStr.keyBy(data -> data.getLong("order_id"))
+                .filter(new FilterBloomDeduplicatorFunc(1000000, 0.01));
+
+        bloomFilterDs.print();
 
 
         env.execute();

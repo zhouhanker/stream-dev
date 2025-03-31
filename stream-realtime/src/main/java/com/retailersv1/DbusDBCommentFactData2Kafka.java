@@ -1,6 +1,5 @@
 package com.retailersv1;
 
-import cn.hutool.core.date.DateUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.retailersv1.func.AsyncHbaseDimBaseDicFunc;
@@ -134,7 +133,7 @@ public class DbusDBCommentFactData2Kafka {
 
         SingleOutputStreamOperator<JSONObject> orderInfoMapDs = filteredOrderInfoStream.map(new RichMapFunction<JSONObject, JSONObject>() {
             @Override
-            public JSONObject map(JSONObject inputJsonObj) throws Exception {
+            public JSONObject map(JSONObject inputJsonObj){
                 String op = inputJsonObj.getString("op");
                 long tm_ms = inputJsonObj.getLongValue("ts_ms");
                 JSONObject dataObj;
@@ -172,12 +171,12 @@ public class DbusDBCommentFactData2Kafka {
             private transient Random random;
 
             @Override
-            public void open(Configuration parameters) throws Exception {
+            public void open(Configuration parameters){
                 random = new Random();
             }
 
             @Override
-            public JSONObject map(JSONObject jsonObject) throws Exception {
+            public JSONObject map(JSONObject jsonObject){
                 if (random.nextDouble() < 0.2) {
                     jsonObject.put("commentTxt", jsonObject.getString("commentTxt") + "," + SensitiveWordsUtils.getRandomElement(sensitiveWordsLists));
                     System.err.println("change commentTxt: " + jsonObject);
@@ -188,7 +187,7 @@ public class DbusDBCommentFactData2Kafka {
 
         SingleOutputStreamOperator<JSONObject> suppleTimeFieldDs = suppleMapDs.map(new RichMapFunction<JSONObject, JSONObject>() {
             @Override
-            public JSONObject map(JSONObject jsonObject) throws Exception {
+            public JSONObject map(JSONObject jsonObject){
                 jsonObject.put("ds", DateTimeUtils.format(new Date(jsonObject.getLong("ts_ms")), "yyyyMMdd"));
                 return jsonObject;
             }
