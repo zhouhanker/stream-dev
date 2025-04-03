@@ -1,7 +1,7 @@
 package com.retailersv1;
 
 import com.alibaba.fastjson.JSONObject;
-import com.retailersv1.func.ProcessSpiltStreamToHBaseDim;
+import com.retailersv1.func.ProcessSpiltStreamToHBaseDimFunc;
 import com.stream.common.utils.ConfigUtils;
 import com.stream.common.utils.EnvironmentSettingUtils;
 import com.retailersv1.func.MapUpdateHbaseDimTableFunc;
@@ -105,7 +105,7 @@ public class DbusCdc2DimHbaseAnd2DbKafka {
         BroadcastStream<JSONObject> broadcastDs = tpDS.broadcast(mapStageDesc);
         BroadcastConnectedStream<JSONObject, JSONObject> connectDs = cdcDbMainStreamMap.connect(broadcastDs);
 
-        connectDs.process(new ProcessSpiltStreamToHBaseDim(mapStageDesc));
+        connectDs.process(new ProcessSpiltStreamToHBaseDimFunc(mapStageDesc));
 
 
 

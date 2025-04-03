@@ -6,11 +6,9 @@ import com.stream.common.utils.ConfigUtils;
 import com.stream.common.utils.HbaseUtils;
 import com.stream.common.utils.JdbcUtils;
 import org.apache.flink.api.common.state.BroadcastState;
-import org.apache.flink.api.common.state.CheckpointListener;
 import org.apache.flink.api.common.state.MapStateDescriptor;
 import org.apache.flink.api.common.state.ReadOnlyBroadcastState;
 import org.apache.flink.configuration.Configuration;
-import org.apache.flink.runtime.checkpoint.Checkpoint;
 import org.apache.flink.streaming.api.functions.co.BroadcastProcessFunction;
 import org.apache.flink.util.Collector;
 import org.apache.hadoop.hbase.TableName;
@@ -29,7 +27,7 @@ import java.util.*;
  * @Date 2024/12/19 22:55
  * @description:
  */
-public class ProcessSpiltStreamToHBaseDim extends BroadcastProcessFunction<JSONObject,JSONObject,JSONObject> {
+public class ProcessSpiltStreamToHBaseDimFunc extends BroadcastProcessFunction<JSONObject,JSONObject,JSONObject> {
 
     private MapStateDescriptor<String,JSONObject> mapStateDescriptor;
     private HashMap<String, TableProcessDim> configMap =  new HashMap<>();
@@ -57,7 +55,7 @@ public class ProcessSpiltStreamToHBaseDim extends BroadcastProcessFunction<JSONO
         hbaseConnection = hbaseUtils.getConnection();
     }
 
-    public ProcessSpiltStreamToHBaseDim(MapStateDescriptor<String, JSONObject> mapStageDesc) {
+    public ProcessSpiltStreamToHBaseDimFunc(MapStateDescriptor<String, JSONObject> mapStageDesc) {
         this.mapStateDescriptor = mapStageDesc;
     }
 

@@ -12,14 +12,14 @@ import org.apache.flink.util.OutputTag;
  * @Date 2024/12/24 11:58
  * @description:
  */
-public class ProcessSplitStream extends ProcessFunction<JSONObject,String> {
+public class ProcessSplitStreamFunc extends ProcessFunction<JSONObject,String> {
 
     private OutputTag<String> errTag;
     private OutputTag<String> startTag ;
     private OutputTag<String> displayTag ;
     private OutputTag<String> actionTag ;
 
-    public ProcessSplitStream(OutputTag<String> errTag, OutputTag<String> startTag, OutputTag<String> displayTag, OutputTag<String> actionTag) {
+    public ProcessSplitStreamFunc(OutputTag<String> errTag, OutputTag<String> startTag, OutputTag<String> displayTag, OutputTag<String> actionTag) {
         this.startTag = startTag;
         this.errTag = errTag;
         this.actionTag = actionTag;

@@ -1,6 +1,10 @@
 package com.stream;
 
+import com.github.houbb.sensitive.word.core.SensitiveWord;
+import com.github.houbb.sensitive.word.core.SensitiveWordHelper;
 import com.stream.common.utils.RedisLuaUtils;
+
+import java.util.List;
 
 /**
  * @Package com.stream.Test
@@ -10,10 +14,10 @@ import com.stream.common.utils.RedisLuaUtils;
  */
 public class Test {
     public static void main(String[] args) {
-        System.err.println(RedisLuaUtils.checkSingle("真理部"));
-        System.err.println(RedisLuaUtils.checkSingle("1"));
-        System.err.println(RedisLuaUtils.checkSingle("2"));
-        System.err.println(RedisLuaUtils.checkSingle("3"));
+        String s = "画像屹立在天安门前，教员,垃圾，cnm,五星红旗";
+        List<String> all = SensitiveWordHelper.findAll(s);
+        System.err.println(String.join(", ",all));
+
     }
 
 }

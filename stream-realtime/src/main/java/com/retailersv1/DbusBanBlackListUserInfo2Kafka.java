@@ -2,16 +2,20 @@ package com.retailersv1;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.github.houbb.sensitive.word.core.SensitiveWordHelper;
 import com.retailersv1.func.FilterBloomDeduplicatorFunc;
+import com.retailersv1.func.MapCheckRedisSensitiveWordsFunc;
 import com.stream.common.utils.ConfigUtils;
 import com.stream.common.utils.EnvironmentSettingUtils;
 import com.stream.common.utils.KafkaUtils;
 import lombok.SneakyThrows;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
+import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Package com.retailersv1.DbusBanBlackListUserInfo2Kafka
@@ -52,7 +56,30 @@ public class DbusBanBlackListUserInfo2Kafka {
         SingleOutputStreamOperator<JSONObject> bloomFilterDs = mapJsonStr.keyBy(data -> data.getLong("order_id"))
                 .filter(new FilterBloomDeduplicatorFunc(1000000, 0.01));
 
-        bloomFilterDs.print();
+        SingleOutputStreamOperator<JSONObject> SensitiveWordsDs = bloomFilterDs.map(new MapCheckRedisSensitiveWordsFunc())
+                .uid("MapCheckRedisSensitiveWord")
+                .name("MapCheckRedisSensitiveWord");
+
+        SingleOutputStreamOperator<JSONObject> P0Ds = SensitiveWordsDs.filter(data -> data.getString("violation_grade").equals("P0"))
+                .uid("P0_Ds")
+                .name("P0_Ds");
+
+
+        SensitiveWordsDs.map(new RichMapFunction<JSONObject, JSONObject>() {
+            @Override
+            public JSONObject map(JSONObject jsonObject) {
+                if (jsonObject.getIntValue("is_violation") == 0){
+                    String msg = jsonObject.getString("msg");
+                    List<String> msgSen = SensitiveWordHelper.findAll(msg);
+                    if (msgSen.size() > 0){
+                        jsonObject.put("is_violation","P1");
+                        jsonObject.put("violation_msg",String.join(", ",msgSen));
+                    }
+                }
+                return null;
+            }
+        });
+
 
 
         env.execute();

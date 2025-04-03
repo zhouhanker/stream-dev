@@ -1,7 +1,7 @@
 package com.retailersv1;
 
 import com.alibaba.fastjson.JSONObject;
-import com.retailersv1.func.ProcessSplitStream;
+import com.retailersv1.func.ProcessSplitStreamFunc;
 import com.stream.common.utils.*;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
@@ -147,7 +147,7 @@ public class DbusLogDataProcess2Kafka {
                 }).uid("fix_isNew_map")
                 .name("fix_isNew_map");
 
-        SingleOutputStreamOperator<String> processTagDs = mapDs.process(new ProcessSplitStream(errTag,startTag,displayTag,actionTag))
+        SingleOutputStreamOperator<String> processTagDs = mapDs.process(new ProcessSplitStreamFunc(errTag,startTag,displayTag,actionTag))
                 .uid("flag_stream_process")
                 .name("flag_stream_process");
 
