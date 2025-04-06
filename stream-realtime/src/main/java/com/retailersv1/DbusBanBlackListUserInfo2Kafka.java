@@ -29,6 +29,7 @@ public class DbusBanBlackListUserInfo2Kafka {
 
     private static final String kafka_botstrap_servers = ConfigUtils.getString("kafka.bootstrap.servers");
     private static final String kafka_db_fact_comment_topic = ConfigUtils.getString("kafka.db.fact.comment.topic");
+    private static final String kafka_result_sensitive_words_topic = ConfigUtils.getString("kafka.result.sensitive.words.topic");
 
     @SneakyThrows
     public static void main(String[] args) {
@@ -60,26 +61,31 @@ public class DbusBanBlackListUserInfo2Kafka {
                 .uid("MapCheckRedisSensitiveWord")
                 .name("MapCheckRedisSensitiveWord");
 
-        SingleOutputStreamOperator<JSONObject> P0Ds = SensitiveWordsDs.filter(data -> data.getString("violation_grade").equals("P0"))
-                .uid("P0_Ds")
-                .name("P0_Ds");
 
 
-        SensitiveWordsDs.map(new RichMapFunction<JSONObject, JSONObject>() {
+        SingleOutputStreamOperator<JSONObject> secondCheckMap = SensitiveWordsDs.map(new RichMapFunction<JSONObject, JSONObject>() {
             @Override
             public JSONObject map(JSONObject jsonObject) {
-                if (jsonObject.getIntValue("is_violation") == 0){
+                if (jsonObject.getIntValue("is_violation") == 0) {
                     String msg = jsonObject.getString("msg");
                     List<String> msgSen = SensitiveWordHelper.findAll(msg);
-                    if (msgSen.size() > 0){
-                        jsonObject.put("is_violation","P1");
-                        jsonObject.put("violation_msg",String.join(", ",msgSen));
+                    if (msgSen.size() > 0) {
+                        jsonObject.put("is_violation", "P1");
+                        jsonObject.put("violation_msg", String.join(", ", msgSen));
                     }
                 }
-                return null;
+                return jsonObject;
             }
-        });
+        }).uid("second sensitive word check").name("second sensitive word check");
 
+        secondCheckMap.print();
+
+        secondCheckMap.map(data -> data.toJSONString())
+                        .sinkTo(
+                                KafkaUtils.buildKafkaSink(kafka_botstrap_servers, kafka_result_sensitive_words_topic)
+                        )
+                        .uid("sink to kafka result sensitive words topic")
+                        .name("sink to kafka result sensitive words topic");
 
 
         env.execute();

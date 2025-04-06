@@ -91,6 +91,8 @@ public final class KafkaUtils {
                 .setGroupId(group)
                 .setStartingOffsets(offset)
                 .setValueOnlyDeserializer(new SimpleStringSchema())
+                // 自动发现消费的partition变化
+                .setProperty("flink.partition-discovery.interval-millis",String.valueOf(10 * 1000))
                 .build();
     }
 
