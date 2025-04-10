@@ -18,7 +18,7 @@ public class SiliconFlowApi {
 
     private static final ConnectionPool CONNECTION_POOL = new ConnectionPool(200, 5, TimeUnit.MINUTES);
     private static final String SILICON_API_ADDR = "https://api.siliconflow.cn/v1/chat/completions";
-    private static final String API_TOKEN = ConfigUtils.getString("silicon.api.token");
+    private static final String SILICON_API_TOKEN = ConfigUtils.getString("silicon.api.token");
     private static final OkHttpClient CLIENT = new OkHttpClient.Builder()
             .connectionPool(CONNECTION_POOL)
             .connectTimeout(10, TimeUnit.SECONDS)
@@ -109,7 +109,7 @@ public class SiliconFlowApi {
         // 测试用例（需要有效token）
         String result = generateBadReview(
                 "给出一个电商差评，攻击性拉满，使用脏话，20字数以内，不需要思考过程",
-                "sk-pfaasdbkktgnunlvoapothvybwflwdteckwmhakzqbthcgnj"
+                SILICON_API_TOKEN
         );
         System.out.println("生成结果: " + result);
     }

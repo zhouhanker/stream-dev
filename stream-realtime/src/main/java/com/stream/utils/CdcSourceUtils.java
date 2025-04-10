@@ -18,6 +18,8 @@ public class CdcSourceUtils {
     public static MySqlSource<String> getMySQLCdcSource(String database,String table,String username,String pwd,StartupOptions model){
         Properties debeziumProperties = new Properties();
         debeziumProperties.setProperty("database.connectionCharset", "UTF-8");
+        debeziumProperties.setProperty("decimal.handling.mode","string");
+        debeziumProperties.setProperty("time.precision.mode","connect");
         return  MySqlSource.<String>builder()
                 .hostname(ConfigUtils.getString("mysql.host"))
                 .port(ConfigUtils.getInt("mysql.port"))
