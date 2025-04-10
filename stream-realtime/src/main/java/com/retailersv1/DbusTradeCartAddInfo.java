@@ -17,20 +17,18 @@ import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.DataTypes;
 import org.apache.flink.table.api.Schema;
-import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 import org.apache.flink.types.Row;
 
 import java.time.Duration;
 import java.util.Date;
 
-import static org.apache.flink.table.api.Expressions.$;
 
 /**
  * @Package com.retailersv1.DbusTradeCartAddInfo
  * @Author zhou.han
  * @Date 2025/4/7 21:11
- * @description:
+ * @description: Task 05
  */
 public class DbusTradeCartAddInfo {
 
@@ -116,22 +114,19 @@ public class DbusTradeCartAddInfo {
                 Types.STRING
         );
 
-        SingleOutputStreamOperator<Row> rowDs = fixDs.map(new MapFunction<JSONObject, Row>() {
-            @Override
-            public Row map(JSONObject json) {
-                Row row = Row.withNames();
-                row.setField("ts_ms", json.getLong("ts_ms"));
-                row.setField("is_ordered", json.getIntValue("is_ordered"));
-                row.setField("sku_num", json.getIntValue("sku_num"));
-                row.setField("create_time", json.getLong("create_time"));
-                row.setField("user_id", json.getString("user_id"));
-                row.setField("sku_id", json.getIntValue("sku_id"));
-                row.setField("sku_name", json.getString("sku_name"));
-                row.setField("id", json.getIntValue("id"));
-                row.setField("operate_time", json.getLong("operate_time"));
-                row.setField("ds", json.getString("ds"));
-                return row;
-            }
+        SingleOutputStreamOperator<Row> rowDs = fixDs.map((MapFunction<JSONObject, Row>) json -> {
+            Row row = Row.withNames();
+            row.setField("ts_ms", json.getLong("ts_ms"));
+            row.setField("is_ordered", json.getIntValue("is_ordered"));
+            row.setField("sku_num", json.getIntValue("sku_num"));
+            row.setField("create_time", json.getLong("create_time"));
+            row.setField("user_id", json.getString("user_id"));
+            row.setField("sku_id", json.getIntValue("sku_id"));
+            row.setField("sku_name", json.getString("sku_name"));
+            row.setField("id", json.getIntValue("id"));
+            row.setField("operate_time", json.getLong("operate_time"));
+            row.setField("ds", json.getString("ds"));
+            return row;
         }).returns(rowTypeInfo);
 
 
@@ -140,36 +135,38 @@ public class DbusTradeCartAddInfo {
         PaimonMinioUtils.ExecCreateMinioCatalogAndDatabases(tenv,catalog_minio_name,minio_database_name);
 
 
-        tenv.executeSql("CREATE TABLE if not exists realtime_v2.res_cart_info_tle (\n" +
-                "  ts_ms bigint,\n" +
-                "  is_ordered int,\n" +
-                "  sku_num int,\n" +
-                "  create_time bigint,\n" +
-                "  user_id varchar(50),\n" +
-                "  sku_id bigint,\n" +
-                "  sku_name varchar(255),\n" +
-                "  id int,\n" +
-                "  operate_time bigint,\n" +
-                "  ds varchar(255),\n" +
-                "  PRIMARY KEY (id,ds) NOT ENFORCED\n" +
-                ")\n" +
-                "partitioned by(ds)\n" +
-                "WITH\n" +
-                "(\n" +
-                "  'deletion-vectors.enabled' = 'true',\n" +
-                "  'bucket' = '2',\n" +
-                "  'sequence.field' = 'ts_ms', \n" +
-                "  'changelog-producer' = 'full-compaction',\n" +
-                "  'changelog-producer.compaction-interval' = '1 min', \n" +
-                "  'merge-engine' = 'partial-update', \n" +
-                "  'partial-update.ignore-delete' = 'true' \n" +
+        tenv.executeSql("CREATE TABLE if not exists realtime_v2.res_cart_info_tle ( \n" +
+                "  ts_ms bigint,                                                      \n" +
+                "  is_ordered int,                                                    \n" +
+                "  sku_num int,                                                       \n" +
+                "  create_time bigint,                                                \n" +
+                "  user_id varchar(50),                                               \n" +
+                "  sku_id bigint,                                                     \n" +
+                "  sku_name varchar(255),                                             \n" +
+                "  id int,                                                            \n" +
+                "  operate_time bigint,                                               \n" +
+                "  ds varchar(255),                                                   \n" +
+                "  PRIMARY KEY (id,ds) NOT ENFORCED                                   \n" +
+                ")                                                                    \n" +
+                "partitioned by(ds)                                                   \n" +
+                "WITH                                                                 \n" +
+                "(                                                                    \n" +
+                "  'deletion-vectors.enabled' = 'true',                               \n" +
+                "  'bucket' = '2',                                                    \n" +
+                "  'sequence.field' = 'ts_ms',                                        \n" +
+                "  'changelog-producer' = 'full-compaction',                          \n" +
+                "  'changelog-producer.compaction-interval' = '1 min',                \n" +
+                "  'merge-engine' = 'partial-update',                                 \n" +
+                "  'partial-update.ignore-delete' = 'true'                            \n" +
                 ");");
 
 
 
-        tenv.executeSql("insert into  realtime_v2.res_cart_info_tle \n" +
-                "select * \n" +
-                "from default_catalog.default_database.flk_res_cart_info_tle;");
+        tenv.executeSql(
+                "insert into realtime_v2.res_cart_info_tle   \n" +
+                   "select *                                    \n" +
+                   "from default_catalog.default_database.flk_res_cart_info_tle;"
+        );
 
 
 
