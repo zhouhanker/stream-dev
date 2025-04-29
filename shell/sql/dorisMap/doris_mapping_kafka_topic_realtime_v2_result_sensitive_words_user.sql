@@ -2,14 +2,14 @@ use realtime_v2_data;
 show tables ;
 
 CREATE TABLE IF NOT EXISTS realtime_v2_data.mapping_kf_result_sensitive_words_user(
-                                                                                      user_id bigint,
-                                                                                      msg TEXT,
-                                                                                      consignee varchar(255),
-                                                                                      violation_grade varchar(255),
-                                                                                      violation_msg TEXT,
-                                                                                      is_violation bigint,
-                                                                                      ts_ms bigint,
-                                                                                      ds date comment '分区字段-yyyyMMdd'
+    user_id bigint,
+    msg TEXT,
+    consignee varchar(255),
+    violation_grade varchar(255),
+    violation_msg TEXT,
+    is_violation bigint,
+    ts_ms bigint,
+    ds date comment '分区字段-yyyyMMdd'
 )engine=OLAP
     DUPLICATE KEY(user_id)
     PARTITION BY RANGE (ds)()
@@ -25,7 +25,8 @@ CREATE TABLE IF NOT EXISTS realtime_v2_data.mapping_kf_result_sensitive_words_us
                    "replication_num" = "1"
                );
 
-CREATE ROUTINE LOAD realtime_v2_data.mapping_kf_result_sensitive_words_usero_task ON mapping_kf_result_sensitive_words_user
+CREATE ROUTINE LOAD realtime_v2_data.mapping_kf_result_sensitive_words_usero_task
+    ON mapping_kf_result_sensitive_words_user
 COLUMNS(
     user_id,
     msg,

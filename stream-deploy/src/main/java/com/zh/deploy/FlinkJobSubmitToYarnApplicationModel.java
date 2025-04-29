@@ -44,8 +44,8 @@ public class FlinkJobSubmitToYarnApplicationModel {
 
         CommonUtils.printCheckPropEnv(false,FLINK_SUBMIT_USER,FLINK_COMMON_CONF_DIR,FLINK_CLUSTER_LIBS_DIR);
 
-        String fullClassName = "com.retailersv1.DbusLogDataProcess2Kafka";
-        DeployFlinkUtils.preparationEnvUploadJars(true,fullClassName);
+        String fullClassName = "com.retailersv1.DbusCdc2DimHbaseAnd2DbKafka";
+        DeployFlinkUtils.preparationEnvUploadJars(false,fullClassName);
         // RestFul
         SubFlinkTask(
                 FLINK_SUBMIT_USER,

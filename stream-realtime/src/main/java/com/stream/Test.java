@@ -25,8 +25,20 @@ import java.util.List;
 public class Test {
     @SneakyThrows
     public static void main(String[] args) {
-        String s = "操！狗带！这破东西！真操蛋！差评差评差评！";
-        System.err.println(SensitiveWordHelper.findAll(s));
+
+        System.setProperty("HADOOP_USER_NAME","root");
+
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        EnvironmentSettingUtils.defaultParameter(env);
+
+        DataStreamSource<String> dataStreamSource = env.socketTextStream("cdh03", 15455);
+
+        dataStreamSource.print();
+
+
+
+
+        env.execute();
     }
 
 }

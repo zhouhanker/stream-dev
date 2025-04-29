@@ -23,7 +23,7 @@ import java.util.Date;
 import java.util.Properties;
 
 /**
- * @Package com.stream.FlinkSinktoDorisTest
+ * @Package com.stream.FlinkSink2DorisTest
  * @Author zhou.han
  * @Date 2024/12/16 13:44
  * @description: Test

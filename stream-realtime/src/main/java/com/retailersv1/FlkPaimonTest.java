@@ -28,25 +28,8 @@ public class FlkPaimonTest {
 
         PaimonMinioUtils.ExecCreateMinioCatalogAndDatabases(tenv,"minio_paimon_catalog","realtime_v2");
 
-        tenv.executeSql("CREATE TABLE if not exists test.student (  \n" +
-                "  `id` int not null,                                   \n" +
-                "  `name` varchar(25),                                  \n" +
-                "  `age` int,                                           \n" +
-                "  `sex` int,                                           \n" +
-                "  `ds` string,                                         \n" +
-                "  PRIMARY KEY (id,ds) NOT ENFORCED                     \n" +
-                ")                                                      \n" +
-                "partitioned by(ds)                                     \n" +
-                "WITH                                                   \n" +
-                "(                                                      \n" +
-                "  'deletion-vectors.enabled' = 'true',                 \n" +
-                "  'bucket' = '2'                                       \n" +
-                ");");
 
-//        tenv.executeSql("insert into test.student values (7, 'y', 15, 1,'20250404');");
-
-
-        tenv.executeSql("select * from realtime_v2.res_cart_info_tle;").print();
+        tenv.executeSql("select * from realtime_v2.res_cart_info_tle where ds = '20250409';").print();
 
     }
 }
