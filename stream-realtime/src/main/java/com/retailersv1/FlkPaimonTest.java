@@ -5,8 +5,6 @@ import com.stream.utils.PaimonMinioUtils;
 import lombok.SneakyThrows;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.s3a.S3AFileSystem;
 
 /**
  * @Package com.retailersv1.FlkPaimonTest

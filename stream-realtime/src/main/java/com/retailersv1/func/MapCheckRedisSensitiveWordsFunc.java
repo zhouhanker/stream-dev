@@ -3,7 +3,6 @@ package com.retailersv1.func;
 import com.alibaba.fastjson.JSONObject;
 import com.stream.common.utils.RedisLuaUtils;
 import org.apache.flink.api.common.functions.RichMapFunction;
-import org.apache.flink.configuration.Configuration;
 
 
 /**
