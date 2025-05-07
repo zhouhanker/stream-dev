@@ -134,7 +134,7 @@ public class DbusTradeCartAddInfo {
 
         tenv.createTemporaryView("flk_res_cart_info_tle", tenv.fromChangelogStream(rowDs, schema));
 
-        tenv.executeSql("drop table if exists realtime_v2.res_cart_info_tle;");
+//        tenv.executeSql("drop table if exists realtime_v2.res_cart_info_tle;");
         tenv.executeSql("CREATE TABLE if not exists realtime_v2.res_cart_info_tle ( \n" +
                 "  ts_ms bigint,                                                      \n" +
                 "  is_ordered int,                                                    \n" +
