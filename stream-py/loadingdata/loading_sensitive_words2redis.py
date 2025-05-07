@@ -5,17 +5,17 @@ import redis
 from minio import Minio
 from loguru import logger
 
-minio_endpoint = "10.39.48.35:9000"
+minio_endpoint = "10.160.60.17:9000"
 minio_secure = False
-minio_access_key = 'ZhjwTSyQSnxkof1P0zcw'
-minio_secret_key = 'Rd6QDCmZ57Lxycdl6sNYIkwuLqQgtoDreQAbpNFr'
+minio_access_key = 'X7pljEi3steavVn5h3z3'
+minio_secret_key = 'KDaSxEyfSEmKiaJDBbJ6RpBxMBp6OwnRbkA8LnKL'
 bucket_name = "sensitiveword"
 folder_prefix = "sensitiveword/"
 
 word_set = set()
 
 redis_cli = redis.Redis(
-    host='10.39.48.36',
+    host='10.160.60.17',
     port=6379,
     db=0,
     username="default",

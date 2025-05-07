@@ -25,9 +25,9 @@ stage.backend.incremental: true
 
 # S3 20250407 Add
 s3.path.style.access: true
-s3.endpoint: http://10.160.60.16:9000
-s3.access-key: ZhjwTSyQSnxkof1P0zcw
-s3.secret-key: Rd6QDCmZ57Lxycdl6sNYIkwuLqQgtoDreQAbpNFr
+s3.endpoint: http://10.160.60.17:9000
+s3.access-key: X7pljEi3steavVn5h3z3
+s3.secret-key: KDaSxEyfSEmKiaJDBbJ6RpBxMBp6OwnRbkA8LnKL
 
 ## 本地添加的依赖 指定flink plugins在hdfs的路径
 

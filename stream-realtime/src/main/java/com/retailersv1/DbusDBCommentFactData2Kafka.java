@@ -55,22 +55,31 @@ public class DbusDBCommentFactData2Kafka {
     public static void main(String[] args) {
 
         System.setProperty("HADOOP_USER_NAME","root");
-
-        // TODO -XX:ReservedCodeCacheSize=256m -XX:+UseCodeCacheFlushing -XX:CodeCacheMinimumFreeSpace=20%
-
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         EnvironmentSettingUtils.defaultParameter(env);
 
         // 评论表 取数
         SingleOutputStreamOperator<String> kafkaCdcDbSource = env.fromSource(
-                KafkaUtils.buildKafkaSource(
+                KafkaUtils.buildKafkaSecureSource(
                         kafka_botstrap_servers,
                         kafka_cdc_db_topic,
                         new Date().toString(),
                         OffsetsInitializer.earliest()
                 ),
                 WatermarkStrategy.<String>forBoundedOutOfOrderness(Duration.ofSeconds(3))
-                        .withTimestampAssigner((event, timestamp) -> JSONObject.parseObject(event).getLong("ts_ms")),
+                        .withTimestampAssigner((event, timestamp) -> {
+                            if (event != null){
+                                try {
+                                    return JSONObject.parseObject(event).getLong("ts_ms");
+                                }catch (Exception e){
+                                    e.printStackTrace();
+                                    System.err.println("Failed to parse event as JSON or get ts_ms: " + event);
+                                    return 0L;
+                                }
+                            }
+                            return 0L;
+                        }
+                        ),
                 "kafka_cdc_db_source"
         ).uid("kafka_cdc_db_source").name("kafka_cdc_db_source");
 
@@ -79,7 +88,6 @@ public class DbusDBCommentFactData2Kafka {
                 .map(JSON::parseObject)
                 .filter(json -> json.getJSONObject("source").getString("table").equals("order_info"))
                 .uid("kafka_cdc_db_order_source").name("kafka_cdc_db_order_source");
-
 
         // 评论表进行进行升维处理 和hbase的维度进行关联补充维度数据
         DataStream<JSONObject> filteredStream = kafkaCdcDbSource

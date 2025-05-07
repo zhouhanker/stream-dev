@@ -23,11 +23,12 @@ public class FlkPaimonTest {
 
         EnvironmentSettingUtils.defaultParameter(env);
         StreamTableEnvironment tenv = StreamTableEnvironment.create(env);
+        tenv.getConfig().getConfiguration().setString("table.exec.sink.upsert-materialize", "NONE");
 
         PaimonMinioUtils.ExecCreateMinioCatalogAndDatabases(tenv,"minio_paimon_catalog","realtime_v2");
 
 
-        tenv.executeSql("select * from realtime_v2.res_cart_info_tle where ds = '20250409';").print();
+        tenv.executeSql("select * from realtime_v2.res_cart_info_tle where ds = '20250506' ").print();
 
     }
 }

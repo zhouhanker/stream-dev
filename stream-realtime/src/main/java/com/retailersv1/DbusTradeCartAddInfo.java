@@ -47,6 +47,8 @@ public class DbusTradeCartAddInfo {
         StreamTableEnvironment tenv = StreamTableEnvironment.create(env);
         tenv.getConfig().getConfiguration().setString("table.exec.sink.upsert-materialize", "NONE");
 
+        PaimonMinioUtils.ExecCreateMinioCatalogAndDatabases(tenv,catalog_minio_name,minio_database_name);
+
         SingleOutputStreamOperator<String> kafkaCdcDbSource = env.fromSource(
                 KafkaUtils.buildKafkaSource(
                         kafka_botstrap_servers,
@@ -132,9 +134,7 @@ public class DbusTradeCartAddInfo {
 
         tenv.createTemporaryView("flk_res_cart_info_tle", tenv.fromChangelogStream(rowDs, schema));
 
-        PaimonMinioUtils.ExecCreateMinioCatalogAndDatabases(tenv,catalog_minio_name,minio_database_name);
-
-
+        tenv.executeSql("drop table if exists realtime_v2.res_cart_info_tle;");
         tenv.executeSql("CREATE TABLE if not exists realtime_v2.res_cart_info_tle ( \n" +
                 "  ts_ms bigint,                                                      \n" +
                 "  is_ordered int,                                                    \n" +
@@ -154,7 +154,7 @@ public class DbusTradeCartAddInfo {
                 "  'deletion-vectors.enabled' = 'true',                               \n" +
                 "  'bucket' = '2',                                                    \n" +
                 "  'sequence.field' = 'ts_ms',                                        \n" +
-                "  'changelog-producer' = 'full-compaction',                          \n" +
+                "  'changelog-producer' = 'LOOKUP',                                     \n" +
                 "  'changelog-producer.compaction-interval' = '1 min',                \n" +
                 "  'merge-engine' = 'partial-update',                                 \n" +
                 "  'partial-update.ignore-delete' = 'true'                            \n" +
@@ -165,10 +165,8 @@ public class DbusTradeCartAddInfo {
         tenv.executeSql(
                 "insert into realtime_v2.res_cart_info_tle   \n" +
                    "select *                                    \n" +
-                   "from default_catalog.default_database.flk_res_cart_info_tle;"
+                   "from flk_res_cart_info_tle;"
         );
-
-
 
 
     }

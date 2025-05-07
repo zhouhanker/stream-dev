@@ -189,6 +189,12 @@ public class DbusLogDataProcess2Kafka {
         dataStreamHashMap.get("page").sinkTo(KafkaUtils.buildKafkaSink(kafka_botstrap_servers,kafka_page_topic))
                 .uid("sk_pageMsg2Kafka")
                 .name("sk_pageMsg2Kafka");
+
+        dataStreamHashMap.get("errTag").print("errTag ->");
+        dataStreamHashMap.get("startTag").print("startTag ->");
+        dataStreamHashMap.get("displayTag").print("displayTag ->");
+        dataStreamHashMap.get("actionTag").print("actionTag ->");
+        dataStreamHashMap.get("page").print("page ->");
     }
 
 }
