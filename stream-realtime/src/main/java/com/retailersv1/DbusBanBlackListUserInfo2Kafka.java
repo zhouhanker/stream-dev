@@ -73,7 +73,7 @@ public class DbusBanBlackListUserInfo2Kafka {
                     String msg = jsonObject.getString("msg");
                     List<String> msgSen = SensitiveWordHelper.findAll(msg);
                     if (msgSen.size() > 0) {
-                        jsonObject.put("is_violation", "P1");
+                        jsonObject.put("violation_grade", "P1");
                         jsonObject.put("violation_msg", String.join(", ", msgSen));
                     }
                 }

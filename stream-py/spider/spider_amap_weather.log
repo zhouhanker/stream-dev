@@ -1,0 +1,18 @@
+2025-05-08 21:53:55,558 - INFO - 密钥列表已刷新
+2025-05-08 21:54:03,503 - INFO - 进度: 100/3194 个城市
+2025-05-08 21:54:11,121 - INFO - 进度: 200/3194 个城市
+2025-05-08 21:54:11,912 - ERROR - 处理城市 139001 时发生致命错误: 'list' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/zhouhan/dev_env/work_project/java/stream-dev/stream-py/spider/spider_CHN_amap_weather_data.py", line 103, in task_spider_data2mysql
+    report_time_str = lives_data.get('reporttime')
+AttributeError: 'list' object has no attribute 'get'
+2025-05-08 21:54:12,076 - ERROR - 处理城市 139002 时发生致命错误: 'list' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/zhouhan/dev_env/work_project/java/stream-dev/stream-py/spider/spider_CHN_amap_weather_data.py", line 103, in task_spider_data2mysql
+    report_time_str = lives_data.get('reporttime')
+AttributeError: 'list' object has no attribute 'get'
+2025-05-08 21:54:19,551 - INFO - 进度: 300/3194 个城市
+2025-05-08 21:54:27,683 - INFO - 进度: 400/3194 个城市
+2025-05-08 21:54:35,703 - INFO - 进度: 500/3194 个城市
+2025-05-08 21:54:35,984 - INFO - 已插入 500 条数据
+2025-05-08 21:54:43,503 - INFO - 进度: 600/3194 个城市
