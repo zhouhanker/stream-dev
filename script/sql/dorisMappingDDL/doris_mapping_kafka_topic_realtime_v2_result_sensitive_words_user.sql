@@ -56,7 +56,7 @@ PROPERTIES
 )
 FROM KAFKA
 (
-    "kafka_broker_list" = "10.39.48.30:9092,10.39.48.31:9092,10.39.48.32:9092",
+    "kafka_broker_list" = "cdh01:9092,cdh01:9092,cdh01:9092",
     "kafka_topic" = "realtime_v2_result_sensitive_words_user",
     "property.group.id" = "doris_consumer_realtime_v2_result_sensitive_words_user",
     "property.offset" = "earliest",

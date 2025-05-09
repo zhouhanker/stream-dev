@@ -2,6 +2,14 @@ create database if not exists realtime_v2_data;
 use realtime_v2_data;
 show tables ;
 
+SHOW ROUTINE LOAD;
+-- 恢复
+RESUME ROUTINE LOAD FOR mapping_kf_comment_info_task;
+-- 停止，需要重新创建
+stop ROUTINE LOAD FOR mapping_kf_comment_info_task;
+-- 查看
+SHOW ROUTINE LOAD WHERE Name = "mapping_kf_comment_info_task";
+
 
 CREATE TABLE IF NOT EXISTS realtime_v2_data.mapping_kf_comment_info
 (
@@ -136,12 +144,13 @@ PROPERTIES
 )
 FROM KAFKA
 (
-    "kafka_broker_list" = "10.39.48.30:9092,10.39.48.31:9092,10.39.48.32:9092",
+    "kafka_broker_list" = "cdh01:9092,cdh01:9092,cdh01:9092",
     "kafka_topic" = "realtime_v2_fact_comment_db",
     "property.group.id" = "doris_consumer_group",
     "property.offset" = "earliest",
     "property.kafka_default_offsets" = "OFFSET_BEGINNING"
 );
+
 
 select *
 from mapping_kf_comment_info;
