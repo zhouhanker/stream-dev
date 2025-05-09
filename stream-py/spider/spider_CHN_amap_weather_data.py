@@ -1,14 +1,13 @@
-# !/usr/bin/python
+#!/usr/bin/python
 # coding: utf-8
 import json
 import random
 import logging
 from retrying import retry
 from typing import Dict
-
 import requests
 from datetime import datetime
-
+from multiprocessing import Manager
 import public_func
 
 # 配置日志
@@ -25,6 +24,7 @@ logger = logging.getLogger(__name__)
 # 重试配置（可调整参数）
 RETRY_MAX_ATTEMPTS = 3
 RETRY_WAIT_FIXED = 2000
+num_processes = 4
 properties = public_func.get_java_properties()
 
 db_config = {
@@ -37,13 +37,17 @@ db_config = {
 
 
 class SpiderCHNAmapWeatherData:
-    def __init__(self, refresh_interval=500):
+    def __init__(self, refresh_interval=500, city_result=None, process_id=None):
+        self.process_id = process_id
         self.amap_base_url = 'https://restapi.amap.com/v3/weather/weatherInfo?city='
         self.refresh_interval = refresh_interval
         self.last_refresh = datetime.min
         self.sql_query_amap_keys = 'select api_key,key_owner from dev.spider_amap_restapi_key;'
         self.sql_query_chn_city_all = "select code,province,city,area from dev.spider_national_code_compare_dic where city is not null and province <> '澳门特别行政区' and province <> '台湾省' and province <> '香港特别行政区';"
-        self.city_result = public_func.execute_sql(self.sql_query_chn_city_all, db_config, as_dict=True)
+        if city_result is not None:
+            self.city_result = city_result
+        else:
+            self.city_result = public_func.execute_sql(self.sql_query_chn_city_all, db_config, as_dict=True)
         self.logger = logger
 
     def _refresh_keys(self):
@@ -92,17 +96,12 @@ class SpiderCHNAmapWeatherData:
                     """
         for index, i in enumerate(self.city_result, 1):
             try:
-                # 获取当前使用的API Key（用于日志追踪）
                 current_key = self.get_key()
-                # self.logger.info("正在处理城市 %s (Key Owner: %s)", i.get('code'), current_key.get('key_owner'))
-
-                # 调用带重试的请求方法
                 resp = self.spider_exec(i.get('code'), current_key.get('api_key'))
 
                 lives_data = resp.get('lives', [{}])[0]
                 report_time_str = lives_data.get('reporttime')
 
-                # 构建插入数据
                 data = {
                     'code': int(i.get('code', 0)),
                     'province': i.get('province', ''),
@@ -112,62 +111,115 @@ class SpiderCHNAmapWeatherData:
                     'lives': json.dumps(lives_data, ensure_ascii=False),
                     'report_time': report_time_str if report_time_str else None
                 }
-                self.logger.debug("爬取数据: %s", data)
                 data_buffer.append(data)
 
-                # 批量插入逻辑
                 if len(data_buffer) >= batch_size:
                     try:
                         public_func.execute_sql(insert_sql, db_config, params=data_buffer, many=True)
-                        self.logger.info("已插入 %d 条数据", len(data_buffer))
                         success_count += len(data_buffer)
                         data_buffer.clear()
                     except Exception as e:
-                        self.logger.error("插入数据时出错: %s", e, exc_info=True)
                         data_buffer.clear()
 
                 if index % 100 == 0:
-                    self.logger.info("进度: %d/%d 个城市", index, len(self.city_result))
+                    self.logger.info(f"[进程 {self.process_id}] 进度: {index}/{len(self.city_result)} 个城市")
 
             except Exception as e:
-                self.logger.error("处理城市 %s 时发生致命错误: %s", i.get('code'), e, exc_info=True)
                 fail_count += 1
                 failed_cities.append(str(i.get('code')))
                 continue
 
-        # 处理剩余数据
         if data_buffer:
             try:
                 public_func.execute_sql(insert_sql, db_config, params=data_buffer, many=True)
-                self.logger.info("最后插入 %d 条数据", len(data_buffer))
                 success_count += len(data_buffer)
             except Exception as e:
-                self.logger.error("最后插入数据时出错: %s", e, exc_info=True)
-        total_time = datetime.now() - start_time
-        self.logger.info("\n[统计报告]")
-        self.logger.info("总计耗时: %s", str(total_time))
-        self.logger.info("成功插入数据: %d 条", success_count)
-        self.logger.info("失败城市数量: %d 个", fail_count)
-        if failed_cities:
-            self.logger.info("失败城市列表: %s", ", ".join(failed_cities))
-        else:
-            self.logger.info("失败城市列表: 无")
+                pass
 
-        push_msg = {
-            "platform": 'Web Spider',
-            "context": 'spider_CHN_amap_weather_data.py',
-            "total_time": str(total_time),
+        return {
             "success_count": success_count,
             "fail_count": fail_count,
             "failed_cities": failed_cities,
+            "start_time": start_time,
+            "end_time": datetime.now()
         }
-        public_func.push_feishu_msg(push_msg)
+
+
+def run_spider_task(city_chunk, result_dict, process_id):
+    """多进程任务执行函数"""
+    logger.info(f"进程 {process_id} 启动，处理城市数量: {len(city_chunk)}")
+    spider = SpiderCHNAmapWeatherData(city_result=city_chunk, process_id=process_id)
+    result = spider.task_spider_data2mysql()
+    # 使用共享字典存储结果
+    result_dict[process_id] = result
+    logger.info(f"进程 {process_id} 完成")
 
 
 def main():
-    SpiderCHNAmapWeatherData().task_spider_data2mysql()
+
+    # 共享结果字典
+    manager = Manager()
+    result_dict = manager.dict()
+
+    # 获取全量城市数据
+    base_spider = SpiderCHNAmapWeatherData()
+    all_cities = base_spider.city_result
+    total_cities = len(all_cities)
+
+    # 分割为4个进程处理
+    chunk_size = total_cities // num_processes
+    chunks = [all_cities[i * chunk_size:(i+1) * chunk_size] for i in range(num_processes)]
+
+    # 处理余数城市
+    remainder = total_cities % num_processes
+    if remainder > 0:
+        for i in range(remainder):
+            chunks[i].append(all_cities[num_processes*chunk_size + i])
+
+    # 构建多进程参数
+    func_dict_list = [{
+        'func_name': run_spider_task,
+        'func_args': (chunk, result_dict, i)  # 传入进程ID
+    } for i, chunk in enumerate(chunks)]
+
+    # 调用多进程执行
+    public_func.process_thread_func(
+        v_func_dict_list=func_dict_list,
+        v_type='process',
+        v_process_cnt=num_processes
+    )
+
+    # 汇总结果
+    total_success = 0
+    total_fail = 0
+    all_failed_cities = []
+    time_ranges = []
+
+    for pid, res in result_dict.items():
+        total_success += res["success_count"]
+        total_fail += res["fail_count"]
+        all_failed_cities.extend(res["failed_cities"])
+        time_ranges.append((res["start_time"], res["end_time"]))
+
+    # 计算总耗时
+    start_times = [t[0] for t in time_ranges]
+    end_times = [t[1] for t in time_ranges]
+    total_start = min(start_times)
+    total_end = max(end_times)
+    total_duration = total_end - total_start
+
+    # 推送合并后的消息
+    push_msg = {
+        "platform": 'Web Spider',
+        "context": 'spider_CHN_amap_weather_data.py',
+        "total_time": str(total_duration),
+        "success_count": total_success,
+        "fail_count": total_fail,
+        "failed_cities": all_failed_cities[:100]  # 防止消息过长
+    }
+    public_func.push_feishu_msg(push_msg)
+    logger.info("已推送合并统计报告到 Lark")
 
 
 if __name__ == '__main__':
     main()
-
