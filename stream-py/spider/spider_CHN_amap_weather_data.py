@@ -1,14 +1,18 @@
 #!/usr/bin/python
 # coding: utf-8
 import json
+import os
 import random
 import logging
+import sys
+
 from retrying import retry
 from typing import Dict
 import requests
 from datetime import datetime
 from multiprocessing import Manager
 import public_func
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 # 配置日志
 logging.basicConfig(
@@ -156,7 +160,6 @@ def run_spider_task(city_chunk, result_dict, process_id):
 
 
 def main():
-
     # 共享结果字典
     manager = Manager()
     result_dict = manager.dict()
@@ -168,13 +171,13 @@ def main():
 
     # 分割为num个进程处理
     chunk_size = total_cities // num_processes
-    chunks = [all_cities[i * chunk_size:(i+1) * chunk_size] for i in range(num_processes)]
+    chunks = [all_cities[i * chunk_size:(i + 1) * chunk_size] for i in range(num_processes)]
 
     # 处理余数城市
     remainder = total_cities % num_processes
     if remainder > 0:
         for i in range(remainder):
-            chunks[i].append(all_cities[num_processes*chunk_size + i])
+            chunks[i].append(all_cities[num_processes * chunk_size + i])
 
     # 构建多进程参数 列表推导式
     func_dict_list = [{
