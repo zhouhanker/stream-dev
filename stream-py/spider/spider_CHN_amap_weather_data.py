@@ -67,7 +67,7 @@ class SpiderCHNAmapWeatherData:
         wait_fixed=RETRY_WAIT_FIXED,
         retry_on_exception=lambda e: isinstance(e, (requests.exceptions.RequestException, json.JSONDecodeError)))
     def spider_exec(self, city_code: int, api_key: str) -> Dict:
-        """封装单个城市数据请求（包含重试）"""
+        """封装每个城市数据请求（包含重试）"""
         req_url = f"{self.amap_base_url}{city_code}&key={api_key}"
         self.logger.debug("尝试请求URL: %s", req_url)
 
@@ -166,7 +166,7 @@ def main():
     all_cities = base_spider.city_result
     total_cities = len(all_cities)
 
-    # 分割为4个进程处理
+    # 分割为num个进程处理
     chunk_size = total_cities // num_processes
     chunks = [all_cities[i * chunk_size:(i+1) * chunk_size] for i in range(num_processes)]
 
@@ -176,7 +176,7 @@ def main():
         for i in range(remainder):
             chunks[i].append(all_cities[num_processes*chunk_size + i])
 
-    # 构建多进程参数
+    # 构建多进程参数 列表推导式
     func_dict_list = [{
         'func_name': run_spider_task,
         'func_args': (chunk, result_dict, i)  # 传入进程ID
