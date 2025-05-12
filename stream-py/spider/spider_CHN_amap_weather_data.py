@@ -3,12 +3,14 @@
 import json
 import random
 import logging
+import sys
 
 from retrying import retry
 from typing import Dict
 import requests
 from datetime import datetime
 from multiprocessing import Manager
+sys.path.append('..')
 import public_func
 
 # 配置日志
