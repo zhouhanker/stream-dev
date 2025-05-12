@@ -20,6 +20,7 @@ public class CdcSourceUtils {
         debeziumProperties.setProperty("database.connectionCharset", "UTF-8");
         debeziumProperties.setProperty("decimal.handling.mode","string");
         debeziumProperties.setProperty("time.precision.mode","connect");
+        debeziumProperties.setProperty("database.connectionTimeZone", "Asia/Shanghai");
         return  MySqlSource.<String>builder()
                 .hostname(ConfigUtils.getString("mysql.host"))
                 .port(ConfigUtils.getInt("mysql.port"))
@@ -27,7 +28,7 @@ public class CdcSourceUtils {
                 .tableList(table)
                 .username(username)
                 .password(pwd)
-                .serverTimeZone(ConfigUtils.getString("mysql.timezone"))
+//                .connectionTimeZone(ConfigUtils.getString("mysql.timezone"))
                 .deserializer(new JsonDebeziumDeserializationSchema())
                 .startupOptions(model)
                 .includeSchemaChanges(true)

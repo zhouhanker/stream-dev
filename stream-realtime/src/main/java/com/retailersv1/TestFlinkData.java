@@ -24,7 +24,7 @@ import java.util.Date;
 public class TestFlinkData {
 
     private static final String kafka_botstrap_servers = ConfigUtils.getString("kafka.bootstrap.servers");
-    private static final String kafka_cdc_db_topic = ConfigUtils.getString("kafka.cdc_db_topic");
+    private static final String kafka_cdc_db_topic = ConfigUtils.getString("kafka.cdc.db.topic");
 
     @SneakyThrows
     public static void main(String[] args) {
@@ -33,24 +33,21 @@ public class TestFlinkData {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         EnvironmentSettingUtils.defaultParameter(env);
 
+        // 取数
         SingleOutputStreamOperator<String> kafkaCdcDbSource = env.fromSource(
-                KafkaUtils.buildKafkaSource(
+                KafkaUtils.buildKafkaSecureSource(
                         kafka_botstrap_servers,
                         kafka_cdc_db_topic,
                         new Date().toString(),
                         OffsetsInitializer.earliest()
                 ),
-                WatermarkStrategy.<String>forBoundedOutOfOrderness(Duration.ofSeconds(3))
-                        .withTimestampAssigner((event, timestamp) -> JSONObject.parseObject(event).getLong("ts_ms")),
+                WatermarkStrategy.noWatermarks(),
                 "kafka_cdc_db_source"
-        ).uid("kafka_cdc_db_comment_source").name("kafka_cdc_db_comment_source");
+        ).uid("kafka_cdc_db_source").name("kafka_cdc_db_source");
 
-        DataStream<JSONObject> filteredOrderInfoStream = kafkaCdcDbSource
-                .map(JSON::parseObject)
-                .filter(json -> json.getJSONObject("source").getString("table").equals("order_info"))
-                .uid("kafka_cdc_db_order_source").name("kafka_cdc_db_order_source");
-
-        filteredOrderInfoStream.print();
+        kafkaCdcDbSource.map(JSON::parseObject)
+                        .filter(json -> json.getJSONObject("source").getString("table").equals("user_info_sup_msg"))
+                                .print();
 
 
 
