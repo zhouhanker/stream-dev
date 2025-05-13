@@ -3,19 +3,13 @@ package com.label;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.retailersv1.func.IntervalJoinUserInfoLabelProcessFunc;
-import com.retailersv1.func.UserInfoMessageDeduplicateProcessFunc;
 import com.stream.common.utils.ConfigUtils;
 import com.stream.common.utils.EnvironmentSettingUtils;
 import com.stream.common.utils.KafkaUtils;
-import com.stream.utils.CdcSourceUtils;
-import com.ververica.cdc.connectors.mysql.source.MySqlSource;
-import com.ververica.cdc.connectors.mysql.table.StartupOptions;
 import lombok.SneakyThrows;
-import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
-import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -49,123 +43,128 @@ public class DbusUserInfo6BaseLabel {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         EnvironmentSettingUtils.defaultParameter(env);
 
-        MySqlSource<String> mySQLDbMainCdcSource = CdcSourceUtils.getMySQLCdcSource(
-                ConfigUtils.getString("mysql.database"),
-                "realtime_v1.user_info",
-                ConfigUtils.getString("mysql.user"),
-                ConfigUtils.getString("mysql.pwd"),
-                StartupOptions.earliest()
-        );
-
-
-        DataStreamSource<String> cdcDbMainStream = env.fromSource(
-                mySQLDbMainCdcSource,
-                WatermarkStrategy.forBoundedOutOfOrderness(Duration.ofSeconds(10)),
-                "mysql_cdc_main_source"
-        );
-
-        SingleOutputStreamOperator<String> kafkaCdcUserInfoSupDbSource = env.fromSource(
+        SingleOutputStreamOperator<String> kafkaCdcDbSource = env.fromSource(
                 KafkaUtils.buildKafkaSecureSource(
                         kafka_botstrap_servers,
                         kafka_cdc_db_topic,
                         new Date().toString(),
                         OffsetsInitializer.earliest()
                 ),
-                WatermarkStrategy.forBoundedOutOfOrderness(Duration.ofSeconds(10)),
+                WatermarkStrategy.<String>forBoundedOutOfOrderness(Duration.ofSeconds(3))
+                        .withTimestampAssigner((event, timestamp) -> {
+                            JSONObject jsonObject = JSONObject.parseObject(event);
+                            if (event != null && jsonObject.containsKey("ts_ms")){
+                                        try {
+                                            return JSONObject.parseObject(event).getLong("ts_ms");
+                                        }catch (Exception e){
+                                            e.printStackTrace();
+                                            System.err.println("Failed to parse event as JSON or get ts_ms: " + event);
+                                            return 0L;
+                                        }
+                                    }
+                                    return 0L;
+                                }
+                        ),
                 "kafka_cdc_db_source"
         ).uid("kafka_cdc_db_source").name("kafka_cdc_db_source");
 
-        SingleOutputStreamOperator<JSONObject> kafkaCdcUserInfoSupDs = kafkaCdcUserInfoSupDbSource.map(JSON::parseObject)
-                .filter(json -> json.getJSONObject("source").getString("table").equals("user_info_sup_msg"))
-                .uid("kafka cdc userInfoMsgSup")
-                .name("kafka cdc userInfoMsgSup");
+        SingleOutputStreamOperator<JSONObject> dataConvertJsonDs = kafkaCdcDbSource.map(JSON::parseObject)
+                .uid("convert json")
+                .name("convert json");
 
-        SingleOutputStreamOperator<JSONObject> userInfoDs = kafkaCdcUserInfoSupDs.map(new RichMapFunction<JSONObject, JSONObject>() {
+        SingleOutputStreamOperator<JSONObject> userInfoDs = dataConvertJsonDs.filter(data -> data.getJSONObject("source").getString("table").equals("user_info"))
+                .uid("filter kafka user info")
+                .name("filter kafka user info");
+
+        SingleOutputStreamOperator<JSONObject> finalUserInfoDs = userInfoDs.map(new RichMapFunction<JSONObject, JSONObject>() {
             @Override
             public JSONObject map(JSONObject jsonObject){
-                JSONObject result = new JSONObject();
-                if (jsonObject.containsKey("after") && jsonObject.getJSONObject("after") != null) {
-                    JSONObject after = jsonObject.getJSONObject("after");
-                    result.put("uid", after.getIntValue("uid"));
-                    result.put("unit_height", after.getString("unit_height"));
-                    result.put("create_ts", after.getLong("create_ts"));
-                    result.put("weight", after.getString("weight"));
-                    result.put("unit_weight", after.getString("unit_weight"));
-                    result.put("height", after.getString("height"));
-                    result.put("ts_ms", jsonObject.getLong("ts_ms"));
+                JSONObject after = jsonObject.getJSONObject("after");
+                if (after != null && after.containsKey("birthday")) {
+                    Integer epochDay = after.getInteger("birthday");
+                    if (epochDay != null) {
+                        LocalDate date = LocalDate.ofEpochDay(epochDay);
+                        after.put("birthday", date.format(DateTimeFormatter.ISO_DATE));
+                    }
                 }
-                return result;
+                return jsonObject;
             }
         });
 
 
-        SingleOutputStreamOperator<JSONObject> cdcUserInfoDs = cdcDbMainStream
-                .map(jsonStr -> {
-                    JSONObject json = JSON.parseObject(jsonStr);
-                    JSONObject after = json.getJSONObject("after");
-                    if (after != null && after.containsKey("birthday")) {
-                        Integer epochDay = after.getInteger("birthday");
-                        if (epochDay != null) {
-                            LocalDate date = LocalDate.ofEpochDay(epochDay);
-                            after.put("birthday", date.format(DateTimeFormatter.ISO_DATE));
-                        }
-                    }
-                    return json;
-                })
-                .uid("convert_json")
-                .name("convert_json");
 
-        // 此处数据会存在重复 使用状态进行去重
-        SingleOutputStreamOperator<JSONObject> parseCdcUserInfoDs = cdcUserInfoDs.map(new RichMapFunction<JSONObject, JSONObject>() {
+        SingleOutputStreamOperator<JSONObject> userInfoSupDs = dataConvertJsonDs.filter(data -> data.getJSONObject("source").getString("table").equals("user_info_sup_msg"))
+                .uid("filter kafka user info sup")
+                .name("filter kafka user info sup");
+
+        SingleOutputStreamOperator<JSONObject> mapUserInfoDs = finalUserInfoDs.map(new RichMapFunction<JSONObject, JSONObject>() {
                     @Override
                     public JSONObject map(JSONObject jsonObject){
                         JSONObject result = new JSONObject();
-                        if (jsonObject.containsKey("after")) {
+                        if (jsonObject.containsKey("after") && jsonObject.getJSONObject("after") != null) {
                             JSONObject after = jsonObject.getJSONObject("after");
-                            if (after != null) {
-                                result.put("uid", after.getLongValue("id"));
-                                result.put("uname", after.getString("name"));
-                                result.put("user_level", after.getString("user_level"));
-                                result.put("login_name", after.getString("login_name"));
-                                result.put("phone_num", after.getString("phone_num"));
-                                result.put("email", after.getString("email"));
-                                result.put("gender", after.getString("gender"));
-                                result.put("birthday", after.getString("birthday"));
-                                result.put("ts_ms", jsonObject.getLongValue("ts_ms"));
-                                String birthdayStr = after.getString("birthday");
-                                if (birthdayStr != null && !birthdayStr.isEmpty()) {
-                                    try {
-                                        LocalDate birthday = LocalDate.parse(birthdayStr, DateTimeFormatter.ISO_DATE);
-                                        LocalDate currentDate = LocalDate.now(ZoneId.of("Asia/Shanghai"));
-                                        int age = calculateAge(birthday, currentDate);
-                                        int decade = birthday.getYear() / 10 * 10;
-                                        result.put("decade", decade);
-                                        result.put("age", age);
-                                        String zodiac = getZodiacSign(birthday);
-                                        result.put("zodiac_sign", zodiac);
-                                    }catch (Exception e){
-                                        result.put("age", -1);
-                                        e.printStackTrace();
-                                        System.err.println("日期解析失败: " + birthdayStr);
-                                    }
+                            result.put("uid", after.getString("id"));
+                            result.put("uname", after.getString("name"));
+                            result.put("user_level", after.getString("user_level"));
+                            result.put("login_name", after.getString("login_name"));
+                            result.put("phone_num", after.getString("phone_num"));
+                            result.put("email", after.getString("email"));
+                            result.put("gender", after.getString("gender") != null ? after.getString("gender") : "home");
+                            result.put("birthday", after.getString("birthday"));
+                            result.put("ts_ms", jsonObject.getLongValue("ts_ms"));
+                            String birthdayStr = after.getString("birthday");
+                            if (birthdayStr != null && !birthdayStr.isEmpty()) {
+                                try {
+                                    LocalDate birthday = LocalDate.parse(birthdayStr, DateTimeFormatter.ISO_DATE);
+                                    LocalDate currentDate = LocalDate.now(ZoneId.of("Asia/Shanghai"));
+                                    int age = calculateAge(birthday, currentDate);
+                                    int decade = birthday.getYear() / 10 * 10;
+                                    result.put("decade", decade);
+                                    result.put("age", age);
+                                    String zodiac = getZodiacSign(birthday);
+                                    result.put("zodiac_sign", zodiac);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                 }
                             }
                         }
+
                         return result;
                     }
-                })
-                .filter(data -> !data.isEmpty())
-                .uid("parse json")
-                .name("parse json");
+                }).uid("map userInfo ds")
+                .name("map userInfo ds");
 
-        SingleOutputStreamOperator<JSONObject> CdcUserInfoSupDs = parseCdcUserInfoDs.keyBy(data -> data.getLongValue("uid"))
-                .process(new UserInfoMessageDeduplicateProcessFunc());
+        SingleOutputStreamOperator<JSONObject> mapUserInfoSupDs = userInfoSupDs.map(new RichMapFunction<JSONObject, JSONObject>() {
+                    @Override
+                    public JSONObject map(JSONObject jsonObject) {
+                        JSONObject result = new JSONObject();
+                        if (jsonObject.containsKey("after") && jsonObject.getJSONObject("after") != null) {
+                            JSONObject after = jsonObject.getJSONObject("after");
+                            result.put("uid", after.getString("uid"));
+                            result.put("unit_height", after.getString("unit_height"));
+                            result.put("create_ts", after.getLong("create_ts"));
+                            result.put("weight", after.getString("weight"));
+                            result.put("unit_weight", after.getString("unit_weight"));
+                            result.put("height", after.getString("height"));
+                            result.put("ts_ms", jsonObject.getLong("ts_ms"));
+                        }
+                        return result;
+                    }
+                }).uid("sup userinfo sup")
+                .name("sup userinfo sup");
 
-        userInfoDs.print("userInfoDs -> ");
-//        CdcUserInfoSupDs.print("CdcUserInfoSupDs ->");
 
+        SingleOutputStreamOperator<JSONObject> finalUserinfoDs = mapUserInfoDs.filter(data -> data.containsKey("uid") && !data.getString("uid").isEmpty());
+        SingleOutputStreamOperator<JSONObject> finalUserinfoSupDs = mapUserInfoSupDs.filter(data -> data.containsKey("uid") && !data.getString("uid").isEmpty());
 
+        KeyedStream<JSONObject, String> keyedStreamUserInfoDs = finalUserinfoDs.keyBy(data -> data.getString("uid"));
+        KeyedStream<JSONObject, String> keyedStreamUserInfoSupDs = finalUserinfoSupDs.keyBy(data -> data.getString("uid"));
 
+        SingleOutputStreamOperator<JSONObject> processIntervalJoinUserInfo6BaseMessageDs = keyedStreamUserInfoDs.intervalJoin(keyedStreamUserInfoSupDs)
+                .between(Time.minutes(-5), Time.minutes(5))
+                .process(new IntervalJoinUserInfoLabelProcessFunc());
+
+        processIntervalJoinUserInfo6BaseMessageDs.print();
 
 
         env.execute("DbusUserInfo6BaseLabel");
