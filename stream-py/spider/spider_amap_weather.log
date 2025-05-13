@@ -1,18 +1,24 @@
-2025-05-08 21:53:55,558 - INFO - 密钥列表已刷新
-2025-05-08 21:54:03,503 - INFO - 进度: 100/3194 个城市
-2025-05-08 21:54:11,121 - INFO - 进度: 200/3194 个城市
-2025-05-08 21:54:11,912 - ERROR - 处理城市 139001 时发生致命错误: 'list' object has no attribute 'get'
-Traceback (most recent call last):
-  File "/Users/zhouhan/dev_env/work_project/java/stream-dev/stream-py/spider/spider_CHN_amap_weather_data.py", line 103, in task_spider_data2mysql
-    report_time_str = lives_data.get('reporttime')
-AttributeError: 'list' object has no attribute 'get'
-2025-05-08 21:54:12,076 - ERROR - 处理城市 139002 时发生致命错误: 'list' object has no attribute 'get'
-Traceback (most recent call last):
-  File "/Users/zhouhan/dev_env/work_project/java/stream-dev/stream-py/spider/spider_CHN_amap_weather_data.py", line 103, in task_spider_data2mysql
-    report_time_str = lives_data.get('reporttime')
-AttributeError: 'list' object has no attribute 'get'
-2025-05-08 21:54:19,551 - INFO - 进度: 300/3194 个城市
-2025-05-08 21:54:27,683 - INFO - 进度: 400/3194 个城市
-2025-05-08 21:54:35,703 - INFO - 进度: 500/3194 个城市
-2025-05-08 21:54:35,984 - INFO - 已插入 500 条数据
-2025-05-08 21:54:43,503 - INFO - 进度: 600/3194 个城市
+2025-05-11 23:02:10,936 - INFO - 进程 0 启动，处理城市数量: 799
+2025-05-11 23:02:10,937 - INFO - 进程 1 启动，处理城市数量: 799
+2025-05-11 23:02:10,937 - INFO - 进程 2 启动，处理城市数量: 798
+2025-05-11 23:02:10,937 - INFO - 进程 3 启动，处理城市数量: 798
+2025-05-11 23:02:11,008 - INFO - 密钥列表已刷新
+2025-05-11 23:02:11,009 - INFO - 密钥列表已刷新
+2025-05-11 23:02:11,012 - INFO - 密钥列表已刷新
+2025-05-11 23:02:11,012 - INFO - 密钥列表已刷新
+2025-05-11 23:02:18,804 - INFO - [进程 3] 进度: 100/798 个城市
+2025-05-11 23:02:18,864 - INFO - [进程 2] 进度: 100/798 个城市
+2025-05-11 23:02:18,873 - INFO - [进程 1] 进度: 100/799 个城市
+2025-05-11 23:02:18,920 - INFO - [进程 0] 进度: 100/799 个城市
+2025-05-11 23:02:26,906 - INFO - [进程 3] 进度: 200/798 个城市
+2025-05-11 23:02:26,940 - INFO - [进程 2] 进度: 200/798 个城市
+2025-05-11 23:02:26,970 - INFO - [进程 1] 进度: 200/799 个城市
+2025-05-11 23:02:26,990 - INFO - [进程 0] 进度: 200/799 个城市
+2025-05-12 08:16:13,159 - INFO - 进程 1 启动，处理城市数量: 799
+2025-05-12 08:16:13,159 - INFO - 进程 0 启动，处理城市数量: 799
+2025-05-12 08:16:13,159 - INFO - 进程 2 启动，处理城市数量: 798
+2025-05-12 08:16:13,161 - INFO - 进程 3 启动，处理城市数量: 798
+2025-05-12 08:16:13,251 - INFO - 密钥列表已刷新
+2025-05-12 08:16:13,251 - INFO - 密钥列表已刷新
+2025-05-12 08:16:13,256 - INFO - 密钥列表已刷新
+2025-05-12 08:16:13,256 - INFO - 密钥列表已刷新

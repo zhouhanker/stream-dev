@@ -2,7 +2,7 @@ package com.label;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.retailersv1.func.IntervalJoinUserInfoLabelProcessFunc;
+import com.retailersv1.func.*;
 import com.stream.common.utils.ConfigUtils;
 import com.stream.common.utils.EnvironmentSettingUtils;
 import com.stream.common.utils.KafkaUtils;
@@ -13,7 +13,10 @@ import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsIni
 import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
+import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
+import org.apache.flink.util.Collector;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -28,12 +31,14 @@ import java.util.Date;
  * @Author zhou.han
  * @Date 2025/5/12 10:01
  * @description: 01 Task 6 BaseLine
+ * @IDEA VM: -XX:InitialCodeCacheSize=512m -XX:ReservedCodeCacheSize=2048m -XX:CodeCacheExpansionSize=128m -XX:+UseCodeCacheFlushing -XX:CodeCacheMinimumFreeSpace=64m -XX:CodeCacheSegmentSize=64m -XX:CompileThreshold=10000 -XX:MaxInlineSize=500 -XX:+PrintCodeCache -XX:+PrintCodeCacheOnCompilation -XX:+UseCompressedOops -XX:+UseCompressedClassPointers -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:CMSInitiatingOccupancyFraction=70 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$HOME/java_heapdump.hprof
  */
 
 public class DbusUserInfo6BaseLabel {
 
     private static final String kafka_botstrap_servers = ConfigUtils.getString("kafka.bootstrap.servers");
     private static final String kafka_cdc_db_topic = ConfigUtils.getString("kafka.cdc.db.topic");
+    private static final String kafka_page_log_topic = ConfigUtils.getString("kafka.page.topic");
 
     @SneakyThrows
     public static void main(String[] args) {
@@ -43,6 +48,7 @@ public class DbusUserInfo6BaseLabel {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         EnvironmentSettingUtils.defaultParameter(env);
 
+        // user info cdc
         SingleOutputStreamOperator<String> kafkaCdcDbSource = env.fromSource(
                 KafkaUtils.buildKafkaSecureSource(
                         kafka_botstrap_servers,
@@ -68,9 +74,66 @@ public class DbusUserInfo6BaseLabel {
                 "kafka_cdc_db_source"
         ).uid("kafka_cdc_db_source").name("kafka_cdc_db_source");
 
+        // page log
+        SingleOutputStreamOperator<String> kafkaPageLogSource = env.fromSource(
+                KafkaUtils.buildKafkaSecureSource(
+                        kafka_botstrap_servers,
+                        kafka_page_log_topic,
+                        new Date().toString(),
+                        OffsetsInitializer.earliest()
+                ),
+                WatermarkStrategy.<String>forBoundedOutOfOrderness(Duration.ofSeconds(3))
+                        .withTimestampAssigner((event, timestamp) -> {
+                                    JSONObject jsonObject = JSONObject.parseObject(event);
+                                    if (event != null && jsonObject.containsKey("ts_ms")){
+                                        try {
+                                            return JSONObject.parseObject(event).getLong("ts_ms");
+                                        }catch (Exception e){
+                                            e.printStackTrace();
+                                            System.err.println("Failed to parse event as JSON or get ts_ms: " + event);
+                                            return 0L;
+                                        }
+                                    }
+                                    return 0L;
+                                }
+                        ),
+                "kafka_page_log_source"
+        ).uid("kafka_page_log_source")
+         .name("kafka_page_log_source");
+
         SingleOutputStreamOperator<JSONObject> dataConvertJsonDs = kafkaCdcDbSource.map(JSON::parseObject)
-                .uid("convert json")
-                .name("convert json");
+                .uid("convert json cdc db")
+                .name("convert json cdc db");
+
+        SingleOutputStreamOperator<JSONObject> dataPageLogConvertJsonDs = kafkaPageLogSource.map(JSON::parseObject)
+                .uid("convert json page log")
+                .name("convert json page log");
+
+        // 设备信息 + 关键词搜索
+        SingleOutputStreamOperator<JSONObject> logDeviceInfoDs = dataPageLogConvertJsonDs.map(new MapDeviceInfoAndSearchKetWordMsg())
+                .uid("get device info & search")
+                .name("get device info & search");
+
+
+        SingleOutputStreamOperator<JSONObject> filterNotNullUidLogPageMsg = logDeviceInfoDs.filter(data -> !data.getString("uid").isEmpty());
+        KeyedStream<JSONObject, String> keyedStreamLogPageMsg = filterNotNullUidLogPageMsg.keyBy(data -> data.getString("uid"));
+
+
+        SingleOutputStreamOperator<JSONObject> processStagePageLogDs = keyedStreamLogPageMsg.process(new ProcessFilterRepeatTsData());
+
+        // 2 min 分钟窗口
+        SingleOutputStreamOperator<JSONObject> win2MinutesPageLogsDs = processStagePageLogDs.keyBy(data -> data.getString("uid"))
+                .process(new AggregateUserDataProcessFunction())
+                .keyBy(data -> data.getString("uid"))
+                .window(TumblingProcessingTimeWindows.of(Time.minutes(2)))
+                .reduce((value1, value2) -> value2)
+                .uid("win 2 minutes page count msg")
+                .name("win 2 minutes page count msg");
+
+
+
+
+//        logDeviceInfoDs.
 
         SingleOutputStreamOperator<JSONObject> userInfoDs = dataConvertJsonDs.filter(data -> data.getJSONObject("source").getString("table").equals("user_info"))
                 .uid("filter kafka user info")
@@ -131,7 +194,8 @@ public class DbusUserInfo6BaseLabel {
 
                         return result;
                     }
-                }).uid("map userInfo ds")
+                })
+                .uid("map userInfo ds")
                 .name("map userInfo ds");
 
         SingleOutputStreamOperator<JSONObject> mapUserInfoSupDs = userInfoSupDs.map(new RichMapFunction<JSONObject, JSONObject>() {
@@ -150,7 +214,8 @@ public class DbusUserInfo6BaseLabel {
                         }
                         return result;
                     }
-                }).uid("sup userinfo sup")
+                })
+                .uid("sup userinfo sup")
                 .name("sup userinfo sup");
 
 
@@ -160,11 +225,19 @@ public class DbusUserInfo6BaseLabel {
         KeyedStream<JSONObject, String> keyedStreamUserInfoDs = finalUserinfoDs.keyBy(data -> data.getString("uid"));
         KeyedStream<JSONObject, String> keyedStreamUserInfoSupDs = finalUserinfoSupDs.keyBy(data -> data.getString("uid"));
 
+        // base6Line
+
+        /*
+        {"birthday":"1979-07-06","decade":1970,"uname":"鲁瑞","gender":"home","zodiac_sign":"巨蟹座","weight":"52","uid":"302","login_name":"9pzhfy3admw3","unit_height":"cm","user_level":"1","phone_num":"13275315996","unit_weight":"kg","email":"9pzhfy3admw3@gmail.com","ts_ms":1747052360573,"age":45,"height":"164"}
+        {"birthday":"2005-08-12","decade":2000,"uname":"潘国","gender":"M","zodiac_sign":"狮子座","weight":"68","uid":"522","login_name":"toim614z6zf","unit_height":"cm","user_level":"1","phone_num":"13648187991","unit_weight":"kg","email":"toim614z6zf@hotmail.com","ts_ms":1747052368281,"age":19,"height":"181"}
+        {"birthday":"1997-09-06","decade":1990,"uname":"南宫纨","gender":"F","zodiac_sign":"处女座","weight":"53","uid":"167","login_name":"4tjk9p8","unit_height":"cm","user_level":"1","phone_num":"13913669538","unit_weight":"kg","email":"hij36hcc@3721.net","ts_ms":1747052360467,"age":27,"height":"167"}
+        */
         SingleOutputStreamOperator<JSONObject> processIntervalJoinUserInfo6BaseMessageDs = keyedStreamUserInfoDs.intervalJoin(keyedStreamUserInfoSupDs)
                 .between(Time.minutes(-5), Time.minutes(5))
-                .process(new IntervalJoinUserInfoLabelProcessFunc());
+                .process(new IntervalJoinUserInfoLabelProcessFunc())
+                .uid("process intervalJoin order info")
+                .name("process intervalJoin order info");
 
-        processIntervalJoinUserInfo6BaseMessageDs.print();
 
 
         env.execute("DbusUserInfo6BaseLabel");
