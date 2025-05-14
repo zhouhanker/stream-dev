@@ -5,7 +5,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.retailersv1.func.*;
 import com.stream.common.utils.ConfigUtils;
 import com.stream.common.utils.EnvironmentSettingUtils;
+import com.stream.common.utils.JdbcUtils;
 import com.stream.common.utils.KafkaUtils;
+import com.stream.domain.DimBaseCategory;
 import lombok.SneakyThrows;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.RichMapFunction;
@@ -13,17 +15,17 @@ import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsIni
 import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
-import org.apache.flink.util.Collector;
 
+import java.sql.Connection;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -39,6 +41,34 @@ public class DbusUserInfo6BaseLabel {
     private static final String kafka_botstrap_servers = ConfigUtils.getString("kafka.bootstrap.servers");
     private static final String kafka_cdc_db_topic = ConfigUtils.getString("kafka.cdc.db.topic");
     private static final String kafka_page_log_topic = ConfigUtils.getString("kafka.page.topic");
+
+    private static final List<DimBaseCategory> dim_base_categories;
+    private static final Connection connection;
+
+    private static final double device_rate_weight_coefficient = 0.1; // 设备权重系数
+    private static final double search_rate_weight_coefficient = 0.15; // 搜索权重系数
+
+    static {
+        try {
+            connection = JdbcUtils.getMySQLConnection(
+                    ConfigUtils.getString("mysql.url"),
+                    ConfigUtils.getString("mysql.user"),
+                    ConfigUtils.getString("mysql.pwd"));
+            String sql = "select b3.id,                          \n" +
+                    "            b3.name as b3name,              \n" +
+                    "            b2.name as b2name,              \n" +
+                    "            b1.name as b1name               \n" +
+                    "     from realtime_v1.base_category3 as b3  \n" +
+                    "     join realtime_v1.base_category2 as b2  \n" +
+                    "     on b3.category2_id = b2.id             \n" +
+                    "     join realtime_v1.base_category1 as b1  \n" +
+                    "     on b2.category1_id = b1.id";
+            dim_base_categories = JdbcUtils.queryList2(connection, sql, DimBaseCategory.class, false);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
     @SneakyThrows
     public static void main(String[] args) {
@@ -110,7 +140,7 @@ public class DbusUserInfo6BaseLabel {
                 .name("convert json page log");
 
         // 设备信息 + 关键词搜索
-        SingleOutputStreamOperator<JSONObject> logDeviceInfoDs = dataPageLogConvertJsonDs.map(new MapDeviceInfoAndSearchKetWordMsg())
+        SingleOutputStreamOperator<JSONObject> logDeviceInfoDs = dataPageLogConvertJsonDs.map(new MapDeviceInfoAndSearchKetWordMsgFunc())
                 .uid("get device info & search")
                 .name("get device info & search");
 
@@ -119,8 +149,9 @@ public class DbusUserInfo6BaseLabel {
         KeyedStream<JSONObject, String> keyedStreamLogPageMsg = filterNotNullUidLogPageMsg.keyBy(data -> data.getString("uid"));
 
 
-        SingleOutputStreamOperator<JSONObject> processStagePageLogDs = keyedStreamLogPageMsg.process(new ProcessFilterRepeatTsData());
+        SingleOutputStreamOperator<JSONObject> processStagePageLogDs = keyedStreamLogPageMsg.process(new ProcessFilterRepeatTsDataFunc());
 
+//        processStagePageLogDs.filter(data -> data.getString("uid").equals("229")).print();
         // 2 min 分钟窗口
         SingleOutputStreamOperator<JSONObject> win2MinutesPageLogsDs = processStagePageLogDs.keyBy(data -> data.getString("uid"))
                 .process(new AggregateUserDataProcessFunction())
@@ -130,10 +161,11 @@ public class DbusUserInfo6BaseLabel {
                 .uid("win 2 minutes page count msg")
                 .name("win 2 minutes page count msg");
 
+        // 设备打分模型
+        win2MinutesPageLogsDs.map(new MapDeviceAndSearchMarkModelFunc(dim_base_categories,device_rate_weight_coefficient,search_rate_weight_coefficient))
+                .print();
 
 
-
-//        logDeviceInfoDs.
 
         SingleOutputStreamOperator<JSONObject> userInfoDs = dataConvertJsonDs.filter(data -> data.getJSONObject("source").getString("table").equals("user_info"))
                 .uid("filter kafka user info")

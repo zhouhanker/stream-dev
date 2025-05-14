@@ -9,7 +9,7 @@ import org.apache.flink.api.common.functions.RichMapFunction;
  * @Date 2025/5/13 10:51
  * @description: page log 设备信息处理
  */
-public class MapDeviceInfoAndSearchKetWordMsg  extends RichMapFunction<JSONObject,JSONObject> {
+public class MapDeviceInfoAndSearchKetWordMsgFunc extends RichMapFunction<JSONObject,JSONObject> {
     @Override
     public JSONObject map(JSONObject jsonObject) throws Exception {
         JSONObject result = new JSONObject();

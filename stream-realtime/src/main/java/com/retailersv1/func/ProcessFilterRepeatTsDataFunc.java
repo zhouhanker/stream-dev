@@ -18,9 +18,9 @@ import java.util.HashSet;
  * @Date
  * @description: 对完整数据进行去重
  */
-public class ProcessFilterRepeatTsData extends KeyedProcessFunction<String, JSONObject, JSONObject> {
+public class ProcessFilterRepeatTsDataFunc extends KeyedProcessFunction<String, JSONObject, JSONObject> {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ProcessFilterRepeatTsData.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ProcessFilterRepeatTsDataFunc.class);
     private ValueState<HashSet<String>> processedDataState;
 
     @Override
