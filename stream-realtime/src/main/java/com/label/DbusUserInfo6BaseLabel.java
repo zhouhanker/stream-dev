@@ -2,6 +2,10 @@ package com.label;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.label.func.processOrderInfoAndDetailFunc;
+import com.label.func.IntervalDbOrderInfoJoinOrderDetailProcessFunc;
+import com.label.func.MapOrderDetailFunc;
+import com.label.func.MapOrderInfoDataFunc;
 import com.retailersv1.func.*;
 import com.stream.common.utils.ConfigUtils;
 import com.stream.common.utils.EnvironmentSettingUtils;
@@ -33,7 +37,6 @@ import java.util.List;
  * @Author zhou.han
  * @Date 2025/5/12 10:01
  * @description: 01 Task 6 BaseLine
- * @IDEA VM: -XX:InitialCodeCacheSize=512m -XX:ReservedCodeCacheSize=2048m -XX:CodeCacheExpansionSize=128m -XX:+UseCodeCacheFlushing -XX:CodeCacheMinimumFreeSpace=64m -XX:CodeCacheSegmentSize=64m -XX:CompileThreshold=10000 -XX:MaxInlineSize=500 -XX:+PrintCodeCache -XX:+PrintCodeCacheOnCompilation -XX:+UseCompressedOops -XX:+UseCompressedClassPointers -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:CMSInitiatingOccupancyFraction=70 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$HOME/java_heapdump.hprof
  */
 
 public class DbusUserInfo6BaseLabel {
@@ -77,6 +80,7 @@ public class DbusUserInfo6BaseLabel {
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         EnvironmentSettingUtils.defaultParameter(env);
+        env.setParallelism(4);
 
         // user info cdc
         SingleOutputStreamOperator<String> kafkaCdcDbSource = env.fromSource(
@@ -161,15 +165,41 @@ public class DbusUserInfo6BaseLabel {
                 .uid("win 2 minutes page count msg")
                 .name("win 2 minutes page count msg");
 
+
         // 设备打分模型
-        win2MinutesPageLogsDs.map(new MapDeviceAndSearchMarkModelFunc(dim_base_categories,device_rate_weight_coefficient,search_rate_weight_coefficient))
-                .print();
+        SingleOutputStreamOperator<JSONObject> mapDeviceAndSearchRateResultDs = win2MinutesPageLogsDs.map(new MapDeviceAndSearchMarkModelFunc(dim_base_categories, device_rate_weight_coefficient, search_rate_weight_coefficient));
 
 
 
         SingleOutputStreamOperator<JSONObject> userInfoDs = dataConvertJsonDs.filter(data -> data.getJSONObject("source").getString("table").equals("user_info"))
                 .uid("filter kafka user info")
                 .name("filter kafka user info");
+
+        SingleOutputStreamOperator<JSONObject> cdcOrderInfoDs = dataConvertJsonDs.filter(data -> data.getJSONObject("source").getString("table").equals("order_info"))
+                .uid("filter kafka order info")
+                .name("filter kafka order info");
+
+        SingleOutputStreamOperator<JSONObject> cdcOrderDetailDs = dataConvertJsonDs.filter(data -> data.getJSONObject("source").getString("table").equals("order_detail"))
+                .uid("filter kafka order detail")
+                .name("filter kafka order detail");
+
+        SingleOutputStreamOperator<JSONObject> mapCdcOrderInfoDs = cdcOrderInfoDs.map(new MapOrderInfoDataFunc());
+        SingleOutputStreamOperator<JSONObject> mapCdcOrderDetailDs = cdcOrderDetailDs.map(new MapOrderDetailFunc());
+
+        SingleOutputStreamOperator<JSONObject> filterNotNullCdcOrderInfoDs = mapCdcOrderInfoDs.filter(data -> data.getString("id") != null && !data.getString("id").isEmpty());
+        SingleOutputStreamOperator<JSONObject> filterNotNullCdcOrderDetailDs = mapCdcOrderDetailDs.filter(data -> data.getString("order_id") != null && !data.getString("order_id").isEmpty());
+
+        KeyedStream<JSONObject, String> keyedStreamCdcOrderInfoDs = filterNotNullCdcOrderInfoDs.keyBy(data -> data.getString("id"));
+        KeyedStream<JSONObject, String> keyedStreamCdcOrderDetailDs = filterNotNullCdcOrderDetailDs.keyBy(data -> data.getString("order_id"));
+
+        SingleOutputStreamOperator<JSONObject> processIntervalJoinOrderInfoAndDetailDs = keyedStreamCdcOrderInfoDs.intervalJoin(keyedStreamCdcOrderDetailDs)
+                .between(Time.minutes(-2), Time.minutes(2))
+                .process(new IntervalDbOrderInfoJoinOrderDetailProcessFunc());
+
+        processIntervalJoinOrderInfoAndDetailDs.keyBy(data -> data.getString("detail_id"))
+                .process(new processOrderInfoAndDetailFunc())
+                .print();
+
 
         SingleOutputStreamOperator<JSONObject> finalUserInfoDs = userInfoDs.map(new RichMapFunction<JSONObject, JSONObject>() {
             @Override
