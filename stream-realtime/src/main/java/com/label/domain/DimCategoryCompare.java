@@ -1,11 +1,11 @@
-package com.stream.domain;
+package com.label.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @Package com.stream.domain.DimCategoryCompare
+ * @Package com.label.domain.DimCategoryCompare
  * @Author zhou.han
  * @Date 2025/5/14 10:57
  * @description:

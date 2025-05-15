@@ -1,0 +1,65 @@
+##env
+env=prod
+
+# MySQL
+mysql.host=10.160.60.17
+mysql.port=3306
+mysql.url=jdbc:mysql://10.160.60.17:3306?useSSL=false
+mysql.user=root
+mysql.pwd=Zh1028,./
+mysql.timezone=Asia/Shanghai
+mysql.database=realtime_v1
+mysql.databases.conf=realtime_v1_config
+mysql.spider.db=dev
+
+# Redis
+redis.host=10.160.60.17
+redis.port=6379
+redis.user=default
+redis.pwd=zh1028
+redis.blacklist.db=0
+
+
+# Kafka
+Kafka.bootstrap.servers=cdh01:9092,cdh02:9092,cdh03:9092
+REALTIME.KAFKA.LOG.TOPIC=realtime_log
+kafka.topic.db=realtime_db
+kafka.dirty.topic=realtime_v2_dirty_log
+kafka.err.log=realtime_v2_err_log
+kafka.start.log=realtime_v2_start_log
+kafka.display.log=realtime_v2_display_log
+kafka.action.log=realtime_v2_action_log
+kafka.page.topic=realtime_v2_page_log
+kafka.cdc.db.topic=realtime_v2_db
+kafka.db.fact.comment.topic=realtime_v2_fact_comment_db
+kafka.result.sensitive.words.topic=realtime_v2_result_sensitive_words_user
+kafka.result.label.base6.topic=realtime_v2_result_label_user_base6
+kafka.result.label.base4.topic=realtime_v2_result_label_user_base4
+kafka.result.label.base2.topic=realtime_v2_result_label_user_base2
+
+# Push Msg
+push.feishu.url=https://www.feishu.cn/flow/api/trigger-webhook/d6b8e69d40d5c789fdc8afc19fc417a4
+
+# file log
+REALTIME.LOG.FILE.PATH=/Users/zhouhan/temp_data/app.log
+REALTIME.MSG.POSITION.FILE_PATH=/Users/zhouhan/temp_data/msg.log
+
+# Zookeeper Server
+zookeeper.server.host.list=cdh01:2181,cdh02:2181,cdh03:2181
+
+# Hbase
+hbase.namespace=realtime_v2
+
+# FLINK
+flink.submit.user=root
+flink.conf.configurationDirectory=/Users/zhouhan/dev_env/work_project/java/stream-dev/stream-deploy/src/main/resources/conf
+flink.cluster.libs=hdfs://cdh01:8020/flink-dist
+flink.checkpoint.hdfs.dir=hdfs://cdh01:8020/flink-point/ck
+flink.checkpoint.minio.dir=s3://root:zh1028,./@10.160.60.17:9000/flk-data
+
+# Hive
+hive.conf.dir=hdfs://cdh01:8020/env/hive/
+
+
+# silicon_api_token
+silicon.api.token=sk-pfaasdbkktgnunlvoapothvybwflwdteckwmhakzqbthcgnj

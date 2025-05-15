@@ -31,7 +31,7 @@ public class processOrderInfoAndDetailFunc extends KeyedProcessFunction<String, 
     @Override
     public void processElement(JSONObject value, Context ctx, Collector<JSONObject> out) throws Exception {
         Long storedTs = latestTsState.value();
-        long currentTs = value.getLong("ts_ms");
+        long currentTs = value.getLong("create_time");
 
         if (storedTs == null || currentTs > storedTs) {
             latestTsState.update(currentTs);

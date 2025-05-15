@@ -1,11 +1,10 @@
-package com.retailersv1.func;
+package com.label.func;
 
 import com.alibaba.fastjson.JSONObject;
-import com.label.DbusUserInfo6BaseLabel;
 import com.stream.common.utils.ConfigUtils;
 import com.stream.common.utils.JdbcUtils;
-import com.stream.domain.DimBaseCategory;
-import com.stream.domain.DimCategoryCompare;
+import com.label.domain.DimBaseCategory;
+import com.label.domain.DimCategoryCompare;
 import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.configuration.Configuration;
 

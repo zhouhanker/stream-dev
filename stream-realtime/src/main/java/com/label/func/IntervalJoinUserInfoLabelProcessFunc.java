@@ -1,11 +1,11 @@
-package com.retailersv1.func;
+package com.label.func;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.flink.streaming.api.functions.co.ProcessJoinFunction;
 import org.apache.flink.util.Collector;
 
 /**
- * @Package com.retailersv1.func.IntervalJoinUserInfoLabelProcessFunc
+ * @Package com.label.func.IntervalJoinUserInfoLabelProcessFunc
  * @Author zhou.han
  * @Date 2025/5/12 17:25
  * @description: 用户表和用户维度补充表关联

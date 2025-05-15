@@ -2,16 +2,13 @@ package com.label;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.label.func.processOrderInfoAndDetailFunc;
-import com.label.func.IntervalDbOrderInfoJoinOrderDetailProcessFunc;
-import com.label.func.MapOrderDetailFunc;
-import com.label.func.MapOrderInfoDataFunc;
+import com.label.func.*;
 import com.retailersv1.func.*;
 import com.stream.common.utils.ConfigUtils;
 import com.stream.common.utils.EnvironmentSettingUtils;
 import com.stream.common.utils.JdbcUtils;
 import com.stream.common.utils.KafkaUtils;
-import com.stream.domain.DimBaseCategory;
+import com.label.domain.DimBaseCategory;
 import lombok.SneakyThrows;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.RichMapFunction;
@@ -39,17 +36,25 @@ import java.util.List;
  * @description: 01 Task 6 BaseLine
  */
 
-public class DbusUserInfo6BaseLabel {
+public class DbusUserInfo6BaseLabel2Kafka {
 
     private static final String kafka_botstrap_servers = ConfigUtils.getString("kafka.bootstrap.servers");
     private static final String kafka_cdc_db_topic = ConfigUtils.getString("kafka.cdc.db.topic");
     private static final String kafka_page_log_topic = ConfigUtils.getString("kafka.page.topic");
+
+    private static final String kafka_label_base6_topic = ConfigUtils.getString("kafka.result.label.base6.topic");
+    private static final String kafka_label_base4_topic = ConfigUtils.getString("kafka.result.label.base4.topic");
+    private static final String kafka_label_base2_topic = ConfigUtils.getString("kafka.result.label.base2.topic");
 
     private static final List<DimBaseCategory> dim_base_categories;
     private static final Connection connection;
 
     private static final double device_rate_weight_coefficient = 0.1; // 设备权重系数
     private static final double search_rate_weight_coefficient = 0.15; // 搜索权重系数
+    private static final double time_rate_weight_coefficient = 0.1;    // 时间权重系数
+    private static final double amount_rate_weight_coefficient = 0.15;    // 价格权重系数
+    private static final double brand_rate_weight_coefficient = 0.2;    // 品牌权重系数
+    private static final double category_rate_weight_coefficient = 0.3; // 类目权重系数
 
     static {
         try {
@@ -155,7 +160,6 @@ public class DbusUserInfo6BaseLabel {
 
         SingleOutputStreamOperator<JSONObject> processStagePageLogDs = keyedStreamLogPageMsg.process(new ProcessFilterRepeatTsDataFunc());
 
-//        processStagePageLogDs.filter(data -> data.getString("uid").equals("229")).print();
         // 2 min 分钟窗口
         SingleOutputStreamOperator<JSONObject> win2MinutesPageLogsDs = processStagePageLogDs.keyBy(data -> data.getString("uid"))
                 .process(new AggregateUserDataProcessFunction())
@@ -166,7 +170,7 @@ public class DbusUserInfo6BaseLabel {
                 .name("win 2 minutes page count msg");
 
 
-        // 设备打分模型
+        // 设备打分模型 base2
         SingleOutputStreamOperator<JSONObject> mapDeviceAndSearchRateResultDs = win2MinutesPageLogsDs.map(new MapDeviceAndSearchMarkModelFunc(dim_base_categories, device_rate_weight_coefficient, search_rate_weight_coefficient));
 
 
@@ -196,10 +200,11 @@ public class DbusUserInfo6BaseLabel {
                 .between(Time.minutes(-2), Time.minutes(2))
                 .process(new IntervalDbOrderInfoJoinOrderDetailProcessFunc());
 
-        processIntervalJoinOrderInfoAndDetailDs.keyBy(data -> data.getString("detail_id"))
-                .process(new processOrderInfoAndDetailFunc())
-                .print();
+        SingleOutputStreamOperator<JSONObject> processDuplicateOrderInfoAndDetailDs = processIntervalJoinOrderInfoAndDetailDs.keyBy(data -> data.getString("detail_id"))
+                .process(new processOrderInfoAndDetailFunc());
 
+        // 品类 品牌 年龄 时间 base4
+        SingleOutputStreamOperator<JSONObject> mapOrderInfoAndDetailModelDs = processDuplicateOrderInfoAndDetailDs.map(new MapOrderAndDetailRateModelFunc(dim_base_categories, time_rate_weight_coefficient, amount_rate_weight_coefficient, brand_rate_weight_coefficient, category_rate_weight_coefficient));
 
         SingleOutputStreamOperator<JSONObject> finalUserInfoDs = userInfoDs.map(new RichMapFunction<JSONObject, JSONObject>() {
             @Override
@@ -299,6 +304,22 @@ public class DbusUserInfo6BaseLabel {
                 .process(new IntervalJoinUserInfoLabelProcessFunc())
                 .uid("process intervalJoin order info")
                 .name("process intervalJoin order info");
+
+
+        processIntervalJoinUserInfo6BaseMessageDs.map(data -> data.toJSONString())
+                        .sinkTo(
+                                KafkaUtils.buildKafkaSink(kafka_botstrap_servers,kafka_label_base6_topic)
+                        );
+
+        mapOrderInfoAndDetailModelDs.map(data -> data.toJSONString())
+                        .sinkTo(
+                                KafkaUtils.buildKafkaSink(kafka_botstrap_servers,kafka_label_base4_topic)
+                        );
+
+        mapDeviceAndSearchRateResultDs.map(data -> data.toJSONString())
+                        .sinkTo(
+                                KafkaUtils.buildKafkaSink(kafka_botstrap_servers,kafka_label_base2_topic)
+                        );
 
 
 

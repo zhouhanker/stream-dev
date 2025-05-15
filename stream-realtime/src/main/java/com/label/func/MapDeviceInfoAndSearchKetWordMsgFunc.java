@@ -1,4 +1,4 @@
-package com.retailersv1.func;
+package com.label.func;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.flink.api.common.functions.RichMapFunction;
