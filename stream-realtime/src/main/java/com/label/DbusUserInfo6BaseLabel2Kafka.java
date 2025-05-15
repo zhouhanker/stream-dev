@@ -305,6 +305,22 @@ public class DbusUserInfo6BaseLabel2Kafka {
                 .uid("process intervalJoin order info")
                 .name("process intervalJoin order info");
 
+        // 不分层代码实现 数据量计算太大，查表数据和kafka主题太多，优化数据链路，使用kafka作为中间件进行数据处理
+        /*
+        SingleOutputStreamOperator<JSONObject> filterOrderInfoAndDetail4BaseModelDs = mapOrderInfoAndDetailModelDs.filter(data -> data.getString("uid") != null && data.isEmpty());
+        SingleOutputStreamOperator<JSONObject> filterDevice2BaseModelDs = mapDeviceAndSearchRateResultDs.filter(data -> data.getString("uid") != null && data.isEmpty());
+
+        KeyedStream<JSONObject, String> keyedStreamOrderInfoAndDetail4BaseModelDs = filterOrderInfoAndDetail4BaseModelDs.keyBy(data -> data.getString("uid"));
+        KeyedStream<JSONObject, String> keyedStreamDevice2BaseModelDs = filterDevice2BaseModelDs.keyBy(data -> data.getString("uid"));*/
+
+        /*
+        keyedStreamOrderInfoAndDetail4BaseModelDs.intervalJoin(keyedStreamDevice2BaseModelDs)
+                        .between(Time.minutes(-2), Time.minutes(2))
+                                .process(new Interval4BaseJoin2BaseFunc()).print();
+                                */
+
+
+
 
         processIntervalJoinUserInfo6BaseMessageDs.map(data -> data.toJSONString())
                         .sinkTo(
@@ -324,6 +340,8 @@ public class DbusUserInfo6BaseLabel2Kafka {
         processIntervalJoinUserInfo6BaseMessageDs.print("processIntervalJoinUserInfo6BaseMessageDs: ");
         mapDeviceAndSearchRateResultDs.print("mapDeviceAndSearchRateResultDs: ");
         mapOrderInfoAndDetailModelDs.print("mapOrderInfoAndDetailModelDs: ");
+
+
 
 
 
