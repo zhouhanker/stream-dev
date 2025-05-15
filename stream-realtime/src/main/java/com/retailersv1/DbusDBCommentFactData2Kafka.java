@@ -220,6 +220,8 @@ public class DbusDBCommentFactData2Kafka {
                 KafkaUtils.buildKafkaSink(kafka_botstrap_servers, kafka_db_fact_comment_topic)
         ).uid("kafka_db_fact_comment_sink").name("kafka_db_fact_comment_sink");
 
+        suppleTimeFieldDs.print("suppleTimeFieldDs -> ");
+
 
         env.execute();
     }

@@ -72,7 +72,7 @@ public class ProcessJoinBase2And4BaseFunc extends ProcessJoinFunction<JSONObject
         result.put("ts_ms",ts_ms);
 
         String ageLevel = getAgeLevel(searchWeight, deviceWeight, payTimeWeight, b1nameWeight, tnameWeight, amountWeight);
-        result.put("ageLevel",ageLevel);
+        result.put("calculate_label_age",ageLevel);
         collector.collect(result);
 
     }

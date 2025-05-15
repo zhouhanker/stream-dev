@@ -88,6 +88,8 @@ public class DbusBanBlackListUserInfo2Kafka {
                         .uid("sink to kafka result sensitive words topic")
                         .name("sink to kafka result sensitive words topic");
 
+        secondCheckMap.print("secondCheckMap -> ");
+
 
         env.execute();
     }

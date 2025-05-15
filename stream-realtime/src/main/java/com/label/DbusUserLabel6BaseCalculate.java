@@ -29,6 +29,7 @@ public class DbusUserLabel6BaseCalculate {
     private static final String kafka_label_base6_topic = ConfigUtils.getString("kafka.result.label.base6.topic");
     private static final String kafka_label_base4_topic = ConfigUtils.getString("kafka.result.label.base4.topic");
     private static final String kafka_label_base2_topic = ConfigUtils.getString("kafka.result.label.base2.topic");
+    private static final String kafka_label_user_baseline_topic = ConfigUtils.getString("kafka.result.label.baseline.topic");
 
     @SneakyThrows
     public static void main(String[] args) {
@@ -134,6 +135,11 @@ public class DbusUserLabel6BaseCalculate {
                 .intervalJoin(mapBase6LabelDs.keyBy(o -> o.getString("uid")))
                 .between(Time.hours(-24), Time.hours(24))
                 .process(new ProcessLabelFunc());
+
+        userLabelProcessDs.map(data -> data.toJSONString())
+                        .sinkTo(
+                                KafkaUtils.buildKafkaSink(kafka_botstrap_servers,kafka_label_user_baseline_topic)
+                        );
 
 
         userLabelProcessDs.print();
