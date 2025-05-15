@@ -53,6 +53,7 @@ public class AggregateUserDataProcessFunction extends KeyedProcessFunction<Strin
         Long pv = pvState.value() == null ? 1L : pvState.value() + 1;
         pvState.update(pv);
 
+
         // 提取设备信息和搜索词
         JSONObject deviceInfo = value.getJSONObject("deviceInfo");
         String os = deviceInfo.getString("os");
@@ -79,6 +80,9 @@ public class AggregateUserDataProcessFunction extends KeyedProcessFunction<Strin
         output.put("md", String.join(",", getField("md")));
         output.put("ba", String.join(",", getField("ba")));
         output.put("search_item", String.join(",", getField("search_item")));
+        //todo
+        String tsMs = value.getString("ts");
+        output.put("ts_ms",tsMs);
 
         out.collect(output);
     }

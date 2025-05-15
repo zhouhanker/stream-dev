@@ -321,6 +321,10 @@ public class DbusUserInfo6BaseLabel2Kafka {
                                 KafkaUtils.buildKafkaSink(kafka_botstrap_servers,kafka_label_base2_topic)
                         );
 
+        processIntervalJoinUserInfo6BaseMessageDs.print("processIntervalJoinUserInfo6BaseMessageDs: ");
+        mapDeviceAndSearchRateResultDs.print("mapDeviceAndSearchRateResultDs: ");
+        mapOrderInfoAndDetailModelDs.print("mapOrderInfoAndDetailModelDs: ");
+
 
 
         env.execute("DbusUserInfo6BaseLabel");
