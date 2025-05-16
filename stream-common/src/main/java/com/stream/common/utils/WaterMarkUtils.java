@@ -32,4 +32,22 @@ public class WaterMarkUtils {
                     return record.getLong("window_start_time");
                 });
     }
+
+    public static WatermarkStrategy<String> publicAssignWatermarkStrategy(String timestampField, long maxOutOfOrderlessSeconds) {
+        return WatermarkStrategy.<String>forBoundedOutOfOrderness(Duration.ofSeconds(maxOutOfOrderlessSeconds))
+                .withTimestampAssigner((event, timestamp) -> {
+                    try {
+                        JSONObject jsonObject = JSONObject.parseObject(event);
+                        if (event != null && jsonObject.containsKey(timestampField)) {
+                            return jsonObject.getLong(timestampField);
+                        }
+                        return 0L;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        System.err.println("Failed to parse event or get field '" + timestampField + "': " + event);
+                        return 0L;
+                    }
+                });
+    }
+
 }

@@ -2,20 +2,19 @@ package com.label;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.label.func.ProcessLabelFunc;
-import com.label.func.ProcessJoinBase2And4BaseFunc;
+import com.label.func.ProcessJoinBase2AndBase4Func;
+import com.label.func.ProcessJoinBase6LabelFunc;
 import com.stream.common.utils.ConfigUtils;
 import com.stream.common.utils.EnvironmentSettingUtils;
 import com.stream.common.utils.KafkaUtils;
+import com.stream.common.utils.WaterMarkUtils;
 import lombok.SneakyThrows;
-import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
-import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
+import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.windowing.time.Time;
 
-import java.time.Duration;
 import java.util.Date;
 
 /**
@@ -43,24 +42,10 @@ public class DbusUserLabel6BaseCalculate {
                         KafkaUtils.buildKafkaSecureSource(
                                 kafka_botstrap_servers,
                                 kafka_label_base6_topic,
-                                new Date().toString(),
-                                OffsetsInitializer.earliest()
+                                new Date().toString()+"_kafkaBase6Source",
+                                OffsetsInitializer.latest()
                         ),
-                        WatermarkStrategy.<String>forBoundedOutOfOrderness(Duration.ofSeconds(3))
-                                .withTimestampAssigner((event, timestamp) -> {
-                                            JSONObject jsonObject = JSONObject.parseObject(event);
-                                            if (event != null && jsonObject.containsKey("ts_ms")){
-                                                try {
-                                                    return JSONObject.parseObject(event).getLong("ts_ms");
-                                                }catch (Exception e){
-                                                    e.printStackTrace();
-                                                    System.err.println("Failed to parse event as JSON or get ts_ms: " + event);
-                                                    return 0L;
-                                                }
-                                            }
-                                            return 0L;
-                                        }
-                                ),
+                        WaterMarkUtils.publicAssignWatermarkStrategy("ts_ms",3),
                         "kafka_label_base6_topic_source"
                 ).uid("kafka_base6_source")
                 .name("kafka_base6_source");
@@ -69,24 +54,10 @@ public class DbusUserLabel6BaseCalculate {
                         KafkaUtils.buildKafkaSecureSource(
                                 kafka_botstrap_servers,
                                 kafka_label_base4_topic,
-                                new Date().toString(),
+                                new Date().toString()+"_kafkaBase4Source",
                                 OffsetsInitializer.earliest()
                         ),
-                        WatermarkStrategy.<String>forBoundedOutOfOrderness(Duration.ofSeconds(3))
-                                .withTimestampAssigner((event, timestamp) -> {
-                                            JSONObject jsonObject = JSONObject.parseObject(event);
-                                            if (event != null && jsonObject.containsKey("ts_ms")){
-                                                try {
-                                                    return JSONObject.parseObject(event).getLong("ts_ms");
-                                                }catch (Exception e){
-                                                    e.printStackTrace();
-                                                    System.err.println("Failed to parse event as JSON or get ts_ms: " + event);
-                                                    return 0L;
-                                                }
-                                            }
-                                            return 0L;
-                                        }
-                                ),
+                        WaterMarkUtils.publicAssignWatermarkStrategy("ts_ms",3),
                         "kafka_label_base4_topic_source"
                 ).uid("kafka_base4_source")
                 .name("kafka_base4_source");
@@ -95,24 +66,10 @@ public class DbusUserLabel6BaseCalculate {
                         KafkaUtils.buildKafkaSecureSource(
                                 kafka_botstrap_servers,
                                 kafka_label_base2_topic,
-                                new Date().toString(),
+                                new Date().toString()+"_kafkaBase2Source",
                                 OffsetsInitializer.earliest()
                         ),
-                        WatermarkStrategy.<String>forBoundedOutOfOrderness(Duration.ofSeconds(3))
-                                .withTimestampAssigner((event, timestamp) -> {
-                                            JSONObject jsonObject = JSONObject.parseObject(event);
-                                            if (event != null && jsonObject.containsKey("ts_ms")){
-                                                try {
-                                                    return JSONObject.parseObject(event).getLong("ts_ms");
-                                                }catch (Exception e){
-                                                    e.printStackTrace();
-                                                    System.err.println("Failed to parse event as JSON or get ts_ms: " + event);
-                                                    return 0L;
-                                                }
-                                            }
-                                            return 0L;
-                                        }
-                                ),
+                        WaterMarkUtils.publicAssignWatermarkStrategy("ts_ms",3),
                         "kafka_label_base2_topic_source"
                 ).uid("kafka_base2_source")
                 .name("kafka_base2_source");
@@ -122,27 +79,31 @@ public class DbusUserLabel6BaseCalculate {
         SingleOutputStreamOperator<JSONObject> mapBase2LabelDs = kafkaBase2Source.map(JSON::parseObject);
 
 
-        SingleOutputStreamOperator<JSONObject> join2_4Ds = mapBase2LabelDs.keyBy(o -> o.getString("uid"))
-                .intervalJoin(mapBase4LabelDs.keyBy(o -> o.getString("uid")))
-                .between(Time.hours(-24), Time.hours(24))
-                .process(new ProcessJoinBase2And4BaseFunc());
+        KeyedStream<JSONObject, String> keyedStreamBase2LabelDs = mapBase2LabelDs.keyBy(data -> data.getString("uid"));
+        KeyedStream<JSONObject, String> keyedStreamBase4LabelDs = mapBase4LabelDs.keyBy(data -> data.getString("uid"));
+        KeyedStream<JSONObject, String> keyedStreamBase6LabelDs = mapBase6LabelDs.keyBy(data -> data.getString("uid"));
 
-        SingleOutputStreamOperator<JSONObject> waterJoin2_4 = join2_4Ds.assignTimestampsAndWatermarks(
-                WatermarkStrategy.<JSONObject>forBoundedOutOfOrderness(Duration.ofSeconds(5))
-                .withTimestampAssigner((SerializableTimestampAssigner<JSONObject>) (jsonObject, l) -> jsonObject.getLongValue("ts_ms")));
-
-        SingleOutputStreamOperator<JSONObject> userLabelProcessDs = waterJoin2_4.keyBy(o -> o.getString("uid"))
-                .intervalJoin(mapBase6LabelDs.keyBy(o -> o.getString("uid")))
-                .between(Time.hours(-24), Time.hours(24))
-                .process(new ProcessLabelFunc());
-
-        userLabelProcessDs.map(data -> data.toJSONString())
-                        .sinkTo(
-                                KafkaUtils.buildKafkaSink(kafka_botstrap_servers,kafka_label_user_baseline_topic)
-                        );
+        SingleOutputStreamOperator<JSONObject> processJoinBase2AndBase4LabelDs = keyedStreamBase2LabelDs.intervalJoin(keyedStreamBase4LabelDs)
+                .between(Time.hours(-1), Time.hours(1))
+                .process(new ProcessJoinBase2AndBase4Func());
 
 
-        userLabelProcessDs.print();
+        KeyedStream<JSONObject, String> keyedStreamJoinBase2AndBase4LabelDs = processJoinBase2AndBase4LabelDs.keyBy(data -> data.getString("uid"));
+
+
+        SingleOutputStreamOperator<JSONObject> processUserLabelDs = keyedStreamJoinBase2AndBase4LabelDs.intervalJoin(keyedStreamBase6LabelDs)
+                .between(Time.hours(-1), Time.hours(1))
+                .process(new ProcessJoinBase6LabelFunc());
+
+
+        processUserLabelDs.map(data -> data.toJSONString())
+                .sinkTo(
+                        KafkaUtils.buildKafkaSink(kafka_botstrap_servers,kafka_label_user_baseline_topic)
+                );
+
+        processUserLabelDs.print("processUserLabelDs -> ");
+
+
 
 
         env.execute();

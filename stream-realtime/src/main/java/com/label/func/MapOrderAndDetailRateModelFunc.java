@@ -158,6 +158,7 @@ public class MapOrderAndDetailRateModelFunc extends RichMapFunction<JSONObject,J
             jsonObject.put("amount_35-39", round(0.3 * amountRate));
             jsonObject.put("amount_40-49", round(0.2 * amountRate));
             jsonObject.put("amount_50",    round(0.1 * amountRate));
+            jsonObject.put("spending_pow", "低消费");
         }else if (totalAmount > 1000 && totalAmount < 4000){
             jsonObject.put("amount_18-24", round(0.2 * amountRate));
             jsonObject.put("amount_25-29", round(0.4 * amountRate));
@@ -165,6 +166,7 @@ public class MapOrderAndDetailRateModelFunc extends RichMapFunction<JSONObject,J
             jsonObject.put("amount_35-39", round(0.7 * amountRate));
             jsonObject.put("amount_40-49", round(0.8 * amountRate));
             jsonObject.put("amount_50",    round(0.7 * amountRate));
+            jsonObject.put("spending_pow", "中消费");
         }else {
             jsonObject.put("amount_18-24", round(0.1 * amountRate));
             jsonObject.put("amount_25-29", round(0.2 * amountRate));
@@ -172,6 +174,7 @@ public class MapOrderAndDetailRateModelFunc extends RichMapFunction<JSONObject,J
             jsonObject.put("amount_35-39", round(0.4 * amountRate));
             jsonObject.put("amount_40-49", round(0.5 * amountRate));
             jsonObject.put("amount_50",    round(0.6 * amountRate));
+            jsonObject.put("spending_pow", "高消费");
         }
 
 
