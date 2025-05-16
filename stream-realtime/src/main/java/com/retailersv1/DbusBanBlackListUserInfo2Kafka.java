@@ -44,7 +44,7 @@ public class DbusBanBlackListUserInfo2Kafka {
                         kafka_botstrap_servers,
                         kafka_db_fact_comment_topic,
                         new Date().toString(),
-                        OffsetsInitializer.earliest()
+                        OffsetsInitializer.latest()
                 ),
                 WatermarkStrategy.noWatermarks(),
                 "kafka_cdc_db_source"

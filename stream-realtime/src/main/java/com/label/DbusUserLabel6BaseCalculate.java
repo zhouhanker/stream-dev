@@ -42,8 +42,8 @@ public class DbusUserLabel6BaseCalculate {
                         KafkaUtils.buildKafkaSecureSource(
                                 kafka_botstrap_servers,
                                 kafka_label_base6_topic,
-                                new Date().toString()+"_kafkaBase6Source",
-                                OffsetsInitializer.latest()
+                                new Date()+"_kafkaBase6Source",
+                                OffsetsInitializer.earliest()
                         ),
                         WaterMarkUtils.publicAssignWatermarkStrategy("ts_ms",3),
                         "kafka_label_base6_topic_source"
@@ -54,7 +54,7 @@ public class DbusUserLabel6BaseCalculate {
                         KafkaUtils.buildKafkaSecureSource(
                                 kafka_botstrap_servers,
                                 kafka_label_base4_topic,
-                                new Date().toString()+"_kafkaBase4Source",
+                                new Date()+"_kafkaBase4Source",
                                 OffsetsInitializer.earliest()
                         ),
                         WaterMarkUtils.publicAssignWatermarkStrategy("ts_ms",3),
@@ -66,7 +66,7 @@ public class DbusUserLabel6BaseCalculate {
                         KafkaUtils.buildKafkaSecureSource(
                                 kafka_botstrap_servers,
                                 kafka_label_base2_topic,
-                                new Date().toString()+"_kafkaBase2Source",
+                                new Date()+"_kafkaBase2Source",
                                 OffsetsInitializer.earliest()
                         ),
                         WaterMarkUtils.publicAssignWatermarkStrategy("ts_ms",3),

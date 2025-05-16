@@ -1,9 +1,11 @@
 package com.label.func;
 
 import com.alibaba.fastjson.JSONObject;
+import com.stream.common.utils.DateTimeUtils;
 import org.apache.flink.streaming.api.functions.co.ProcessJoinFunction;
 import org.apache.flink.util.Collector;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -77,6 +79,7 @@ public class ProcessJoinBase6LabelFunc extends ProcessJoinFunction<JSONObject,JS
         supResult.put("sku_id",value1.getString("sku_id"));
         result.put("sup_info_message",supResult);
         result.put("user_calculate_label",resultCalcu);
+        result.put("ds", DateTimeUtils.format(new Date(value1.getLong("ts_ms")), "yyyyMMdd"));
 
 
         collector.collect(result);
