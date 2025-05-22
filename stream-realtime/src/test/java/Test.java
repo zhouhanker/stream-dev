@@ -4,6 +4,7 @@ import lombok.SneakyThrows;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -13,14 +14,21 @@ import java.util.Date;
  * @description:
  */
 public class Test {
-    @SneakyThrows
+    // 给定一个int 数组，和一个int 值，返回该值在数组中的下标
+
     public static void main(String[] args) {
-        StreamExecutionEnvironment env = FlinkEnvUtils.getFlinkRuntimeEnv();
-        DataStreamSource<String> dataStreamSource = env.socketTextStream("127.0.0.1", 9999);
-        dataStreamSource.print();
-        System.err.println(env.getConfig());
+
+        int num = 4;
+        int[] ints = new int[]{1,3,4,3,5};
+        System.err.println(Arrays.binarySearch(ints, num));
 
 
-        env.execute();
     }
+
+
+    public static int findIndexOfArr(int[] arr, int num){
+
+        return  -1;
+    }
+
 }
