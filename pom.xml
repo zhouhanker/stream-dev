@@ -13,6 +13,7 @@
         <module>stream-realtime</module>
         <module>custom-func</module>
         <module>stream-deploy</module>
+        <module>stream-ml</module>
     </modules>
 
     <properties>

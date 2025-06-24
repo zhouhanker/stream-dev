@@ -21,7 +21,7 @@ import java.util.Date;
  * @Package com.label.DbusUserLabel6BaseCalculate
  * @Author zhou.han
  * @Date 2025/5/15 15:32
- * @description:
+ * @description: Task 02
  */
 public class DbusUserLabel6BaseCalculate {
     private static final String kafka_botstrap_servers = ConfigUtils.getString("kafka.bootstrap.servers");
@@ -84,7 +84,7 @@ public class DbusUserLabel6BaseCalculate {
         KeyedStream<JSONObject, String> keyedStreamBase6LabelDs = mapBase6LabelDs.keyBy(data -> data.getString("uid"));
 
         SingleOutputStreamOperator<JSONObject> processJoinBase2AndBase4LabelDs = keyedStreamBase2LabelDs.intervalJoin(keyedStreamBase4LabelDs)
-                .between(Time.hours(-1), Time.hours(1))
+                .between(Time.hours(-6), Time.hours(6))
                 .process(new ProcessJoinBase2AndBase4Func());
 
 
@@ -92,7 +92,7 @@ public class DbusUserLabel6BaseCalculate {
 
 
         SingleOutputStreamOperator<JSONObject> processUserLabelDs = keyedStreamJoinBase2AndBase4LabelDs.intervalJoin(keyedStreamBase6LabelDs)
-                .between(Time.hours(-1), Time.hours(1))
+                .between(Time.hours(-6), Time.hours(6))
                 .process(new ProcessJoinBase6LabelFunc());
 
 

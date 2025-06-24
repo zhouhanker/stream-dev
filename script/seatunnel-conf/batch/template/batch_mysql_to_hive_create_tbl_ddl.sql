@@ -20,7 +20,7 @@ LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_insurance_ws/dim_area/'
 TBLPROPERTIES (
     'orc.compress' = 'SNAPPY',
     'external.table.purge' = 'true'
-    );
+);
 
 -- check
 SHOW PARTITIONS bigdata_insurance_ws.dim_area;
