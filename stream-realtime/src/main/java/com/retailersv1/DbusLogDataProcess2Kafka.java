@@ -70,7 +70,7 @@ public class DbusLogDataProcess2Kafka {
                         kafka_botstrap_servers,
                         kafka_topic_base_log_data,
                         new Date().toString(),
-                        OffsetsInitializer.earliest()
+                        OffsetsInitializer.latest()
                 ),
                 WatermarkStrategy.noWatermarks(),
                 "read_kafka_realtime_log"

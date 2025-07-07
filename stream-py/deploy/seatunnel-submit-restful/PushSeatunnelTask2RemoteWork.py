@@ -76,6 +76,7 @@ def submit_seatunnel_restful_v2_job(config_path, host='http://cdh03:14321/submit
 
 
 if __name__ == '__main__':
-    batch_oracle19c_to_hive_tbl_dwm_ca_xw_contract_add_day_t_path = '../../../script/seatunnel-conf/batch/bigdata_financial_leasing_ws/batch_oracle19c_to_hive_tbl_dwm_ca_xw_contract_add_day_t.conf'
-    batch_oracle19c_to_hive_tbl_dwm_ca_xw_contract_add_day_t_path_template = '../../../script/seatunnel-conf/batch/template/batch_sync_oracle19c_to_hive.conf'
-    submit_seatunnel_restful_v2_job(batch_oracle19c_to_hive_tbl_dwm_ca_xw_contract_add_day_t_path_template, job_name='tbl_dwm_ca_xw_contract_add_day_t_template')
+    # sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_info_tbl_conf = '../../../script/seatunnel-conf/batch/bigdata_offline_ws/sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_info_tbl.conf'
+    sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule_tbl_conf = '../../../script/seatunnel-conf/batch/bigdata_offline_ws/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_dic_tbl.conf'
+
+    submit_seatunnel_restful_v2_job(sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule_tbl_conf, job_name='sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_info_tbl')

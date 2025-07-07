@@ -64,7 +64,7 @@ public class DbusDBCommentFactData2Kafka {
                         kafka_botstrap_servers,
                         kafka_cdc_db_topic,
                         new Date().toString(),
-                        OffsetsInitializer.earliest()
+                        OffsetsInitializer.latest()
                 ),
                 WatermarkStrategy.<String>forBoundedOutOfOrderness(Duration.ofSeconds(3))
                         .withTimestampAssigner((event, timestamp) -> {
@@ -82,6 +82,8 @@ public class DbusDBCommentFactData2Kafka {
                         ),
                 "kafka_cdc_db_source"
         ).uid("kafka_cdc_db_source").name("kafka_cdc_db_source");
+
+        kafkaCdcDbSource.print("kafkaCdcDbSource -> :");
 
         // 订单主表
         // {"op":"c","after":{"payment_way":"3501","consignee":"窦先敬","create_time":1746660084000,"refundable_time":1747264884000,"original_total_amount":"6499.00","coupon_reduce_amount":"0.00","order_status":"1001","out_trade_no":"929361421194788","total_amount":"5999.00","user_id":184,"province_id":23,"consignee_tel":"13879332785","trade_body":"小米12S Ultra 骁龙8+旗舰处理器 徕卡光学镜头 2K超视感屏 120Hz高刷 67W快充 12GB+256GB 经典黑 5G手机等1件商品","id":1123,"activity_reduce_amount":"500.00"},"source":{"file":"mysql-bin.000004","connector":"mysql","pos":31381479,"name":"mysql_binlog_source","thread":20265,"row":0,"server_id":1,"version":"1.9.7.Final","ts_ms":1746596800000,"snapshot":"false","db":"realtime_v1","table":"order_info"},"ts_ms":1746596800483}

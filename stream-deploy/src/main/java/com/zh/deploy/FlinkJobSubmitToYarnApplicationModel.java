@@ -46,7 +46,7 @@ public class FlinkJobSubmitToYarnApplicationModel {
 
         String fullClassName = "com.retailersv1.DbusCdc2DimHbaseAnd2DbKafka";
         DeployFlinkUtils.preparationEnvUploadJars(true,fullClassName);
-        // RestFul
+        // RestFul API
         SubFlinkTask(
                 FLINK_SUBMIT_USER,
                 FLINK_COMMON_CONF_DIR,

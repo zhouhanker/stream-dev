@@ -25,20 +25,8 @@ import java.util.List;
 public class Test {
     @SneakyThrows
     public static void main(String[] args) {
-
-        System.setProperty("HADOOP_USER_NAME","root");
-
-        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        EnvironmentSettingUtils.defaultParameter(env);
-
-        DataStreamSource<String> dataStreamSource = env.socketTextStream("cdh03", 15455);
-
-        dataStreamSource.print();
-
-
-
-
-        env.execute();
+        String kafka_botstrap_servers = ConfigUtils.getString("kafka.bootstrap.servers");
+        System.err.println(kafka_botstrap_servers);
     }
 
 }

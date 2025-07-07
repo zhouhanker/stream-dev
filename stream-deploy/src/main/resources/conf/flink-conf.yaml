@@ -22,6 +22,7 @@ execution.checkpointing.interval: 300s
 stage.backend: rocksdb
 stage.checkpoints.dir: hdfs://cdh01:8020/flink-point/ck
 stage.backend.incremental: true
+rest.flamegraph.enabled: true
 
 # S3 20250407 Add
 s3.path.style.access: true

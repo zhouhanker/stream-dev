@@ -26,3 +26,6 @@ sqlalchemy~=2.0.40
 retrying~=1.3.4
 javaproperties~=0.8.2
 pyspark~=3.5.0
+drissionpage~=4.1.0.18
+lxml~=6.0.0
+psutil~=7.0.0

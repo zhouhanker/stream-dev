@@ -4,6 +4,7 @@ import json
 import random
 import logging
 import sys
+import time
 
 from retrying import retry
 from typing import Dict
@@ -27,7 +28,7 @@ logger = logging.getLogger(__name__)
 # 重试配置（可调整参数）
 RETRY_MAX_ATTEMPTS = 3
 RETRY_WAIT_FIXED = 2000
-num_processes = 3
+num_processes = 4
 properties = public_func.get_java_properties()
 
 db_config = {
@@ -93,7 +94,7 @@ class SpiderCHNAmapWeatherData:
         failed_cities = []
 
         insert_sql = """
-            INSERT INTO spider_amap_weather_data_dtl 
+            INSERT INTO dev.spider_amap_weather_data_dtl 
             (code, province, city, area, info, lives, report_time)
             VALUES (:code, :province, :city, :area, :info, :lives, :report_time)
                     """

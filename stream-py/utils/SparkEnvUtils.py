@@ -33,6 +33,7 @@ class SparkEnv:
 				.appName(self.app_name)
 			for k, v in self.configs.items():
 				spark_builder = spark_builder.config(k, v)
+			spark_builder.enableHiveSupport()
 			self.spark = spark_builder.getOrCreate()
 			self.sc = self.spark.sparkContext
 			self.logger.info(f"Spark环境初始化成功，应用名称: {self.app_name}")

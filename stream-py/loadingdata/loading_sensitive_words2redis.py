@@ -5,6 +5,8 @@ import redis
 from minio import Minio
 from loguru import logger
 
+import public_func
+
 minio_endpoint = "10.160.60.17:9000"
 minio_secure = False
 minio_access_key = 'X7pljEi3steavVn5h3z3'
@@ -85,13 +87,21 @@ def sink_sensitive_words_to_redis():
         # 统计信息
         total_time = time.time() - start_time
         logger.info(f"同步完成！共处理 {len(words)} 个原始词条，入库 {processed_count} 个敏感词，总耗时 {total_time:.2f}秒")
-
+        push_msg = {
+            "platform": 'sync_minio_to_redis_sensitive',
+            "context": 'loading_sensitive_words2redis.py',
+            "total_time": f"{total_time:.2f}",
+            "success_count": f"{processed_count}",
+            "fail_count": 0,
+            "failed_cities": None
+        }
+        public_func.push_feishu_msg(push_msg)
         return True
 
     except Exception as e:
         logger.error("敏感词同步失败！", exc_info=True)
         print(e)
-        raise  # 根据业务需求决定是否重新抛出异常
+        raise
 
 
 def is_sensitive(word_keys):

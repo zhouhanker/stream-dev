@@ -1,6 +1,10 @@
 import com.stream.common.utils.ConfigUtils;
 import com.stream.common.utils.FlinkEnvUtils;
 import lombok.SneakyThrows;
+import org.apache.flink.connector.file.sink.FileSink;
+import org.apache.flink.core.fs.Path;
+import org.apache.flink.orc.OrcFileFormatFactory;
+import org.apache.flink.orc.writer.OrcBulkWriterFactory;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
