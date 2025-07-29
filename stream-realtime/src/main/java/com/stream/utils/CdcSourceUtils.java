@@ -5,6 +5,7 @@ import com.ververica.cdc.connectors.mysql.source.MySqlSource;
 import com.ververica.cdc.connectors.mysql.table.StartupOptions;
 import com.ververica.cdc.debezium.JsonDebeziumDeserializationSchema;
 
+import java.time.Duration;
 import java.util.Properties;
 
 /**
@@ -20,6 +21,8 @@ public class CdcSourceUtils {
         debeziumProperties.setProperty("database.connectionCharset", "UTF-8");
         debeziumProperties.setProperty("decimal.handling.mode","string");
         debeziumProperties.setProperty("time.precision.mode","connect");
+        debeziumProperties.setProperty("snapshot.mode", "schema_only");
+        debeziumProperties.setProperty("include.schema.changes", "false");
         debeziumProperties.setProperty("database.connectionTimeZone", "Asia/Shanghai");
         return  MySqlSource.<String>builder()
                 .hostname(ConfigUtils.getString("mysql.host"))
@@ -28,7 +31,8 @@ public class CdcSourceUtils {
                 .tableList(table)
                 .username(username)
                 .password(pwd)
-//                .connectionTimeZone(ConfigUtils.getString("mysql.timezone"))
+                .serverId("5403-5450")
+//                .connectionTimeZone(ConfigUtils.getString("mysql.timezone"))、
                 .deserializer(new JsonDebeziumDeserializationSchema())
                 .startupOptions(model)
                 .includeSchemaChanges(true)

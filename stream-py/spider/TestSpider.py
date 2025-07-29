@@ -1,7 +1,5 @@
-import random
+import pyodbc
 
-if __name__ == '__main__':
-    s = 'lululemon丨Groove Nulu™ 女士超高腰喇叭裤 芯吸 LW5FIXA 浓缩咖啡色 XS'
-    print(s.split(' ')[::-1])
-
-
+# 获取所有可用的 ODBC 驱动
+drivers = [x for x in pyodbc.drivers() if x.startswith('ODBC Driver')]
+print(drivers)

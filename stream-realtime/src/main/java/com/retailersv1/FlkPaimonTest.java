@@ -28,7 +28,7 @@ public class FlkPaimonTest {
         PaimonMinioUtils.ExecCreateMinioCatalogAndDatabases(tenv,"minio_paimon_catalog","realtime_v2");
 
 
-        tenv.executeSql("select * from realtime_v2.res_cart_info_tle where ds in (20250507,20250506) ").print();
+        tenv.executeSql("select * from realtime_v2.res_cart_info_tle where ds = '20250506' ").print();
 
     }
 }

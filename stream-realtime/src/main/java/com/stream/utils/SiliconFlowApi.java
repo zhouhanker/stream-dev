@@ -108,7 +108,7 @@ public class SiliconFlowApi {
     public static void main(String[] args) {
         // 测试用例（需要有效token）
         String result = generateBadReview(
-                "给出一个电商差评，攻击性拉满，使用脏话，20字数以内，不需要思考过程",
+                "`河南省驻马店市西平县盆尧镇盆尧十字街朱思玉15286869504` 解析上述字符串，解析出姓名，和手机号码，地址，不需要思考过程，直接返回",
                 SILICON_API_TOKEN
         );
         System.out.println("生成结果: " + result);

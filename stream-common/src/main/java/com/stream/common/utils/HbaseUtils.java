@@ -215,7 +215,7 @@ public class HbaseUtils {
         HbaseUtils hbaseUtils = new HbaseUtils("cdh01,cdh02,cdh03");
 //        hbaseUtils.dropHbaseNameSpace("GMALL_FLINK_2207");
 //        System.err.println(hbaseUtils.tableIsExists("realtime_v2:dim_user_info"));
-        hbaseUtils.deleteTable("ns_chenming:dim_activity_info");
+        hbaseUtils.deleteTable("ns_zxn:dim_base_category1");
 //        hbaseUtils.getHbaseNameSpaceAllTablesList("realtime_v2");
     }
 }

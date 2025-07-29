@@ -1,0 +1,1228 @@
+2025-07-10 10:02:23,276 - ERROR - bucket advertisement-data don't exists ! 
+2025-07-10 10:06:11,425 - ERROR - bucket advertisement-data don't exists ! 
+2025-07-10 10:06:11,428 - INFO - 发现文件: algorithm/10, 大小: 786.11 MB
+2025-07-10 10:06:11,428 - INFO - 发现文件: algorithm/2, 大小: 788.16 MB
+2025-07-10 10:07:20,550 - INFO - 发现文件: algorithm/10, 大小: 786.11 MB
+2025-07-10 10:07:20,550 - INFO - 发现文件: algorithm/2, 大小: 788.16 MB
+2025-07-10 10:07:41,280 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-10 10:07:41,281 - INFO - scan file: algorithm/2, size: 788.16 MB
+2025-07-10 10:09:25,149 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-10 10:09:25,149 - INFO - exec: algorithm/10
+2025-07-10 10:09:25,149 - INFO - scan file: algorithm/2, size: 788.16 MB
+2025-07-10 10:09:25,149 - INFO - exec: algorithm/2
+2025-07-10 10:12:49,470 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-10 10:12:49,470 - INFO - exec: algorithm/10
+2025-07-10 10:12:49,470 - INFO - scan file: algorithm/2, size: 788.16 MB
+2025-07-10 10:12:49,470 - INFO - exec: algorithm/2
+2025-07-10 10:22:11,666 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-10 10:22:11,666 - INFO - exec: algorithm/10
+2025-07-10 10:24:06,931 - INFO - 文件处理完成: algorithm/10
+2025-07-10 10:24:06,931 - INFO - 耗时: 115.26秒
+2025-07-10 10:24:06,931 - INFO - scan file: algorithm/2, size: 788.16 MB
+2025-07-10 10:24:06,931 - INFO - exec: algorithm/2
+2025-07-10 10:25:42,178 - INFO - 文件处理完成: algorithm/2
+2025-07-10 10:25:42,178 - INFO - 耗时: 95.25秒
+2025-07-10 11:19:54,660 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-10 11:19:54,661 - INFO - exec: algorithm/10
+2025-07-10 11:21:51,023 - INFO - 文件处理完成: algorithm/10
+2025-07-10 11:21:51,023 - INFO - 耗时: 116.36秒
+2025-07-10 11:21:51,023 - INFO - scan file: algorithm/2, size: 788.16 MB
+2025-07-10 11:21:51,023 - INFO - exec: algorithm/2
+2025-07-10 11:23:14,350 - INFO - 文件处理完成: algorithm/2
+2025-07-10 11:23:14,350 - INFO - 耗时: 83.33秒
+2025-07-10 11:27:17,823 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-10 11:27:17,823 - INFO - exec: algorithm/10
+2025-07-10 11:28:44,234 - INFO - 文件处理完成: algorithm/10
+2025-07-10 11:28:44,234 - INFO - 耗时: 86.41秒
+2025-07-10 11:28:44,234 - INFO - scan file: algorithm/2, size: 788.16 MB
+2025-07-10 11:28:44,234 - INFO - exec: algorithm/2
+2025-07-10 11:30:16,952 - INFO - 文件处理完成: algorithm/2
+2025-07-10 11:30:16,952 - INFO - 耗时: 92.72秒
+2025-07-10 11:33:09,680 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-10 11:33:09,680 - INFO - exec: algorithm/10
+2025-07-10 11:34:39,007 - INFO - 文件处理完成: algorithm/10
+2025-07-10 11:34:39,007 - INFO - 耗时: 89.33秒
+2025-07-10 11:34:39,007 - INFO - scan file: algorithm/2, size: 788.16 MB
+2025-07-10 11:34:39,007 - INFO - exec: algorithm/2
+2025-07-10 11:36:12,001 - INFO - 文件处理完成: algorithm/2
+2025-07-10 11:36:12,001 - INFO - 耗时: 92.99秒
+2025-07-10 11:43:05,873 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-10 11:43:05,873 - INFO - exec: algorithm/10
+2025-07-10 11:43:36,506 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-10 11:43:36,506 - INFO - exec: algorithm/10
+2025-07-10 11:49:18,407 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-10 11:49:18,408 - INFO - exec: algorithm/10
+2025-07-10 11:52:32,199 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-10 11:52:32,200 - INFO - exec: algorithm/10
+2025-07-10 14:55:36,272 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-10 14:55:36,272 - INFO - exec: algorithm/10
+2025-07-10 16:29:39,771 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-10 16:30:55,745 - INFO - 文件处理完成: algorithm/10
+2025-07-10 16:30:55,748 - INFO - scan file: algorithm/2, size: 788.16 MB
+2025-07-10 16:32:18,967 - INFO - 文件处理完成: algorithm/2
+2025-07-10 16:32:18,970 - INFO - 共解析 1374150 条记录
+2025-07-10 16:32:19,028 - ERROR - 发生未知错误: 错误:  对于可变字符类型来说，值太长了(10)
+
+2025-07-10 16:36:12,992 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-10 16:38:10,476 - INFO - 文件处理完成: algorithm/10
+2025-07-10 16:38:10,476 - INFO - scan file: algorithm/2, size: 788.16 MB
+2025-07-10 16:39:30,899 - INFO - 文件处理完成: algorithm/2
+2025-07-10 16:39:30,899 - INFO - 共解析 1374150 条记录
+2025-07-10 16:39:57,077 - ERROR - 发生未知错误: connection already closed
+2025-07-10 16:40:35,273 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-10 16:41:54,632 - INFO - 文件处理完成: algorithm/10
+2025-07-10 16:41:54,632 - INFO - scan file: algorithm/2, size: 788.16 MB
+2025-07-10 16:43:12,073 - INFO - 文件处理完成: algorithm/2
+2025-07-10 16:43:12,074 - INFO - 共解析 1374150 条记录
+2025-07-10 16:43:35,839 - ERROR - 发生未知错误: 错误:  对于可变字符类型来说，值太长了(255)
+
+2025-07-11 09:46:47,187 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-11 09:48:02,835 - INFO - 文件处理完成: algorithm/10
+2025-07-11 09:48:02,836 - INFO - scan file: algorithm/2, size: 788.16 MB
+2025-07-11 09:49:22,790 - INFO - 文件处理完成: algorithm/2
+2025-07-11 09:49:22,793 - INFO - 共解析 1374150 条记录
+2025-07-11 09:50:44,960 - INFO - ===== 汇总结果 =====
+2025-07-11 09:50:44,962 - INFO - 总耗时: 82.17 秒
+2025-07-11 09:50:44,963 - INFO - 总处理文件数: 2
+2025-07-11 09:50:44,963 - INFO - 总插入记录数: 1374150
+2025-07-11 09:50:44,963 - INFO - 平均插入速度: 16723.83 条/秒
+2025-07-11 09:50:44,963 - INFO - ===================
+2025-07-11 09:59:35,001 - INFO - scan file: algorithm/10, size: 786.11 MB
+2025-07-11 10:00:56,351 - INFO - 文件处理完成: algorithm/10
+2025-07-11 10:00:56,352 - INFO - scan file: algorithm/2, size: 788.16 MB
+2025-07-11 10:02:17,388 - INFO - 文件处理完成: algorithm/2
+2025-07-11 10:02:17,388 - INFO - 共解析 1374150 条记录
+2025-07-11 10:03:19,367 - INFO - ===== 汇总结果 =====
+2025-07-11 10:03:19,369 - INFO - 总耗时: 61.98 秒
+2025-07-11 10:03:19,369 - INFO - 总处理文件数: 2
+2025-07-11 10:03:19,369 - INFO - 总插入记录数: 1374150
+2025-07-11 10:03:19,369 - INFO - 平均插入速度: 22171.32 条/秒
+2025-07-11 10:03:19,369 - INFO - ===================
+2025-07-14 15:47:24,866 - INFO - 成功插入 6 条记录到 public.logs_user_info_message
+2025-07-14 16:02:59,457 - INFO - 成功插入 387 条记录到 public.logs_user_info_message
+2025-07-14 16:10:32,362 - INFO - 成功插入 421 条记录到 public.logs_user_info_message
+2025-07-14 16:52:51,437 - INFO - 成功插入 410 条记录到 public.logs_user_info_message
+2025-07-14 17:22:05,186 - INFO - 成功插入 365 条记录到 public.logs_user_info_message
+2025-07-14 17:22:27,483 - INFO - 成功插入 360 条记录到 public.logs_user_info_message
+2025-07-14 17:22:27,496 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh01:9092 <connecting> [IPv4 ('10.160.60.11', 9092)]>: connecting to cdh01:9092 [('10.160.60.11', 9092) IPv4]
+2025-07-14 17:22:27,501 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh01:9092 <checking_api_versions_recv> [IPv4 ('10.160.60.11', 9092)]>: Broker version identified as 2.2
+2025-07-14 17:22:27,501 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Connection complete.
+2025-07-14 17:22:27,617 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connecting> [IPv4 ('10.160.60.13', 9092)]>: connecting to cdh03:9092 [('10.160.60.13', 9092) IPv4]
+2025-07-14 17:22:27,618 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Connection complete.
+2025-07-14 17:22:27,618 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Closing connection. 
+2025-07-14 17:22:27,641 - WARNING - Topic realtime_v3_logs is not available during auto-create initialization
+2025-07-14 17:22:27,903 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connecting> [IPv4 ('10.160.60.11', 9092)]>: connecting to cdh01:9092 [('10.160.60.11', 9092) IPv4]
+2025-07-14 17:22:27,996 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Connection complete.
+2025-07-14 17:22:28,014 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connecting> [IPv4 ('10.160.60.12', 9092)]>: connecting to cdh02:9092 [('10.160.60.12', 9092) IPv4]
+2025-07-14 17:22:28,014 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connected> [IPv4 ('10.160.60.12', 9092)]>: Connection complete.
+2025-07-14 17:22:29,229 - INFO - Kafka发送完成 - 总条数: 360, 成功: 360, 失败: 0
+2025-07-14 17:22:29,229 - INFO - <KafkaProducer client_id=kafka-python-producer-1 transactional_id=None>: Closing the Kafka producer with 9223372036.0 secs timeout.
+2025-07-14 17:22:29,229 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Closing connection. 
+2025-07-14 17:22:29,229 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Closing connection. 
+2025-07-14 17:22:29,230 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connected> [IPv4 ('10.160.60.12', 9092)]>: Closing connection. 
+2025-07-14 17:27:12,985 - INFO - 成功插入 331 条记录到 public.logs_user_info_message
+2025-07-14 17:27:12,994 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh03:9092 <connecting> [IPv4 ('10.160.60.13', 9092)]>: connecting to cdh03:9092 [('10.160.60.13', 9092) IPv4]
+2025-07-14 17:27:12,997 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh03:9092 <checking_api_versions_recv> [IPv4 ('10.160.60.13', 9092)]>: Broker version identified as 2.2
+2025-07-14 17:27:12,997 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Connection complete.
+2025-07-14 17:27:13,111 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connecting> [IPv4 ('10.160.60.12', 9092)]>: connecting to cdh02:9092 [('10.160.60.12', 9092) IPv4]
+2025-07-14 17:27:13,113 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connected> [IPv4 ('10.160.60.12', 9092)]>: Connection complete.
+2025-07-14 17:27:13,113 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Closing connection. 
+2025-07-14 17:27:13,136 - WARNING - Topic realtime_v3_logs is not available during auto-create initialization
+2025-07-14 17:27:13,245 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connecting> [IPv4 ('10.160.60.13', 9092)]>: connecting to cdh03:9092 [('10.160.60.13', 9092) IPv4]
+2025-07-14 17:27:13,247 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Connection complete.
+2025-07-14 17:27:13,551 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connecting> [IPv4 ('10.160.60.11', 9092)]>: connecting to cdh01:9092 [('10.160.60.11', 9092) IPv4]
+2025-07-14 17:27:13,573 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Connection complete.
+2025-07-14 17:27:15,041 - INFO - Kafka发送完成 - 总条数: 331, 成功: 331, 失败: 0
+2025-07-14 17:27:15,041 - INFO - <KafkaProducer client_id=kafka-python-producer-1 transactional_id=None>: Closing the Kafka producer with 9223372036.0 secs timeout.
+2025-07-14 17:27:15,042 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connected> [IPv4 ('10.160.60.12', 9092)]>: Closing connection. 
+2025-07-14 17:27:15,042 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Closing connection. 
+2025-07-14 17:27:15,043 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Closing connection. 
+2025-07-14 20:18:46,700 - INFO - 成功插入 76 条记录到 public.logs_user_info_message
+2025-07-14 20:18:46,704 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh03:9092 <connecting> [IPv4 ('10.160.60.13', 9092)]>: connecting to cdh03:9092 [('10.160.60.13', 9092) IPv4]
+2025-07-14 20:18:46,707 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh03:9092 <checking_api_versions_recv> [IPv4 ('10.160.60.13', 9092)]>: Broker version identified as 2.2
+2025-07-14 20:18:46,707 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Connection complete.
+2025-07-14 20:18:46,814 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connecting> [IPv4 ('10.160.60.11', 9092)]>: connecting to cdh01:9092 [('10.160.60.11', 9092) IPv4]
+2025-07-14 20:18:46,816 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Connection complete.
+2025-07-14 20:18:46,816 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Closing connection. 
+2025-07-14 20:18:46,854 - WARNING - Topic realtime_v3_logs is not available during auto-create initialization
+2025-07-14 20:18:46,959 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connecting> [IPv4 ('10.160.60.12', 9092)]>: connecting to cdh02:9092 [('10.160.60.12', 9092) IPv4]
+2025-07-14 20:18:46,960 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connected> [IPv4 ('10.160.60.12', 9092)]>: Connection complete.
+2025-07-14 20:18:47,311 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connecting> [IPv4 ('10.160.60.13', 9092)]>: connecting to cdh03:9092 [('10.160.60.13', 9092) IPv4]
+2025-07-14 20:18:47,312 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Connection complete.
+2025-07-14 20:18:47,619 - INFO - Kafka发送完成 - 总条数: 76, 成功: 76, 失败: 0
+2025-07-14 20:18:47,620 - INFO - <KafkaProducer client_id=kafka-python-producer-1 transactional_id=None>: Closing the Kafka producer with 9223372036.0 secs timeout.
+2025-07-14 20:18:47,620 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Closing connection. 
+2025-07-14 20:18:47,620 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connected> [IPv4 ('10.160.60.12', 9092)]>: Closing connection. 
+2025-07-14 20:18:47,620 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Closing connection. 
+2025-07-14 20:19:27,815 - INFO - 成功插入 74 条记录到 public.logs_user_info_message
+2025-07-14 20:19:27,819 - INFO - <BrokerConnection client_id=kafka-python-producer-2, node_id=bootstrap-1 host=cdh01:9092 <connecting> [IPv4 ('10.160.60.11', 9092)]>: connecting to cdh01:9092 [('10.160.60.11', 9092) IPv4]
+2025-07-14 20:19:27,821 - INFO - <BrokerConnection client_id=kafka-python-producer-2, node_id=bootstrap-1 host=cdh01:9092 <checking_api_versions_recv> [IPv4 ('10.160.60.11', 9092)]>: Broker version identified as 2.2
+2025-07-14 20:19:27,822 - INFO - <BrokerConnection client_id=kafka-python-producer-2, node_id=bootstrap-1 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Connection complete.
+2025-07-14 20:19:27,928 - INFO - <BrokerConnection client_id=kafka-python-producer-2, node_id=57 host=cdh03:9092 <connecting> [IPv4 ('10.160.60.13', 9092)]>: connecting to cdh03:9092 [('10.160.60.13', 9092) IPv4]
+2025-07-14 20:19:27,929 - INFO - <BrokerConnection client_id=kafka-python-producer-2, node_id=57 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Connection complete.
+2025-07-14 20:19:27,929 - INFO - <BrokerConnection client_id=kafka-python-producer-2, node_id=bootstrap-1 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Closing connection. 
+2025-07-14 20:19:27,938 - INFO - <BrokerConnection client_id=kafka-python-producer-2, node_id=55 host=cdh02:9092 <connecting> [IPv4 ('10.160.60.12', 9092)]>: connecting to cdh02:9092 [('10.160.60.12', 9092) IPv4]
+2025-07-14 20:19:27,939 - INFO - <BrokerConnection client_id=kafka-python-producer-2, node_id=55 host=cdh02:9092 <connected> [IPv4 ('10.160.60.12', 9092)]>: Connection complete.
+2025-07-14 20:19:27,961 - INFO - <BrokerConnection client_id=kafka-python-producer-2, node_id=56 host=cdh01:9092 <connecting> [IPv4 ('10.160.60.11', 9092)]>: connecting to cdh01:9092 [('10.160.60.11', 9092) IPv4]
+2025-07-14 20:19:27,962 - INFO - <BrokerConnection client_id=kafka-python-producer-2, node_id=56 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Connection complete.
+2025-07-14 20:19:28,152 - INFO - Kafka发送完成 - 总条数: 74, 成功: 74, 失败: 0
+2025-07-14 20:19:28,152 - INFO - <BrokerConnection client_id=kafka-python-producer-2, node_id=57 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Closing connection. 
+2025-07-14 20:19:28,152 - INFO - <BrokerConnection client_id=kafka-python-producer-2, node_id=55 host=cdh02:9092 <connected> [IPv4 ('10.160.60.12', 9092)]>: Closing connection. 
+2025-07-14 20:19:28,152 - INFO - <BrokerConnection client_id=kafka-python-producer-2, node_id=56 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Closing connection. 
+2025-07-15 16:10:40,112 - INFO - 进程方法 business_mock_data 已运行
+2025-07-15 16:10:40,113 - INFO - 进程方法 business_mock_data 已运行
+2025-07-15 16:10:41,481 - INFO - 成功插入 346 条记录到 public.logs_user_info_message
+2025-07-15 16:10:41,485 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh01:9092 <connecting> [IPv4 ('10.160.60.11', 9092)]>: connecting to cdh01:9092 [('10.160.60.11', 9092) IPv4]
+2025-07-15 16:10:41,488 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh01:9092 <checking_api_versions_recv> [IPv4 ('10.160.60.11', 9092)]>: Broker version identified as 2.2
+2025-07-15 16:10:41,488 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Connection complete.
+2025-07-15 16:10:41,595 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connecting> [IPv4 ('10.160.60.11', 9092)]>: connecting to cdh01:9092 [('10.160.60.11', 9092) IPv4]
+2025-07-15 16:10:41,597 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Connection complete.
+2025-07-15 16:10:41,598 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Closing connection. 
+2025-07-15 16:10:41,604 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connecting> [IPv4 ('10.160.60.12', 9092)]>: connecting to cdh02:9092 [('10.160.60.12', 9092) IPv4]
+2025-07-15 16:10:41,605 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connected> [IPv4 ('10.160.60.12', 9092)]>: Connection complete.
+2025-07-15 16:10:41,610 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 59
+2025-07-15 16:10:41,614 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 60
+2025-07-15 16:10:41,619 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 54
+2025-07-15 16:10:41,624 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connecting> [IPv4 ('10.160.60.13', 9092)]>: connecting to cdh03:9092 [('10.160.60.13', 9092) IPv4]
+2025-07-15 16:10:41,624 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Connection complete.
+2025-07-15 16:10:41,628 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 37
+2025-07-15 16:10:41,631 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 38
+2025-07-15 16:10:41,635 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 39
+2025-07-15 16:10:41,639 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 55
+2025-07-15 16:10:41,643 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 61
+2025-07-15 16:10:41,647 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 56
+2025-07-15 16:10:41,650 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 40
+2025-07-15 16:10:41,653 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 62
+2025-07-15 16:10:41,658 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 63
+2025-07-15 16:10:41,663 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 57
+2025-07-15 16:10:41,670 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 58
+2025-07-15 16:10:41,673 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 64
+2025-07-15 16:10:41,676 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 65
+2025-07-15 16:10:41,678 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 66
+2025-07-15 16:10:41,681 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 41
+2025-07-15 16:10:41,684 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 67
+2025-07-15 16:10:41,687 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 42
+2025-07-15 16:10:41,690 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 59
+2025-07-15 16:10:41,693 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 60
+2025-07-15 16:10:41,696 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 61
+2025-07-15 16:10:41,699 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 62
+2025-07-15 16:10:41,701 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 63
+2025-07-15 16:10:41,703 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 68
+2025-07-15 16:10:41,706 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 69
+2025-07-15 16:10:41,708 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 70
+2025-07-15 16:10:41,710 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 43
+2025-07-15 16:10:41,712 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 44
+2025-07-15 16:10:41,715 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 45
+2025-07-15 16:10:41,717 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 46
+2025-07-15 16:10:41,720 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 64
+2025-07-15 16:10:41,722 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 65
+2025-07-15 16:10:41,725 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 71
+2025-07-15 16:10:41,727 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 47
+2025-07-15 16:10:41,729 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 48
+2025-07-15 16:10:41,732 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 49
+2025-07-15 16:10:41,735 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 66
+2025-07-15 16:10:41,737 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 50
+2025-07-15 16:10:41,740 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 67
+2025-07-15 16:10:41,743 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 68
+2025-07-15 16:10:41,745 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 51
+2025-07-15 16:10:41,748 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 69
+2025-07-15 16:10:41,750 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 70
+2025-07-15 16:10:41,753 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 72
+2025-07-15 16:10:41,756 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 73
+2025-07-15 16:10:41,758 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 52
+2025-07-15 16:10:41,760 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 53
+2025-07-15 16:10:41,762 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 54
+2025-07-15 16:10:41,764 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 74
+2025-07-15 16:10:41,767 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 55
+2025-07-15 16:10:41,769 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 75
+2025-07-15 16:10:41,771 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 56
+2025-07-15 16:10:41,774 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 71
+2025-07-15 16:10:41,776 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 76
+2025-07-15 16:10:41,778 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 72
+2025-07-15 16:10:41,781 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 73
+2025-07-15 16:10:41,783 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 74
+2025-07-15 16:10:41,785 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 57
+2025-07-15 16:10:41,788 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 75
+2025-07-15 16:10:41,791 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 77
+2025-07-15 16:10:41,793 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 76
+2025-07-15 16:10:41,795 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 78
+2025-07-15 16:10:41,797 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 79
+2025-07-15 16:10:41,799 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 58
+2025-07-15 16:10:41,801 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 80
+2025-07-15 16:10:41,803 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 59
+2025-07-15 16:10:41,805 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 60
+2025-07-15 16:10:41,807 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 81
+2025-07-15 16:10:41,809 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 61
+2025-07-15 16:10:41,811 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 77
+2025-07-15 16:10:41,813 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 82
+2025-07-15 16:10:41,816 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 78
+2025-07-15 16:10:41,818 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 83
+2025-07-15 16:10:41,820 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 84
+2025-07-15 16:10:41,823 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 79
+2025-07-15 16:10:41,824 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 85
+2025-07-15 16:10:41,826 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 80
+2025-07-15 16:10:41,829 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 62
+2025-07-15 16:10:41,831 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 81
+2025-07-15 16:10:41,833 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 63
+2025-07-15 16:10:41,835 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 82
+2025-07-15 16:10:41,837 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 64
+2025-07-15 16:10:41,839 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 86
+2025-07-15 16:10:41,841 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 87
+2025-07-15 16:10:41,843 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 65
+2025-07-15 16:10:41,845 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 83
+2025-07-15 16:10:41,847 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 88
+2025-07-15 16:10:41,849 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 66
+2025-07-15 16:10:41,851 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 84
+2025-07-15 16:10:41,853 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 67
+2025-07-15 16:10:41,855 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 68
+2025-07-15 16:10:41,856 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 69
+2025-07-15 16:10:41,858 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 70
+2025-07-15 16:10:41,860 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 89
+2025-07-15 16:10:41,862 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 71
+2025-07-15 16:10:41,865 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 85
+2025-07-15 16:10:41,867 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 90
+2025-07-15 16:10:41,869 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 72
+2025-07-15 16:10:41,871 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 73
+2025-07-15 16:10:41,874 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 86
+2025-07-15 16:10:41,876 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 87
+2025-07-15 16:10:41,879 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 88
+2025-07-15 16:10:41,882 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 74
+2025-07-15 16:10:41,883 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 91
+2025-07-15 16:10:41,886 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 75
+2025-07-15 16:10:41,888 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 89
+2025-07-15 16:10:41,890 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 76
+2025-07-15 16:10:41,893 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 92
+2025-07-15 16:10:41,895 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 93
+2025-07-15 16:10:41,897 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 94
+2025-07-15 16:10:41,899 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 77
+2025-07-15 16:10:41,901 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 95
+2025-07-15 16:10:41,903 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 78
+2025-07-15 16:10:41,906 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 90
+2025-07-15 16:10:41,908 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 96
+2025-07-15 16:10:41,910 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 97
+2025-07-15 16:10:41,913 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 91
+2025-07-15 16:10:41,915 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 92
+2025-07-15 16:10:41,917 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 98
+2025-07-15 16:10:41,919 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 93
+2025-07-15 16:10:41,922 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 94
+2025-07-15 16:10:41,924 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 95
+2025-07-15 16:10:41,928 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 99
+2025-07-15 16:10:41,930 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 96
+2025-07-15 16:10:41,933 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 79
+2025-07-15 16:10:41,936 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 97
+2025-07-15 16:10:41,939 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 100
+2025-07-15 16:10:41,941 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 80
+2025-07-15 16:10:41,944 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 81
+2025-07-15 16:10:41,947 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 98
+2025-07-15 16:10:41,950 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 82
+2025-07-15 16:10:41,952 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 101
+2025-07-15 16:10:41,956 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 99
+2025-07-15 16:10:41,958 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 83
+2025-07-15 16:10:41,961 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 102
+2025-07-15 16:10:41,963 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 84
+2025-07-15 16:10:41,966 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 100
+2025-07-15 16:10:41,969 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 101
+2025-07-15 16:10:41,973 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 102
+2025-07-15 16:10:41,976 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 103
+2025-07-15 16:10:41,978 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 104
+2025-07-15 16:10:41,982 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 103
+2025-07-15 16:10:41,985 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 85
+2025-07-15 16:10:41,987 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 86
+2025-07-15 16:10:41,991 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 104
+2025-07-15 16:10:41,994 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 87
+2025-07-15 16:10:41,997 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 105
+2025-07-15 16:10:41,999 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 88
+2025-07-15 16:10:42,002 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 106
+2025-07-15 16:10:42,005 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 107
+2025-07-15 16:10:42,008 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 105
+2025-07-15 16:10:42,011 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 108
+2025-07-15 16:10:42,013 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 89
+2025-07-15 16:10:42,015 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 106
+2025-07-15 16:10:42,019 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 109
+2025-07-15 16:10:42,022 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 110
+2025-07-15 16:10:42,024 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 90
+2025-07-15 16:10:42,026 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 107
+2025-07-15 16:10:42,029 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 111
+2025-07-15 16:10:42,032 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 91
+2025-07-15 16:10:42,035 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 92
+2025-07-15 16:10:42,037 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 93
+2025-07-15 16:10:42,040 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 94
+2025-07-15 16:10:42,043 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 95
+2025-07-15 16:10:42,045 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 108
+2025-07-15 16:10:42,049 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 112
+2025-07-15 16:10:42,052 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 109
+2025-07-15 16:10:42,054 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 110
+2025-07-15 16:10:42,057 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 113
+2025-07-15 16:10:42,059 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 96
+2025-07-15 16:10:42,062 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 114
+2025-07-15 16:10:42,064 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 97
+2025-07-15 16:10:42,067 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 111
+2025-07-15 16:10:42,069 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 112
+2025-07-15 16:10:42,071 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 113
+2025-07-15 16:10:42,073 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 115
+2025-07-15 16:10:42,076 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 116
+2025-07-15 16:10:42,078 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 98
+2025-07-15 16:10:42,080 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 114
+2025-07-15 16:10:42,083 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 99
+2025-07-15 16:10:42,086 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 117
+2025-07-15 16:10:42,088 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 100
+2025-07-15 16:10:42,091 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 101
+2025-07-15 16:10:42,093 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 102
+2025-07-15 16:10:42,096 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 103
+2025-07-15 16:10:42,098 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 115
+2025-07-15 16:10:42,101 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 104
+2025-07-15 16:10:42,103 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 105
+2025-07-15 16:10:42,107 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 118
+2025-07-15 16:10:42,110 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 119
+2025-07-15 16:10:42,112 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 106
+2025-07-15 16:10:42,115 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 120
+2025-07-15 16:10:42,118 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 121
+2025-07-15 16:10:42,121 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 107
+2025-07-15 16:10:42,123 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 108
+2025-07-15 16:10:42,125 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 109
+2025-07-15 16:10:42,127 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 116
+2025-07-15 16:10:42,129 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 110
+2025-07-15 16:10:42,131 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 122
+2025-07-15 16:10:42,135 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 123
+2025-07-15 16:10:42,137 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 124
+2025-07-15 16:10:42,139 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 111
+2025-07-15 16:10:42,143 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 125
+2025-07-15 16:10:42,145 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 126
+2025-07-15 16:10:42,148 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 117
+2025-07-15 16:10:42,150 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 118
+2025-07-15 16:10:42,152 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 112
+2025-07-15 16:10:42,155 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 119
+2025-07-15 16:10:42,158 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 120
+2025-07-15 16:10:42,160 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 113
+2025-07-15 16:10:42,162 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 121
+2025-07-15 16:10:42,165 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 122
+2025-07-15 16:10:42,167 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 114
+2025-07-15 16:10:42,170 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 115
+2025-07-15 16:10:42,172 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 123
+2025-07-15 16:10:42,174 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 116
+2025-07-15 16:10:42,177 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 117
+2025-07-15 16:10:42,179 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 127
+2025-07-15 16:10:42,181 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 118
+2025-07-15 16:10:42,185 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 128
+2025-07-15 16:10:42,188 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 119
+2025-07-15 16:10:42,190 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 129
+2025-07-15 16:10:42,192 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 124
+2025-07-15 16:10:42,195 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 130
+2025-07-15 16:10:42,198 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 120
+2025-07-15 16:10:42,201 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 125
+2025-07-15 16:10:42,203 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 121
+2025-07-15 16:10:42,206 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 131
+2025-07-15 16:10:42,209 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 126
+2025-07-15 16:10:42,212 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 127
+2025-07-15 16:10:42,215 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 122
+2025-07-15 16:10:42,218 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 132
+2025-07-15 16:10:42,220 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 133
+2025-07-15 16:10:42,223 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 123
+2025-07-15 16:10:42,225 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 124
+2025-07-15 16:10:42,228 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 125
+2025-07-15 16:10:42,231 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 134
+2025-07-15 16:10:42,234 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 126
+2025-07-15 16:10:42,237 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 128
+2025-07-15 16:10:42,239 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 129
+2025-07-15 16:10:42,242 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 135
+2025-07-15 16:10:42,245 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 130
+2025-07-15 16:10:42,247 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 136
+2025-07-15 16:10:42,250 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 127
+2025-07-15 16:10:42,252 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 137
+2025-07-15 16:10:42,255 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 138
+2025-07-15 16:10:42,258 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 139
+2025-07-15 16:10:42,261 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 140
+2025-07-15 16:10:42,264 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 141
+2025-07-15 16:10:42,267 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 131
+2025-07-15 16:10:42,270 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 128
+2025-07-15 16:10:42,273 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 132
+2025-07-15 16:10:42,276 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 129
+2025-07-15 16:10:42,278 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 133
+2025-07-15 16:10:42,282 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 134
+2025-07-15 16:10:42,284 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 130
+2025-07-15 16:10:42,289 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 135
+2025-07-15 16:10:42,292 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 136
+2025-07-15 16:10:42,295 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 142
+2025-07-15 16:10:42,298 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 137
+2025-07-15 16:10:42,301 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 131
+2025-07-15 16:10:42,304 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 132
+2025-07-15 16:10:42,307 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 143
+2025-07-15 16:10:42,309 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 138
+2025-07-15 16:10:42,312 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 139
+2025-07-15 16:10:42,315 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 144
+2025-07-15 16:10:42,318 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 145
+2025-07-15 16:10:42,321 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 146
+2025-07-15 16:10:42,324 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 133
+2025-07-15 16:10:42,326 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 134
+2025-07-15 16:10:42,329 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 140
+2025-07-15 16:10:42,332 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 147
+2025-07-15 16:10:42,334 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 141
+2025-07-15 16:10:42,337 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 142
+2025-07-15 16:10:42,340 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 148
+2025-07-15 16:10:42,342 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 149
+2025-07-15 16:10:42,345 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 143
+2025-07-15 16:10:42,347 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 144
+2025-07-15 16:10:42,351 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 145
+2025-07-15 16:10:42,354 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 135
+2025-07-15 16:10:42,357 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 136
+2025-07-15 16:10:42,359 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 137
+2025-07-15 16:10:42,362 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 138
+2025-07-15 16:10:42,365 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 150
+2025-07-15 16:10:42,367 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 139
+2025-07-15 16:10:42,371 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 151
+2025-07-15 16:10:42,372 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 146
+2025-07-15 16:10:42,375 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 147
+2025-07-15 16:10:42,377 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 148
+2025-07-15 16:10:42,380 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 149
+2025-07-15 16:10:42,382 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 140
+2025-07-15 16:10:42,384 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 150
+2025-07-15 16:10:42,388 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 151
+2025-07-15 16:10:42,396 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 141
+2025-07-15 16:10:42,399 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 142
+2025-07-15 16:10:42,402 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 152
+2025-07-15 16:10:42,406 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 143
+2025-07-15 16:10:42,418 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 152
+2025-07-15 16:10:42,431 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 153
+2025-07-15 16:10:42,436 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 153
+2025-07-15 16:10:42,439 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 144
+2025-07-15 16:10:42,443 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 154
+2025-07-15 16:10:42,446 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 154
+2025-07-15 16:10:42,448 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 155
+2025-07-15 16:10:42,451 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 145
+2025-07-15 16:10:42,453 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 155
+2025-07-15 16:10:42,459 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 146
+2025-07-15 16:10:42,475 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 147
+2025-07-15 16:10:42,478 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 156
+2025-07-15 16:10:42,480 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 157
+2025-07-15 16:10:42,482 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 158
+2025-07-15 16:10:42,484 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 159
+2025-07-15 16:10:42,487 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 156
+2025-07-15 16:10:42,489 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 157
+2025-07-15 16:10:42,492 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 160
+2025-07-15 16:10:42,494 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 161
+2025-07-15 16:10:42,497 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 148
+2025-07-15 16:10:42,499 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 149
+2025-07-15 16:10:42,501 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 158
+2025-07-15 16:10:42,503 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 162
+2025-07-15 16:10:42,506 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 159
+2025-07-15 16:10:42,508 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 160
+2025-07-15 16:10:42,512 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 161
+2025-07-15 16:10:42,520 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 162
+2025-07-15 16:10:42,522 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 150
+2025-07-15 16:10:42,525 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 151
+2025-07-15 16:10:42,527 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 152
+2025-07-15 16:10:42,530 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 163
+2025-07-15 16:10:42,533 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 153
+2025-07-15 16:10:42,535 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 163
+2025-07-15 16:10:42,538 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 164
+2025-07-15 16:10:42,541 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 164
+2025-07-15 16:10:42,544 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 154
+2025-07-15 16:10:42,546 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 165
+2025-07-15 16:10:42,549 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 165
+2025-07-15 16:10:42,552 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 155
+2025-07-15 16:10:42,554 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 156
+2025-07-15 16:10:42,557 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 157
+2025-07-15 16:10:42,560 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 166
+2025-07-15 16:10:42,563 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 158
+2025-07-15 16:10:42,565 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 167
+2025-07-15 16:10:42,568 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 159
+2025-07-15 16:10:42,570 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 160
+2025-07-15 16:10:42,573 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 166
+2025-07-15 16:10:42,573 - INFO - Kafka发送完成 - 总条数: 346, 成功: 346, 失败: 0
+2025-07-15 16:10:42,573 - INFO - <KafkaProducer client_id=kafka-python-producer-1 transactional_id=None>: Closing the Kafka producer with 9223372036.0 secs timeout.
+2025-07-15 16:10:42,573 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Closing connection. 
+2025-07-15 16:10:42,573 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connected> [IPv4 ('10.160.60.12', 9092)]>: Closing connection. 
+2025-07-15 16:10:42,573 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Closing connection. 
+2025-07-17 08:41:02,900 - INFO - 进程方法 business_mock_data 已运行
+2025-07-17 08:41:02,901 - INFO - 进程方法 business_mock_data 已运行
+2025-07-17 08:41:04,279 - INFO - 成功插入 323 条记录到 public.logs_user_info_message
+2025-07-17 08:41:04,283 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=cdh01:9092 <connecting> [IPv4 ('10.160.60.11', 9092)]>: connecting to cdh01:9092 [('10.160.60.11', 9092) IPv4]
+2025-07-17 08:41:04,286 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=cdh01:9092 <checking_api_versions_recv> [IPv4 ('10.160.60.11', 9092)]>: Broker version identified as 2.2
+2025-07-17 08:41:04,286 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Connection complete.
+2025-07-17 08:41:04,390 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connecting> [IPv4 ('10.160.60.11', 9092)]>: connecting to cdh01:9092 [('10.160.60.11', 9092) IPv4]
+2025-07-17 08:41:04,391 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Connection complete.
+2025-07-17 08:41:04,391 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Closing connection. 
+2025-07-17 08:41:04,397 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 167
+2025-07-17 08:41:04,399 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connecting> [IPv4 ('10.160.60.13', 9092)]>: connecting to cdh03:9092 [('10.160.60.13', 9092) IPv4]
+2025-07-17 08:41:04,400 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Connection complete.
+2025-07-17 08:41:04,404 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 161
+2025-07-17 08:41:04,423 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 162
+2025-07-17 08:41:04,455 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 168
+2025-07-17 08:41:04,458 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connecting> [IPv4 ('10.160.60.12', 9092)]>: connecting to cdh02:9092 [('10.160.60.12', 9092) IPv4]
+2025-07-17 08:41:04,463 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connected> [IPv4 ('10.160.60.12', 9092)]>: Connection complete.
+2025-07-17 08:41:04,472 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 168
+2025-07-17 08:41:04,475 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 163
+2025-07-17 08:41:04,478 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 169
+2025-07-17 08:41:04,481 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 169
+2025-07-17 08:41:04,484 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 164
+2025-07-17 08:41:04,487 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 170
+2025-07-17 08:41:04,490 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 171
+2025-07-17 08:41:04,492 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 172
+2025-07-17 08:41:04,494 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 173
+2025-07-17 08:41:04,497 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 165
+2025-07-17 08:41:04,500 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 170
+2025-07-17 08:41:04,502 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 171
+2025-07-17 08:41:04,505 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 166
+2025-07-17 08:41:04,507 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 172
+2025-07-17 08:41:04,510 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 174
+2025-07-17 08:41:04,513 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 173
+2025-07-17 08:41:04,516 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 175
+2025-07-17 08:41:04,519 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 176
+2025-07-17 08:41:04,521 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 177
+2025-07-17 08:41:04,524 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 167
+2025-07-17 08:41:04,528 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 178
+2025-07-17 08:41:04,531 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 179
+2025-07-17 08:41:04,535 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 180
+2025-07-17 08:41:04,538 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 181
+2025-07-17 08:41:04,542 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 168
+2025-07-17 08:41:04,544 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 174
+2025-07-17 08:41:04,547 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 169
+2025-07-17 08:41:04,551 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 182
+2025-07-17 08:41:04,554 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 183
+2025-07-17 08:41:04,557 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 175
+2025-07-17 08:41:04,561 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 184
+2025-07-17 08:41:04,564 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 185
+2025-07-17 08:41:04,567 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 176
+2025-07-17 08:41:04,569 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 177
+2025-07-17 08:41:04,573 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 186
+2025-07-17 08:41:04,576 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 178
+2025-07-17 08:41:04,578 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 179
+2025-07-17 08:41:04,581 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 180
+2025-07-17 08:41:04,583 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 181
+2025-07-17 08:41:04,587 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 187
+2025-07-17 08:41:04,590 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 182
+2025-07-17 08:41:04,592 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 183
+2025-07-17 08:41:04,596 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 188
+2025-07-17 08:41:04,599 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 170
+2025-07-17 08:41:04,603 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 184
+2025-07-17 08:41:04,606 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 189
+2025-07-17 08:41:04,608 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 185
+2025-07-17 08:41:04,612 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 190
+2025-07-17 08:41:04,615 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 186
+2025-07-17 08:41:04,617 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 171
+2025-07-17 08:41:04,620 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 191
+2025-07-17 08:41:04,623 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 172
+2025-07-17 08:41:04,626 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 173
+2025-07-17 08:41:04,628 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 187
+2025-07-17 08:41:04,630 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 188
+2025-07-17 08:41:04,633 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 174
+2025-07-17 08:41:04,636 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 192
+2025-07-17 08:41:04,640 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 175
+2025-07-17 08:41:04,651 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 176
+2025-07-17 08:41:04,678 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 189
+2025-07-17 08:41:04,745 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 177
+2025-07-17 08:41:04,835 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 178
+2025-07-17 08:41:04,891 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 179
+2025-07-17 08:41:04,905 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 193
+2025-07-17 08:41:04,909 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 180
+2025-07-17 08:41:04,916 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 194
+2025-07-17 08:41:04,937 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 195
+2025-07-17 08:41:04,941 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 190
+2025-07-17 08:41:04,945 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 181
+2025-07-17 08:41:04,949 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 196
+2025-07-17 08:41:04,952 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 182
+2025-07-17 08:41:04,955 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 197
+2025-07-17 08:41:04,958 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 183
+2025-07-17 08:41:04,962 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 198
+2025-07-17 08:41:04,965 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 199
+2025-07-17 08:41:04,969 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 191
+2025-07-17 08:41:04,972 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 192
+2025-07-17 08:41:04,975 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 200
+2025-07-17 08:41:04,978 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 184
+2025-07-17 08:41:04,981 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 185
+2025-07-17 08:41:04,984 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 193
+2025-07-17 08:41:04,987 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 194
+2025-07-17 08:41:04,989 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 186
+2025-07-17 08:41:04,992 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 187
+2025-07-17 08:41:04,995 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 188
+2025-07-17 08:41:04,998 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 189
+2025-07-17 08:41:05,001 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 195
+2025-07-17 08:41:05,004 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 196
+2025-07-17 08:41:05,007 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 197
+2025-07-17 08:41:05,010 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 198
+2025-07-17 08:41:05,012 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 190
+2025-07-17 08:41:05,018 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 191
+2025-07-17 08:41:05,023 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 201
+2025-07-17 08:41:05,029 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 199
+2025-07-17 08:41:05,033 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 200
+2025-07-17 08:41:05,035 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 192
+2025-07-17 08:41:05,038 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 201
+2025-07-17 08:41:05,040 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 202
+2025-07-17 08:41:05,043 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 193
+2025-07-17 08:41:05,046 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 194
+2025-07-17 08:41:05,049 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 203
+2025-07-17 08:41:05,051 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 195
+2025-07-17 08:41:05,054 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 196
+2025-07-17 08:41:05,056 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 197
+2025-07-17 08:41:05,060 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 202
+2025-07-17 08:41:05,064 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 203
+2025-07-17 08:41:05,066 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 204
+2025-07-17 08:41:05,070 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 198
+2025-07-17 08:41:05,073 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 199
+2025-07-17 08:41:05,075 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 205
+2025-07-17 08:41:05,078 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 206
+2025-07-17 08:41:05,080 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 200
+2025-07-17 08:41:05,083 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 207
+2025-07-17 08:41:05,085 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 208
+2025-07-17 08:41:05,089 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 204
+2025-07-17 08:41:05,097 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 205
+2025-07-17 08:41:05,099 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 209
+2025-07-17 08:41:05,102 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 201
+2025-07-17 08:41:05,105 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 210
+2025-07-17 08:41:05,108 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 206
+2025-07-17 08:41:05,110 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 202
+2025-07-17 08:41:05,113 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 211
+2025-07-17 08:41:05,116 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 207
+2025-07-17 08:41:05,119 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 208
+2025-07-17 08:41:05,123 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 209
+2025-07-17 08:41:05,126 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 210
+2025-07-17 08:41:05,129 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 211
+2025-07-17 08:41:05,132 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 212
+2025-07-17 08:41:05,134 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 213
+2025-07-17 08:41:05,138 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 214
+2025-07-17 08:41:05,140 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 212
+2025-07-17 08:41:05,143 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 203
+2025-07-17 08:41:05,147 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 215
+2025-07-17 08:41:05,149 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 213
+2025-07-17 08:41:05,152 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 204
+2025-07-17 08:41:05,155 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 205
+2025-07-17 08:41:05,159 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 216
+2025-07-17 08:41:05,161 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 214
+2025-07-17 08:41:05,164 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 206
+2025-07-17 08:41:05,167 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 207
+2025-07-17 08:41:05,169 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 215
+2025-07-17 08:41:05,172 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 216
+2025-07-17 08:41:05,174 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 217
+2025-07-17 08:41:05,177 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 208
+2025-07-17 08:41:05,181 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 217
+2025-07-17 08:41:05,183 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 209
+2025-07-17 08:41:05,186 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 218
+2025-07-17 08:41:05,189 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 210
+2025-07-17 08:41:05,191 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 219
+2025-07-17 08:41:05,193 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 220
+2025-07-17 08:41:05,196 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 211
+2025-07-17 08:41:05,198 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 212
+2025-07-17 08:41:05,201 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 218
+2025-07-17 08:41:05,204 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 213
+2025-07-17 08:41:05,207 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 219
+2025-07-17 08:41:05,210 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 220
+2025-07-17 08:41:05,213 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 221
+2025-07-17 08:41:05,215 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 214
+2025-07-17 08:41:05,218 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 222
+2025-07-17 08:41:05,222 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 221
+2025-07-17 08:41:05,225 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 223
+2025-07-17 08:41:05,228 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 222
+2025-07-17 08:41:05,231 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 224
+2025-07-17 08:41:05,234 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 223
+2025-07-17 08:41:05,237 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 224
+2025-07-17 08:41:05,240 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 215
+2025-07-17 08:41:05,243 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 225
+2025-07-17 08:41:05,245 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 226
+2025-07-17 08:41:05,248 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 225
+2025-07-17 08:41:05,251 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 227
+2025-07-17 08:41:05,254 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 216
+2025-07-17 08:41:05,257 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 226
+2025-07-17 08:41:05,261 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 227
+2025-07-17 08:41:05,264 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 228
+2025-07-17 08:41:05,268 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 229
+2025-07-17 08:41:05,270 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 217
+2025-07-17 08:41:05,274 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 230
+2025-07-17 08:41:05,277 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 231
+2025-07-17 08:41:05,280 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 228
+2025-07-17 08:41:05,282 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 229
+2025-07-17 08:41:05,286 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 232
+2025-07-17 08:41:05,288 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 230
+2025-07-17 08:41:05,291 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 218
+2025-07-17 08:41:05,293 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 219
+2025-07-17 08:41:05,305 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 233
+2025-07-17 08:41:05,315 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 231
+2025-07-17 08:41:05,318 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 234
+2025-07-17 08:41:05,321 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 220
+2025-07-17 08:41:05,323 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 221
+2025-07-17 08:41:05,325 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 222
+2025-07-17 08:41:05,328 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 232
+2025-07-17 08:41:05,331 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 235
+2025-07-17 08:41:05,333 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 223
+2025-07-17 08:41:05,336 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 224
+2025-07-17 08:41:05,339 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 233
+2025-07-17 08:41:05,342 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 234
+2025-07-17 08:41:05,344 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 235
+2025-07-17 08:41:05,347 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 225
+2025-07-17 08:41:05,349 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 226
+2025-07-17 08:41:05,352 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 236
+2025-07-17 08:41:05,356 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 236
+2025-07-17 08:41:05,359 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 237
+2025-07-17 08:41:05,361 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 237
+2025-07-17 08:41:05,364 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 238
+2025-07-17 08:41:05,367 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 239
+2025-07-17 08:41:05,370 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 227
+2025-07-17 08:41:05,372 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 228
+2025-07-17 08:41:05,375 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 238
+2025-07-17 08:41:05,378 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 240
+2025-07-17 08:41:05,381 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 241
+2025-07-17 08:41:05,384 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 229
+2025-07-17 08:41:05,387 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 239
+2025-07-17 08:41:05,390 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 242
+2025-07-17 08:41:05,393 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 240
+2025-07-17 08:41:05,395 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 230
+2025-07-17 08:41:05,399 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 243
+2025-07-17 08:41:05,401 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 231
+2025-07-17 08:41:05,404 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 232
+2025-07-17 08:41:05,407 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 244
+2025-07-17 08:41:05,410 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 245
+2025-07-17 08:41:05,414 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 246
+2025-07-17 08:41:05,420 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 247
+2025-07-17 08:41:05,428 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 233
+2025-07-17 08:41:05,431 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 234
+2025-07-17 08:41:05,434 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 248
+2025-07-17 08:41:05,436 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 241
+2025-07-17 08:41:05,439 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 242
+2025-07-17 08:41:05,441 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 243
+2025-07-17 08:41:05,443 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 235
+2025-07-17 08:41:05,446 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 244
+2025-07-17 08:41:05,449 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 236
+2025-07-17 08:41:05,451 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 237
+2025-07-17 08:41:05,454 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 238
+2025-07-17 08:41:05,457 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 249
+2025-07-17 08:41:05,459 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 239
+2025-07-17 08:41:05,462 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 240
+2025-07-17 08:41:05,464 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 241
+2025-07-17 08:41:05,467 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 250
+2025-07-17 08:41:05,470 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 251
+2025-07-17 08:41:05,473 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 245
+2025-07-17 08:41:05,476 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 252
+2025-07-17 08:41:05,479 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 253
+2025-07-17 08:41:05,481 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 246
+2025-07-17 08:41:05,484 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 242
+2025-07-17 08:41:05,486 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 247
+2025-07-17 08:41:05,488 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 243
+2025-07-17 08:41:05,492 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 244
+2025-07-17 08:41:05,495 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 245
+2025-07-17 08:41:05,508 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 248
+2025-07-17 08:41:05,515 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 246
+2025-07-17 08:41:05,517 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 249
+2025-07-17 08:41:05,519 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 250
+2025-07-17 08:41:05,522 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 251
+2025-07-17 08:41:05,525 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 252
+2025-07-17 08:41:05,527 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 253
+2025-07-17 08:41:05,530 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 247
+2025-07-17 08:41:05,532 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 254
+2025-07-17 08:41:05,535 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 254
+2025-07-17 08:41:05,538 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 255
+2025-07-17 08:41:05,541 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 255
+2025-07-17 08:41:05,543 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 248
+2025-07-17 08:41:05,546 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 249
+2025-07-17 08:41:05,549 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 256
+2025-07-17 08:41:05,552 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 256
+2025-07-17 08:41:05,555 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 250
+2025-07-17 08:41:05,557 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 257
+2025-07-17 08:41:05,561 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 258
+2025-07-17 08:41:05,564 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 257
+2025-07-17 08:41:05,567 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 258
+2025-07-17 08:41:05,571 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 251
+2025-07-17 08:41:05,574 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 259
+2025-07-17 08:41:05,577 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 260
+2025-07-17 08:41:05,579 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 259
+2025-07-17 08:41:05,582 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 252
+2025-07-17 08:41:05,585 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 260
+2025-07-17 08:41:05,588 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 261
+2025-07-17 08:41:05,592 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 262
+2025-07-17 08:41:05,594 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 253
+2025-07-17 08:41:05,597 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 261
+2025-07-17 08:41:05,600 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 262
+2025-07-17 08:41:05,603 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 263
+2025-07-17 08:41:05,606 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 264
+2025-07-17 08:41:05,610 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 265
+2025-07-17 08:41:05,613 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 263
+2025-07-17 08:41:05,616 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 254
+2025-07-17 08:41:05,619 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 255
+2025-07-17 08:41:05,621 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 264
+2025-07-17 08:41:05,624 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 256
+2025-07-17 08:41:05,627 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 265
+2025-07-17 08:41:05,629 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 266
+2025-07-17 08:41:05,632 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 267
+2025-07-17 08:41:05,635 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 266
+2025-07-17 08:41:05,637 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 267
+2025-07-17 08:41:05,640 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 268
+2025-07-17 08:41:05,642 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 257
+2025-07-17 08:41:05,646 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 258
+2025-07-17 08:41:05,648 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 269
+2025-07-17 08:41:05,651 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 259
+2025-07-17 08:41:05,654 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 268
+2025-07-17 08:41:05,657 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 270
+2025-07-17 08:41:05,660 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 269
+2025-07-17 08:41:05,663 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 260
+2025-07-17 08:41:05,666 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 271
+2025-07-17 08:41:05,669 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 272
+2025-07-17 08:41:05,672 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 261
+2025-07-17 08:41:05,674 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 273
+2025-07-17 08:41:05,677 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 270
+2025-07-17 08:41:05,680 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 274
+2025-07-17 08:41:05,682 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 271
+2025-07-17 08:41:05,685 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 272
+2025-07-17 08:41:05,688 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 262
+2025-07-17 08:41:05,691 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 273
+2025-07-17 08:41:05,693 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 275
+2025-07-17 08:41:05,703 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 274
+2025-07-17 08:41:05,715 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 276
+2025-07-17 08:41:05,717 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 277
+2025-07-17 08:41:05,720 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 263
+2025-07-17 08:41:05,722 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 278
+2025-07-17 08:41:05,725 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 264
+2025-07-17 08:41:05,725 - INFO - Kafka发送完成 - 总条数: 323, 成功: 323, 失败: 0
+2025-07-17 08:41:05,725 - INFO - <KafkaProducer client_id=kafka-python-producer-1 transactional_id=None>: Closing the Kafka producer with 9223372036.0 secs timeout.
+2025-07-17 08:41:05,725 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Closing connection. 
+2025-07-17 08:41:05,725 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Closing connection. 
+2025-07-17 08:41:05,725 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connected> [IPv4 ('10.160.60.12', 9092)]>: Closing connection. 
+2025-07-17 08:43:08,781 - INFO - 成功插入 336 条记录到 public.logs_user_info_message
+2025-07-17 08:43:08,785 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh01:9092 <connecting> [IPv4 ('10.160.60.11', 9092)]>: connecting to cdh01:9092 [('10.160.60.11', 9092) IPv4]
+2025-07-17 08:43:08,788 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh01:9092 <checking_api_versions_recv> [IPv4 ('10.160.60.11', 9092)]>: Broker version identified as 2.2
+2025-07-17 08:43:08,788 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Connection complete.
+2025-07-17 08:43:08,893 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connecting> [IPv4 ('10.160.60.12', 9092)]>: connecting to cdh02:9092 [('10.160.60.12', 9092) IPv4]
+2025-07-17 08:43:08,894 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connected> [IPv4 ('10.160.60.12', 9092)]>: Connection complete.
+2025-07-17 08:43:08,894 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Closing connection. 
+2025-07-17 08:43:08,897 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connecting> [IPv4 ('10.160.60.11', 9092)]>: connecting to cdh01:9092 [('10.160.60.11', 9092) IPv4]
+2025-07-17 08:43:08,898 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Connection complete.
+2025-07-17 08:43:08,902 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 275
+2025-07-17 08:43:08,904 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connecting> [IPv4 ('10.160.60.13', 9092)]>: connecting to cdh03:9092 [('10.160.60.13', 9092) IPv4]
+2025-07-17 08:43:08,905 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Connection complete.
+2025-07-17 08:43:08,908 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 265
+2025-07-17 08:43:08,910 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 276
+2025-07-17 08:43:08,913 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 277
+2025-07-17 08:43:08,916 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 278
+2025-07-17 08:43:08,920 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 266
+2025-07-17 08:43:08,922 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 279
+2025-07-17 08:43:08,925 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 280
+2025-07-17 08:43:08,927 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 279
+2025-07-17 08:43:08,930 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 267
+2025-07-17 08:43:08,933 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 268
+2025-07-17 08:43:08,936 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 269
+2025-07-17 08:43:08,939 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 281
+2025-07-17 08:43:08,942 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 280
+2025-07-17 08:43:08,944 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 282
+2025-07-17 08:43:08,947 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 283
+2025-07-17 08:43:08,949 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 281
+2025-07-17 08:43:08,952 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 270
+2025-07-17 08:43:08,955 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 271
+2025-07-17 08:43:08,958 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 282
+2025-07-17 08:43:08,961 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 272
+2025-07-17 08:43:08,964 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 283
+2025-07-17 08:43:08,966 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 284
+2025-07-17 08:43:08,968 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 285
+2025-07-17 08:43:08,972 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 286
+2025-07-17 08:43:08,975 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 273
+2025-07-17 08:43:08,978 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 284
+2025-07-17 08:43:08,981 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 274
+2025-07-17 08:43:08,983 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 285
+2025-07-17 08:43:08,986 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 275
+2025-07-17 08:43:08,989 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 286
+2025-07-17 08:43:08,994 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 276
+2025-07-17 08:43:08,996 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 287
+2025-07-17 08:43:08,999 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 277
+2025-07-17 08:43:09,001 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 288
+2025-07-17 08:43:09,004 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 287
+2025-07-17 08:43:09,007 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 289
+2025-07-17 08:43:09,010 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 290
+2025-07-17 08:43:09,012 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 288
+2025-07-17 08:43:09,015 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 291
+2025-07-17 08:43:09,018 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 289
+2025-07-17 08:43:09,021 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 290
+2025-07-17 08:43:09,023 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 278
+2025-07-17 08:43:09,026 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 279
+2025-07-17 08:43:09,029 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 280
+2025-07-17 08:43:09,032 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 292
+2025-07-17 08:43:09,035 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 293
+2025-07-17 08:43:09,038 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 294
+2025-07-17 08:43:09,041 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 295
+2025-07-17 08:43:09,043 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 281
+2025-07-17 08:43:09,046 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 296
+2025-07-17 08:43:09,049 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 282
+2025-07-17 08:43:09,053 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 297
+2025-07-17 08:43:09,055 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 283
+2025-07-17 08:43:09,058 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 291
+2025-07-17 08:43:09,061 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 292
+2025-07-17 08:43:09,063 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 284
+2025-07-17 08:43:09,066 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 293
+2025-07-17 08:43:09,068 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 298
+2025-07-17 08:43:09,071 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 285
+2025-07-17 08:43:09,074 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 299
+2025-07-17 08:43:09,076 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 294
+2025-07-17 08:43:09,079 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 295
+2025-07-17 08:43:09,081 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 286
+2025-07-17 08:43:09,084 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 296
+2025-07-17 08:43:09,086 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 297
+2025-07-17 08:43:09,089 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 287
+2025-07-17 08:43:09,091 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 288
+2025-07-17 08:43:09,094 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 300
+2025-07-17 08:43:09,096 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 289
+2025-07-17 08:43:09,098 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 290
+2025-07-17 08:43:09,101 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 301
+2025-07-17 08:43:09,103 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 302
+2025-07-17 08:43:09,106 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 303
+2025-07-17 08:43:09,109 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 291
+2025-07-17 08:43:09,112 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 298
+2025-07-17 08:43:09,114 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 292
+2025-07-17 08:43:09,116 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 304
+2025-07-17 08:43:09,119 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 299
+2025-07-17 08:43:09,122 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 293
+2025-07-17 08:43:09,125 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 300
+2025-07-17 08:43:09,127 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 301
+2025-07-17 08:43:09,130 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 302
+2025-07-17 08:43:09,134 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 305
+2025-07-17 08:43:09,137 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 294
+2025-07-17 08:43:09,140 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 295
+2025-07-17 08:43:09,144 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 303
+2025-07-17 08:43:09,150 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 306
+2025-07-17 08:43:09,180 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 307
+2025-07-17 08:43:09,261 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 308
+2025-07-17 08:43:09,312 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 304
+2025-07-17 08:43:09,315 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 305
+2025-07-17 08:43:09,319 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 309
+2025-07-17 08:43:09,321 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 310
+2025-07-17 08:43:09,324 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 311
+2025-07-17 08:43:09,329 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 296
+2025-07-17 08:43:09,344 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 297
+2025-07-17 08:43:09,351 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 312
+2025-07-17 08:43:09,354 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 313
+2025-07-17 08:43:09,357 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 314
+2025-07-17 08:43:09,359 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 298
+2025-07-17 08:43:09,363 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 299
+2025-07-17 08:43:09,365 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 300
+2025-07-17 08:43:09,368 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 315
+2025-07-17 08:43:09,370 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 301
+2025-07-17 08:43:09,372 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 316
+2025-07-17 08:43:09,375 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 317
+2025-07-17 08:43:09,377 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 318
+2025-07-17 08:43:09,380 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 319
+2025-07-17 08:43:09,383 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 306
+2025-07-17 08:43:09,385 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 302
+2025-07-17 08:43:09,388 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 303
+2025-07-17 08:43:09,390 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 304
+2025-07-17 08:43:09,392 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 320
+2025-07-17 08:43:09,395 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 305
+2025-07-17 08:43:09,397 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 321
+2025-07-17 08:43:09,400 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 322
+2025-07-17 08:43:09,402 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 306
+2025-07-17 08:43:09,404 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 323
+2025-07-17 08:43:09,407 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 307
+2025-07-17 08:43:09,410 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 308
+2025-07-17 08:43:09,412 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 307
+2025-07-17 08:43:09,415 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 324
+2025-07-17 08:43:09,417 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 309
+2025-07-17 08:43:09,420 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 310
+2025-07-17 08:43:09,423 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 325
+2025-07-17 08:43:09,425 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 326
+2025-07-17 08:43:09,428 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 311
+2025-07-17 08:43:09,430 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 327
+2025-07-17 08:43:09,432 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 308
+2025-07-17 08:43:09,435 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 328
+2025-07-17 08:43:09,438 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 312
+2025-07-17 08:43:09,440 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 309
+2025-07-17 08:43:09,443 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 310
+2025-07-17 08:43:09,445 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 313
+2025-07-17 08:43:09,448 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 329
+2025-07-17 08:43:09,450 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 311
+2025-07-17 08:43:09,453 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 314
+2025-07-17 08:43:09,456 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 315
+2025-07-17 08:43:09,458 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 330
+2025-07-17 08:43:09,461 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 316
+2025-07-17 08:43:09,464 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 312
+2025-07-17 08:43:09,468 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 317
+2025-07-17 08:43:09,471 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 331
+2025-07-17 08:43:09,474 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 313
+2025-07-17 08:43:09,479 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 332
+2025-07-17 08:43:09,482 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 318
+2025-07-17 08:43:09,484 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 314
+2025-07-17 08:43:09,487 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 333
+2025-07-17 08:43:09,490 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 319
+2025-07-17 08:43:09,493 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 315
+2025-07-17 08:43:09,495 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 320
+2025-07-17 08:43:09,503 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 321
+2025-07-17 08:43:09,540 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 334
+2025-07-17 08:43:09,631 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 322
+2025-07-17 08:43:09,701 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 323
+2025-07-17 08:43:09,743 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 316
+2025-07-17 08:43:09,762 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 317
+2025-07-17 08:43:09,766 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 318
+2025-07-17 08:43:09,769 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 335
+2025-07-17 08:43:09,771 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 319
+2025-07-17 08:43:09,774 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 320
+2025-07-17 08:43:09,777 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 324
+2025-07-17 08:43:09,779 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 321
+2025-07-17 08:43:09,782 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 336
+2025-07-17 08:43:09,784 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 325
+2025-07-17 08:43:09,787 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 326
+2025-07-17 08:43:09,789 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 327
+2025-07-17 08:43:09,791 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 328
+2025-07-17 08:43:09,794 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 337
+2025-07-17 08:43:09,796 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 322
+2025-07-17 08:43:09,799 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 338
+2025-07-17 08:43:09,802 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 329
+2025-07-17 08:43:09,804 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 330
+2025-07-17 08:43:09,807 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 339
+2025-07-17 08:43:09,809 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 331
+2025-07-17 08:43:09,811 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 332
+2025-07-17 08:43:09,813 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 323
+2025-07-17 08:43:09,816 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 324
+2025-07-17 08:43:09,818 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 325
+2025-07-17 08:43:09,819 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 326
+2025-07-17 08:43:09,822 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 333
+2025-07-17 08:43:09,824 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 327
+2025-07-17 08:43:09,826 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 334
+2025-07-17 08:43:09,828 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 328
+2025-07-17 08:43:09,831 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 329
+2025-07-17 08:43:09,833 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 330
+2025-07-17 08:43:09,846 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 335
+2025-07-17 08:43:09,854 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 336
+2025-07-17 08:43:09,857 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 340
+2025-07-17 08:43:09,860 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 337
+2025-07-17 08:43:09,864 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 338
+2025-07-17 08:43:09,866 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 331
+2025-07-17 08:43:09,869 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 341
+2025-07-17 08:43:09,871 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 339
+2025-07-17 08:43:09,874 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 340
+2025-07-17 08:43:09,877 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 332
+2025-07-17 08:43:09,880 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 333
+2025-07-17 08:43:09,883 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 341
+2025-07-17 08:43:09,885 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 334
+2025-07-17 08:43:09,888 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 342
+2025-07-17 08:43:09,892 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 343
+2025-07-17 08:43:09,895 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 342
+2025-07-17 08:43:09,897 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 335
+2025-07-17 08:43:09,900 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 336
+2025-07-17 08:43:09,903 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 344
+2025-07-17 08:43:09,906 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 343
+2025-07-17 08:43:09,910 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 345
+2025-07-17 08:43:09,912 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 344
+2025-07-17 08:43:09,915 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 337
+2025-07-17 08:43:09,918 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 345
+2025-07-17 08:43:09,920 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 346
+2025-07-17 08:43:09,923 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 347
+2025-07-17 08:43:09,930 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 346
+2025-07-17 08:43:09,933 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 348
+2025-07-17 08:43:09,935 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 349
+2025-07-17 08:43:09,937 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 338
+2025-07-17 08:43:09,940 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 339
+2025-07-17 08:43:09,943 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 347
+2025-07-17 08:43:09,945 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 350
+2025-07-17 08:43:09,948 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 348
+2025-07-17 08:43:09,951 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 340
+2025-07-17 08:43:09,953 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 351
+2025-07-17 08:43:09,956 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 349
+2025-07-17 08:43:09,959 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 341
+2025-07-17 08:43:09,961 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 342
+2025-07-17 08:43:09,965 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 350
+2025-07-17 08:43:09,967 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 343
+2025-07-17 08:43:09,970 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 352
+2025-07-17 08:43:09,972 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 353
+2025-07-17 08:43:09,974 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 344
+2025-07-17 08:43:09,978 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 351
+2025-07-17 08:43:09,981 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 352
+2025-07-17 08:43:09,984 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 345
+2025-07-17 08:43:09,986 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 354
+2025-07-17 08:43:09,989 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 346
+2025-07-17 08:43:09,992 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 353
+2025-07-17 08:43:09,995 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 355
+2025-07-17 08:43:09,997 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 356
+2025-07-17 08:43:10,000 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 347
+2025-07-17 08:43:10,003 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 357
+2025-07-17 08:43:10,006 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 354
+2025-07-17 08:43:10,008 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 348
+2025-07-17 08:43:10,010 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 349
+2025-07-17 08:43:10,013 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 358
+2025-07-17 08:43:10,015 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 350
+2025-07-17 08:43:10,018 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 355
+2025-07-17 08:43:10,021 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 351
+2025-07-17 08:43:10,023 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 359
+2025-07-17 08:43:10,026 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 352
+2025-07-17 08:43:10,028 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 360
+2025-07-17 08:43:10,030 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 361
+2025-07-17 08:43:10,032 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 353
+2025-07-17 08:43:10,039 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 354
+2025-07-17 08:43:10,043 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 355
+2025-07-17 08:43:10,046 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 356
+2025-07-17 08:43:10,048 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 357
+2025-07-17 08:43:10,050 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 358
+2025-07-17 08:43:10,053 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 362
+2025-07-17 08:43:10,056 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 356
+2025-07-17 08:43:10,058 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 363
+2025-07-17 08:43:10,061 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 359
+2025-07-17 08:43:10,063 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 357
+2025-07-17 08:43:10,066 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 358
+2025-07-17 08:43:10,069 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 359
+2025-07-17 08:43:10,072 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 360
+2025-07-17 08:43:10,074 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 360
+2025-07-17 08:43:10,077 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 361
+2025-07-17 08:43:10,079 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 364
+2025-07-17 08:43:10,081 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 362
+2025-07-17 08:43:10,084 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 365
+2025-07-17 08:43:10,086 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 363
+2025-07-17 08:43:10,089 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 361
+2025-07-17 08:43:10,091 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 364
+2025-07-17 08:43:10,093 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 362
+2025-07-17 08:43:10,096 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 365
+2025-07-17 08:43:10,098 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 366
+2025-07-17 08:43:10,101 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 367
+2025-07-17 08:43:10,103 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 363
+2025-07-17 08:43:10,106 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 364
+2025-07-17 08:43:10,110 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 365
+2025-07-17 08:43:10,112 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 368
+2025-07-17 08:43:10,115 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 366
+2025-07-17 08:43:10,117 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 369
+2025-07-17 08:43:10,119 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 370
+2025-07-17 08:43:10,122 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 366
+2025-07-17 08:43:10,125 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 367
+2025-07-17 08:43:10,130 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 367
+2025-07-17 08:43:10,132 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 368
+2025-07-17 08:43:10,135 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 369
+2025-07-17 08:43:10,137 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 371
+2025-07-17 08:43:10,140 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 370
+2025-07-17 08:43:10,142 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 372
+2025-07-17 08:43:10,144 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 373
+2025-07-17 08:43:10,146 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 368
+2025-07-17 08:43:10,148 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 369
+2025-07-17 08:43:10,150 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 374
+2025-07-17 08:43:10,153 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 371
+2025-07-17 08:43:10,155 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 375
+2025-07-17 08:43:10,158 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 372
+2025-07-17 08:43:10,160 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 376
+2025-07-17 08:43:10,162 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 377
+2025-07-17 08:43:10,164 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 373
+2025-07-17 08:43:10,167 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 374
+2025-07-17 08:43:10,170 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 375
+2025-07-17 08:43:10,172 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 370
+2025-07-17 08:43:10,174 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 371
+2025-07-17 08:43:10,177 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 376
+2025-07-17 08:43:10,179 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 378
+2025-07-17 08:43:10,181 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 372
+2025-07-17 08:43:10,183 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 373
+2025-07-17 08:43:10,185 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 374
+2025-07-17 08:43:10,188 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 377
+2025-07-17 08:43:10,190 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 375
+2025-07-17 08:43:10,192 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 376
+2025-07-17 08:43:10,195 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 377
+2025-07-17 08:43:10,197 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 379
+2025-07-17 08:43:10,200 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 378
+2025-07-17 08:43:10,202 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 380
+2025-07-17 08:43:10,204 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 378
+2025-07-17 08:43:10,206 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 381
+2025-07-17 08:43:10,209 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 379
+2025-07-17 08:43:10,212 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 380
+2025-07-17 08:43:10,214 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 379
+2025-07-17 08:43:10,217 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 380
+2025-07-17 08:43:10,220 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 381
+2025-07-17 08:43:10,222 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 381
+2025-07-17 08:43:10,224 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 382
+2025-07-17 08:43:10,226 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 383
+2025-07-17 08:43:10,228 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 0, 偏移量: 384
+2025-07-17 08:43:10,230 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 382
+2025-07-17 08:43:10,232 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 382
+2025-07-17 08:43:10,234 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 383
+2025-07-17 08:43:10,237 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 383
+2025-07-17 08:43:10,239 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 2, 偏移量: 384
+2025-07-17 08:43:10,244 - INFO - 数据发送成功 - 主题: realtime_v3_logs, 分区: 1, 偏移量: 384
+2025-07-17 08:43:10,244 - INFO - Kafka发送完成 - 总条数: 336, 成功: 336, 失败: 0
+2025-07-17 08:43:10,244 - INFO - <KafkaProducer client_id=kafka-python-producer-1 transactional_id=None>: Closing the Kafka producer with 9223372036.0 secs timeout.
+2025-07-17 08:43:10,244 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=55 host=cdh02:9092 <connected> [IPv4 ('10.160.60.12', 9092)]>: Closing connection. 
+2025-07-17 08:43:10,244 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=56 host=cdh01:9092 <connected> [IPv4 ('10.160.60.11', 9092)]>: Closing connection. 
+2025-07-17 08:43:10,245 - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=57 host=cdh03:9092 <connected> [IPv4 ('10.160.60.13', 9092)]>: Closing connection. 

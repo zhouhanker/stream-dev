@@ -1,6 +1,11 @@
 import com.stream.common.utils.ConfigUtils;
+import com.stream.common.utils.EnvironmentSettingUtils;
 import com.stream.common.utils.FlinkEnvUtils;
+import com.stream.utils.CdcSourceUtils;
+import com.ververica.cdc.connectors.mysql.source.MySqlSource;
+import com.ververica.cdc.connectors.mysql.table.StartupOptions;
 import lombok.SneakyThrows;
+import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.connector.file.sink.FileSink;
 import org.apache.flink.core.fs.Path;
 import org.apache.flink.orc.OrcFileFormatFactory;
@@ -18,21 +23,30 @@ import java.util.Date;
  * @description:
  */
 public class Test {
-    // 给定一个int 数组，和一个int 值，返回该值在数组中的下标
 
+
+    @SneakyThrows
     public static void main(String[] args) {
 
-        int num = 4;
-        int[] ints = new int[]{1,3,4,3,5};
-        System.err.println(Arrays.binarySearch(ints, num));
+        System.setProperty("HADOOP_USER_NAME","root");
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        EnvironmentSettingUtils.defaultParameter(env);
+        MySqlSource<String> mySQLDbMainCdcSource = CdcSourceUtils.getMySQLCdcSource(
+                "realtime_v3",
+                "realtime_v3.cdc_test_tbl",
+                ConfigUtils.getString("mysql.user"),
+                ConfigUtils.getString("mysql.pwd"),
+                StartupOptions.initial()
+        );
 
 
+        DataStreamSource<String> ds = env.fromSource(mySQLDbMainCdcSource, WatermarkStrategy.noWatermarks(), "test-cdc-source");
+        ds.print();
+
+
+        env.execute();
     }
 
 
-    public static int findIndexOfArr(int[] arr, int num){
-
-        return  -1;
-    }
 
 }
