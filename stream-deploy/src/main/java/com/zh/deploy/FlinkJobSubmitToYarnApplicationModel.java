@@ -44,7 +44,8 @@ public class FlinkJobSubmitToYarnApplicationModel {
 
         CommonUtils.printCheckPropEnv(false,FLINK_SUBMIT_USER,FLINK_COMMON_CONF_DIR,FLINK_CLUSTER_LIBS_DIR);
 
-        String fullClassName = "com.retailersv1.DbusCdc2DimHbaseAnd2DbKafka";
+        String fullClassName = "com.trafficV1.DbusLoadingPg2Kafka";
+        // 为true 则在本地编译打包后上传 & 为false 则直接调用远程的jar进行执行
         DeployFlinkUtils.preparationEnvUploadJars(true,fullClassName);
         // RestFul API
         SubFlinkTask(

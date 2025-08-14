@@ -44,7 +44,7 @@ public class DbusCdc2DimHbaseAnd2DbKafka {
                 "",
                 ConfigUtils.getString("mysql.user"),
                 ConfigUtils.getString("mysql.pwd"),
-                StartupOptions.latest()
+                StartupOptions.initial()
         );
 
         // 读取配置库的变化binlog
@@ -53,7 +53,7 @@ public class DbusCdc2DimHbaseAnd2DbKafka {
                 "realtime_v1_config.table_process_dim",
                 ConfigUtils.getString("mysql.user"),
                 ConfigUtils.getString("mysql.pwd"),
-                StartupOptions.latest()
+                StartupOptions.initial()
         );
 
         DataStreamSource<String> cdcDbMainStream = env.fromSource(mySQLDbMainCdcSource, WatermarkStrategy.noWatermarks(), "mysql_cdc_main_source");

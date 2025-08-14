@@ -178,10 +178,17 @@
         </dependency>
 
         <!--        Flink CDC Pg connector-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.flink</groupId>-->
+<!--            <artifactId>flink-connector-postgres-cdc</artifactId>-->
+<!--            <version>3.4.0</version>-->
+<!--        </dependency>-->
+
         <dependency>
-            <groupId>org.apache.flink</groupId>
+            <groupId>com.ververica</groupId>
             <artifactId>flink-connector-postgres-cdc</artifactId>
-            <version>3.4.0</version>
+            <version>2.4.2</version>
+<!--            <scope>provided</scope>-->
         </dependency>
 
         <!--        Flink CDC SqlServer connector-->
@@ -316,7 +323,11 @@
 <!--            <scope>provided</scope>-->
         </dependency>
 
-
+        <dependency>
+            <groupId>com.zh</groupId>
+            <artifactId>data-encryption</artifactId>
+            <version>1.0-RELEASE</version>
+        </dependency>
 
 
     </dependencies>
