@@ -6,7 +6,7 @@ import com.stream.common.utils.ConfigUtils;
 import com.stream.common.utils.EnvironmentSettingUtils;
 import com.stream.common.utils.KafkaUtils;
 import com.trafficV1.func.MapSuppTsFunc;
-import com.trafficV1.utils.KeyedProcessSnapshotCompletionDetectorFunc;
+import com.trafficV1.func.KeyedProcessSnapshotCompletionDetectorFunc;
 import com.ververica.cdc.connectors.base.options.StartupOptions;
 import com.ververica.cdc.connectors.base.source.jdbc.JdbcIncrementalSource;
 import com.ververica.cdc.connectors.postgres.source.PostgresSourceBuilder;
@@ -21,12 +21,12 @@ import java.time.Duration;
 import java.util.Objects;
 
 /**
- * @Package com.trafficV1.DbusLoadingPg2Kafka
+ * @Package com.trafficV1.DbusLoadingPgCdc2Kafka
  * @Author zhou.han
  * @Date 2025/8/7 20:43
  * @description: Loading Postgresql & Task 01
  */
-public class DbusLoadingPg2Kafka {
+public class DbusLoadingPgCdc2Kafka {
 
     private static final String kafka_botstrap_servers = ConfigUtils.getString("kafka.bootstrap.servers");
     private static final String kafka_topic_traffic_car_info = "realtime_v3_traffic_origin_data_info";
@@ -84,7 +84,6 @@ public class DbusLoadingPg2Kafka {
                 KafkaUtils.buildKafkaSink(kafka_botstrap_servers,kafka_topic_traffic_car_info)
         ).uid("sink_2_kf_topic").name("_sink_2_kf_topic");
 
-//        hisFullData2StrRes.print();
 
 
 

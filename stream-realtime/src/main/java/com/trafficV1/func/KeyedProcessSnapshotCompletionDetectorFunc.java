@@ -1,4 +1,4 @@
-package com.trafficV1.utils;
+package com.trafficV1.func;
 
 import com.alibaba.fastjson2.JSONObject;
 import org.apache.flink.api.common.state.ValueState;
@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Date;
 
 /**
- * @Package com.trafficV1.utils.KeyedProcessSnapshotCompletionDetectorFunc
+ * @Package com.trafficV1.func.KeyedProcessSnapshotCompletionDetectorFunc
  * @Author zhou.han
  * @Date 2025/8/14 14:55
  * @description: 检测cdc状态为r的快照数据是否完成

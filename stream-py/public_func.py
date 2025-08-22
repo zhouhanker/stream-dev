@@ -142,9 +142,7 @@ def process_thread_func(v_func_dict_list, v_type, v_process_cnt=1, v_thread_max=
         print('所有进程方法执行结束')
 
 
-def push_feishu_msg(
-        msg
-) -> None:
+def push_feishu_msg(msg) -> None:
     """
     推送消息到飞书
     """
