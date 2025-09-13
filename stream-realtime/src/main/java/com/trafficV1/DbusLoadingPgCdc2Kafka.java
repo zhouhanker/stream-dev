@@ -33,6 +33,8 @@ public class DbusLoadingPgCdc2Kafka {
     private static final int kafka_topic_partition_nums = 6;
     private static final short kafka_topic_replication_nums = 1;
 
+    private static final String FLINK_UID_VERSION = "_v1";
+
     @SneakyThrows
     public static void main(String[] args) {
 
@@ -61,7 +63,7 @@ public class DbusLoadingPgCdc2Kafka {
         DataStreamSource<String> pgCdcSource = env.fromSource(postgresIncrementalSource, WatermarkStrategy.forBoundedOutOfOrderness(Duration.ofSeconds(5)), "DbusLoadingPgDataETL_postgresIncrementalSource");
 
         SingleOutputStreamOperator<JSONObject> mapData2JsonDs = pgCdcSource.map(JSON::parseObject)
-                .uid("map_source_data_to_json")
+                .uid("map_source_data_to_json" + FLINK_UID_VERSION)
                 .name("_map_source_data_to_json");
 
         SingleOutputStreamOperator<JSONObject> processSnapshotDs = mapData2JsonDs.keyBy(r -> "static_key").process(new KeyedProcessSnapshotCompletionDetectorFunc()).setParallelism(1);
@@ -69,11 +71,11 @@ public class DbusLoadingPgCdc2Kafka {
         SingleOutputStreamOperator<JSONObject> hisAfterDataNotNullDs = processSnapshotDs.filter(data -> "r".equals(data.getString("op")))
                 .filter(Objects::nonNull)
                 .map(data -> data.getJSONObject("after"))
-                .uid("fm_json_data_not_null & get after data")
-                .name("_fm_json_data_not_null & get after data");
+                .uid("fm_json_data_not_null_and_get after data" + FLINK_UID_VERSION)
+                .name("_fm_json_data_not_null_and_get after data");
 
         SingleOutputStreamOperator<JSONObject> hisFullDataDs = hisAfterDataNotNullDs.map(new MapSuppTsFunc())
-                .uid("map_supp_map_history_data")
+                .uid("map_supp_map_history_data" + FLINK_UID_VERSION)
                 .name("_map_supp_map_history_data");
 
         SingleOutputStreamOperator<String> hisFullData2StrRes = hisFullDataDs.map(JSONObject::toJSONString)
@@ -82,7 +84,7 @@ public class DbusLoadingPgCdc2Kafka {
 
         hisFullData2StrRes.sinkTo(
                 KafkaUtils.buildKafkaSink(kafka_botstrap_servers,kafka_topic_traffic_car_info)
-        ).uid("sink_2_kf_topic").name("_sink_2_kf_topic");
+        ).uid("sink_2_kf_topic" + FLINK_UID_VERSION).name("_sink_2_kf_topic");
 
 
 

@@ -32,12 +32,12 @@ public class DistanceCalculator {
         double lambdaP = 2 * Math.PI;
         int iterLimit = 100;
 
-        double sinLambda = 0;
-        double cosLambda = 0;
+        double sinLambda;
+        double cosLambda;
         double sinSigma = 0;
         double cosSigma = 0;
         double sigma = 0;
-        double sinAlpha = 0;
+        double sinAlpha;
         double cosSqAlpha = 0;
         double cos2SigmaM = 0;
 
@@ -46,9 +46,8 @@ public class DistanceCalculator {
             sinLambda = Math.sin(lambda);
             cosLambda = Math.cos(lambda);
 
-            sinSigma = Math.sqrt((cosU2 * sinLambda) * (cosU2 * sinLambda) +
-                    (cosU1 * sinU2 - sinU1 * cosU2 * cosLambda) *
-                            (cosU1 * sinU2 - sinU1 * cosU2 * cosLambda));
+            double v = cosU1 * sinU2 - sinU1 * cosU2 * cosLambda;
+            sinSigma = Math.sqrt((cosU2 * sinLambda) * (cosU2 * sinLambda) + v * v);
 
             if (sinSigma == 0) {
                 return 0.0; // 两点重合

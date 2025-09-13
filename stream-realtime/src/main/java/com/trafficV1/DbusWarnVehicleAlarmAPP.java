@@ -34,23 +34,27 @@ public class DbusWarnVehicleAlarmAPP {
     private static final OutputTag<String> Emergency_Alarm_Tag = new OutputTag<String>("Emergency_Alarm_Tag"){};
     private static final OutputTag<String> Vehicleno_Alarm_Tag = new OutputTag<String>("Vehicleno_Alarm_Tag"){};
 
+    private static final String FLINK_UID_VERSION = "_v1";
+
     @SneakyThrows
     public static void main(String[] args) {
 
         System.setProperty("HADOOP_USER_NAME","root");
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        // 禁用Flink 的泛型推测
+//        env.getConfig().disableGenericTypes();
         EnvironmentSettingUtils.defaultParameter(env);
 
         DataStreamSource<String> sourceKafkaDs = env.fromSource(
                 KafkaUtils.buildKafkaSource(kafka_botstrap_servers, kafka_topic_traffic_car_info, new Date() + "_traffic_origin_data_info", OffsetsInitializer.earliest()),
                 WaterMarkUtils.publicAssignWatermarkStrategy("ts",3),
-                "kafka_source_topic_traffic_car_info"
+                "kafka_source_topic_traffic_car_info" + FLINK_UID_VERSION
         );
 
         SingleOutputStreamOperator<List<String>> sourceWarnConfigDs = env.addSource(new SourceAlarmConfig(), TypeInformation.of(new TypeHint<List<String>>() {
                 }))
                 .setParallelism(1)
-                .uid("source_warn_api_config")
+                .uid("source_warn_api_config" + FLINK_UID_VERSION)
                 .name("source_warn_api_config");
 
         SingleOutputStreamOperator<JSONObject> convert2JsonDs = sourceKafkaDs.map(JSON::parseObject)
@@ -65,7 +69,7 @@ public class DbusWarnVehicleAlarmAPP {
 
         BroadcastConnectedStream<JSONObject, List<String>> connectMainDsAndConfigDs = KeyedVehiclenoDs.connect(broadcastWarnConfig);
         SingleOutputStreamOperator<JSONObject> processWarnBcDs = connectMainDsAndConfigDs.process(new WarnKeyedBroadCastProcessFunc(Emergency_Alarm_Tag, Vehicleno_Alarm_Tag, warnConfigMapStateDesc))
-                .uid("process_warn_rule_broadcast_ds")
+                .uid("process_warn_rule_broadcast_ds" + FLINK_UID_VERSION)
                 .name("process_warn_rule_broadcast_ds");
 
         SideOutputDataStream<String> warnEmAlarmSideOutputDs = processWarnBcDs.getSideOutput(Emergency_Alarm_Tag);

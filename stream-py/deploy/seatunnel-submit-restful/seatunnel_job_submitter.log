@@ -1,2 +1,2 @@
-2025-06-27 09:05:43 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_dic_tbl.conf
-2025-06-27 09:05:44 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 990782941834772481, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_info_tbl
+2025-09-12 19:34:15 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule_tbl.conf
+2025-09-12 19:34:16 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1018847007470518273, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule_tbl

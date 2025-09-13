@@ -78,6 +78,7 @@ public class WarnKeyedBroadCastProcessFunc extends KeyedBroadcastProcessFunction
         if (alarm != null) {
             Integer emergencyAlarm = alarm.getInteger("emergencyAlarm");
             if (emergencyAlarm != null && emergencyAlarm == 1) {
+                data.put("mWarnType","SOS");
                 context.output(emergencyAlarmTag, data.toJSONString());
                 logger.info("Emergency alarm rule matched for data: {}", data.toJSONString());
             }
@@ -89,6 +90,7 @@ public class WarnKeyedBroadCastProcessFunc extends KeyedBroadcastProcessFunction
         String dataVehicleno = data.getString("vehicleno");
 
         if (ruleVehicleno != null && ruleVehicleno.equals(dataVehicleno)) {
+            data.put("WarnType","vehiclenoAlarm");
             context.output(vehiclenoAlarmTag, data.toJSONString());
             logger.debug("Vehicleno rule matched for data: {}", data.toJSONString());
         }

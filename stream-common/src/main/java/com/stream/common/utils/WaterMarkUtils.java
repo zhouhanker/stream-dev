@@ -3,6 +3,8 @@ package com.stream.common.utils;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 import java.util.List;
@@ -13,6 +15,8 @@ import java.util.List;
  **/
 @Slf4j
 public class WaterMarkUtils {
+
+    private static final Logger logger = LoggerFactory.getLogger(WaterMarkUtils.class);
 
     public static WatermarkStrategy<JSONObject> getEthWarnWaterMark(long durationSeconds) {
         return WatermarkStrategy
@@ -44,7 +48,7 @@ public class WaterMarkUtils {
                         return 0L;
                     } catch (Exception e) {
                         e.printStackTrace();
-                        System.err.println("Failed to parse event or get field '" + timestampField + "': " + event);
+                        logger.error("Failed to parse event or get field '" + timestampField + "': " + event);
                         return 0L;
                     }
                 });
