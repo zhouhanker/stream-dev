@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 # 重试配置（可调整参数）
 RETRY_MAX_ATTEMPTS = 3
 RETRY_WAIT_FIXED = 2000
-num_processes = 4
+num_processes = 3
 properties = public_func.get_java_properties()
 
 db_config = {

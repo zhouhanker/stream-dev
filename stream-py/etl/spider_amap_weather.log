@@ -54,3 +54,2022 @@
 [parameters: [{'daren_name': '豌豆思维亲子动画', 'daren_num': 397934082, 'medium': '沈曼', 'cooperate_stage': '待建联', '标签': None, '跟进记录数': 2, 'uid': '', '带货水平': '尾部达人', 'sale_amount_30d_sum': 0, 'sale_amount': 0, 'pay_sale_num': 0, 'deal_product': 0, '订单量': 0, '寄样数': 0, 'binding_time': '2025-07-23 14:25', 'pay_7d_sale_amount_qoq': '0.00%', 'wechat_id': None, 'phone_number': None, 'email': None, 'qq_id': None, 'other_contact': None, 'plat_from': 'xhs'}, {'daren_name': '丁怼怼Chloe', 'daren_num': 101512812, 'medium': '宋骐辛', 'cooperate_stage': '待建联', '标签': None, '跟进记录数': 2, 'uid': '', '带货水平': '尾部达人', 'sale_amount_30d_sum': 0, 'sale_amount': 0, 'pay_sale_num': 0, 'deal_product': 0, '订单量': 0, '寄样数': 0, 'binding_time': '2025-07-23 14:15', 'pay_7d_sale_amount_qoq': '0.00%', 'wechat_id': None, 'phone_number': None, 'email': None, 'qq_id': None, 'other_contact': None, 'plat_from': 'xhs'}]]
 (Background on this error at: https://sqlalche.me/e/20/e3q8)
 2025-07-24 16:17:46,979 - ERROR - ETL 流程失败
+2025-09-16 15:16:35,760 - INFO - [{'Tables_in_dev': 'spider_amap_restapi_key'}, {'Tables_in_dev': 'spider_amap_weather_data_dtl'}, {'Tables_in_dev': 'spider_national_code_compare_dic'}]
+2025-09-16 15:17:31,207 - INFO - [{'Tables_in_realtime_v1': 'activity_info'}, {'Tables_in_realtime_v1': 'activity_rule'}, {'Tables_in_realtime_v1': 'activity_sku'}, {'Tables_in_realtime_v1': 'base_attr_info'}, {'Tables_in_realtime_v1': 'base_attr_value'}, {'Tables_in_realtime_v1': 'base_category1'}, {'Tables_in_realtime_v1': 'base_category2'}, {'Tables_in_realtime_v1': 'base_category3'}, {'Tables_in_realtime_v1': 'base_dic'}, {'Tables_in_realtime_v1': 'base_frontend_param'}, {'Tables_in_realtime_v1': 'base_province'}, {'Tables_in_realtime_v1': 'base_region'}, {'Tables_in_realtime_v1': 'base_sale_attr'}, {'Tables_in_realtime_v1': 'base_trademark'}, {'Tables_in_realtime_v1': 'cart_info'}, {'Tables_in_realtime_v1': 'category_compare_dic'}, {'Tables_in_realtime_v1': 'cms_banner'}, {'Tables_in_realtime_v1': 'comment_info'}, {'Tables_in_realtime_v1': 'coupon_info'}, {'Tables_in_realtime_v1': 'coupon_range'}, {'Tables_in_realtime_v1': 'coupon_use'}, {'Tables_in_realtime_v1': 'favor_info'}, {'Tables_in_realtime_v1': 'financial_sku_cost'}, {'Tables_in_realtime_v1': 'order_detail'}, {'Tables_in_realtime_v1': 'order_detail_activity'}, {'Tables_in_realtime_v1': 'order_detail_coupon'}, {'Tables_in_realtime_v1': 'order_info'}, {'Tables_in_realtime_v1': 'order_refund_info'}, {'Tables_in_realtime_v1': 'order_status_log'}, {'Tables_in_realtime_v1': 'payment_info'}, {'Tables_in_realtime_v1': 'promotion_pos'}, {'Tables_in_realtime_v1': 'promotion_refer'}, {'Tables_in_realtime_v1': 'refund_payment'}, {'Tables_in_realtime_v1': 'sample_order_info'}, {'Tables_in_realtime_v1': 'seckill_goods'}, {'Tables_in_realtime_v1': 'sku_attr_value'}, {'Tables_in_realtime_v1': 'sku_image'}, {'Tables_in_realtime_v1': 'sku_info'}, {'Tables_in_realtime_v1': 'sku_sale_attr_value'}, {'Tables_in_realtime_v1': 'spu_image'}, {'Tables_in_realtime_v1': 'spu_info'}, {'Tables_in_realtime_v1': 'spu_poster'}, {'Tables_in_realtime_v1': 'spu_sale_attr'}, {'Tables_in_realtime_v1': 'spu_sale_attr_value'}, {'Tables_in_realtime_v1': 'user_address'}, {'Tables_in_realtime_v1': 'user_info'}, {'Tables_in_realtime_v1': 'user_info_sup_msg'}, {'Tables_in_realtime_v1': 'ware_info'}, {'Tables_in_realtime_v1': 'ware_order_task'}, {'Tables_in_realtime_v1': 'ware_order_task_detail'}, {'Tables_in_realtime_v1': 'ware_sku'}, {'Tables_in_realtime_v1': 'z_log'}]
+2025-09-16 18:49:36,348 - INFO - ds
+2025-09-16 19:15:24,510 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_activity_info (
+                    id string ,activity_name string ,activity_type string ,activity_desc string ,start_time string ,end_time string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_activity_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:15:26,931 - INFO - Closing down clientserver connection
+2025-09-16 19:32:01,420 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_activity_info (
+                    id string ,activity_name string ,activity_type string ,activity_desc string ,start_time string ,end_time string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_activity_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:03,398 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_activity_rule (
+                    id string ,activity_id string ,activity_type string ,condition_amount string ,condition_num string ,benefit_amount string ,benefit_discount string ,benefit_level string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_activity_rule/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:03,862 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_activity_sku (
+                    id string ,activity_id string ,sku_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_activity_sku/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:03,959 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_attr_info (
+                    id string ,attr_name string ,category_id string ,category_level string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_attr_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:04,249 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_attr_value (
+                    id string ,value_name string ,attr_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_attr_value/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:04,507 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_category1 (
+                    id string ,name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_category1/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:04,661 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_category2 (
+                    id string ,name string ,category1_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_category2/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:04,826 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_category3 (
+                    id string ,name string ,category2_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_category3/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:04,994 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_dic (
+                    dic_code string ,dic_name string ,parent_code string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_dic/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:05,162 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_frontend_param (
+                    id string ,code string ,delete_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_frontend_param/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:05,433 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_province (
+                    id string ,name string ,region_id string ,area_code string ,iso_code string ,iso_3166_2 string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_province/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:05,723 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_region (
+                    id string ,region_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_region/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:05,883 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_sale_attr (
+                    id string ,name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_sale_attr/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:06,180 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_trademark (
+                    id string ,tm_name string ,logo_url string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_trademark/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:06,415 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_cart_info (
+                    id string ,user_id string ,sku_id string ,cart_price string ,sku_num string ,img_url string ,sku_name string ,is_checked string ,create_time string ,operate_time string ,is_ordered string ,order_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_cart_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:06,588 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_category_compare_dic (
+                    id string ,category_name string ,search_category string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_category_compare_dic/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:06,820 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_cms_banner (
+                    id string ,title string ,image_url string ,link_url string ,sort string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_cms_banner/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:06,979 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_comment_info (
+                    id string ,user_id string ,nick_name string ,head_img string ,sku_id string ,spu_id string ,order_id string ,appraise string ,comment_txt string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_comment_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:07,145 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_coupon_info (
+                    id string ,coupon_name string ,coupon_type string ,condition_amount string ,condition_num string ,activity_id string ,benefit_amount string ,benefit_discount string ,create_time string ,range_type string ,limit_num string ,taken_count string ,start_time string ,end_time string ,operate_time string ,expire_time string ,range_desc string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_coupon_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:07,313 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_coupon_range (
+                    id string ,coupon_id string ,range_type string ,range_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_coupon_range/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:07,507 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_coupon_use (
+                    id string ,coupon_id string ,user_id string ,order_id string ,coupon_status string ,get_time string ,using_time string ,used_time string ,expire_time string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_coupon_use/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:07,663 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_favor_info (
+                    id string ,user_id string ,sku_id string ,spu_id string ,is_cancel string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_favor_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:07,814 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_financial_sku_cost (
+                    id string ,sku_id string ,sku_name string ,busi_date string ,is_lastest string ,sku_cost string ,create_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_financial_sku_cost/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:08,005 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_detail (
+                    id string ,order_id string ,sku_id string ,sku_name string ,img_url string ,order_price string ,sku_num string ,create_time string ,split_total_amount string ,split_activity_amount string ,split_coupon_amount string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_detail/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:08,170 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_detail_activity (
+                    id string ,order_id string ,order_detail_id string ,activity_id string ,activity_rule_id string ,sku_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_detail_activity/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:08,291 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_detail_coupon (
+                    id string ,order_id string ,order_detail_id string ,coupon_id string ,coupon_use_id string ,sku_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_detail_coupon/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:08,446 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_info (
+                    id string ,consignee string ,consignee_tel string ,total_amount string ,order_status string ,user_id string ,payment_way string ,delivery_address string ,order_comment string ,out_trade_no string ,trade_body string ,create_time string ,operate_time string ,expire_time string ,process_status string ,tracking_no string ,parent_order_id string ,img_url string ,province_id string ,activity_reduce_amount string ,coupon_reduce_amount string ,original_total_amount string ,feight_fee string ,feight_fee_reduce string ,refundable_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:08,562 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_refund_info (
+                    id string ,user_id string ,order_id string ,sku_id string ,refund_type string ,refund_num string ,refund_amount string ,refund_reason_type string ,refund_reason_txt string ,refund_status string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_refund_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:08,631 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_status_log (
+                    id string ,order_id string ,order_status string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_status_log/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:08,790 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_payment_info (
+                    id string ,out_trade_no string ,order_id string ,user_id string ,payment_type string ,trade_no string ,total_amount string ,subject string ,payment_status string ,create_time string ,callback_time string ,callback_content string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_payment_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:08,933 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_promotion_pos (
+                    id string ,pos_location string ,pos_type string ,promotion_type string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_promotion_pos/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:09,092 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_promotion_refer (
+                    id string ,refer_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_promotion_refer/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:09,251 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_refund_payment (
+                    id string ,out_trade_no string ,order_id string ,sku_id string ,payment_type string ,trade_no string ,total_amount string ,subject string ,refund_status string ,create_time string ,callback_time string ,callback_content string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_refund_payment/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:09,421 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_sample_order_info (
+                    id string ,plat_from string ,order_id string ,daren_name string ,uid string ,daren_number string ,fans_num string ,daihuo_type string ,daihuo_level string ,sale_num_30_sum string ,chuanyang_time string ,sample_product string ,store_name string ,product_price string ,product_id string ,product_info string ,sale_num string ,medium string ,create_user string ,examine_time string ,sync_erp_time string ,sog_time string ,ts string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_sample_order_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:09,607 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_seckill_goods (
+                    id string ,spu_id string ,sku_id string ,sku_name string ,sku_default_img string ,price string ,cost_price string ,create_time string ,check_time string ,status string ,start_time string ,end_time string ,num string ,stock_count string ,sku_desc string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_seckill_goods/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:09,768 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_sku_attr_value (
+                    id string ,attr_id string ,value_id string ,sku_id string ,attr_name string ,value_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_sku_attr_value/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:09,900 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_sku_image (
+                    id string ,sku_id string ,img_name string ,img_url string ,spu_img_id string ,is_default string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_sku_image/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:10,070 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_sku_info (
+                    id string ,spu_id string ,price string ,sku_name string ,sku_desc string ,weight string ,tm_id string ,category3_id string ,sku_default_img string ,is_sale string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_sku_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:10,201 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_sku_sale_attr_value (
+                    id string ,sku_id string ,spu_id string ,sale_attr_value_id string ,sale_attr_id string ,sale_attr_name string ,sale_attr_value_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_sku_sale_attr_value/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:10,370 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_spu_image (
+                    id string ,spu_id string ,img_name string ,img_url string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_spu_image/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:10,491 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_spu_info (
+                    id string ,spu_name string ,description string ,category3_id string ,tm_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_spu_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:10,661 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_spu_poster (
+                    id string ,spu_id string ,img_name string ,img_url string ,create_time string ,operate_time string ,is_deleted string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_spu_poster/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:10,792 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_spu_sale_attr (
+                    id string ,spu_id string ,base_sale_attr_id string ,sale_attr_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_spu_sale_attr/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:10,956 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_spu_sale_attr_value (
+                    id string ,spu_id string ,base_sale_attr_id string ,sale_attr_value_name string ,sale_attr_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_spu_sale_attr_value/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:11,141 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_user_address (
+                    id string ,user_id string ,province_id string ,user_address string ,consignee string ,phone_num string ,is_default string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_user_address/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:11,268 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_user_info (
+                    id string ,login_name string ,nick_name string ,passwd string ,name string ,phone_num string ,email string ,head_img string ,user_level string ,birthday string ,gender string ,create_time string ,operate_time string ,status string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_user_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:11,418 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_user_info_sup_msg (
+                    id string ,uid string ,gender string ,height string ,unit_height string ,weight string ,unit_weight string ,flag string ,create_ts string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_user_info_sup_msg/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:11,588 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_ware_info (
+                    id string ,name string ,address string ,areacode string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_ware_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:11,702 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_ware_order_task (
+                    id string ,order_id string ,consignee string ,consignee_tel string ,delivery_address string ,order_comment string ,payment_way string ,task_status string ,order_body string ,tracking_no string ,create_time string ,ware_id string ,task_comment string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_ware_order_task/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:11,863 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_ware_order_task_detail (
+                    id string ,sku_id string ,sku_name string ,sku_num string ,task_id string ,refund_status string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_ware_order_task_detail/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:11,992 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_ware_sku (
+                    id string ,sku_id string ,warehouse_id string ,stock string ,stock_name string ,stock_locked string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_ware_sku/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:12,136 - INFO - 执行建表语句：
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_z_log (
+                    id string ,log string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_z_log/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:32:12,264 - INFO - Closing down clientserver connection
+2025-09-16 19:41:48,416 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_activity_info (
+                    id string ,activity_name string ,activity_type string ,activity_desc string ,start_time string ,end_time string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_activity_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:50,693 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_activity_info (
+                    id string ,activity_name string ,activity_type string ,activity_desc string ,start_time string ,end_time string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_activity_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:50,693 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_activity_rule (
+                    id string ,activity_id string ,activity_type string ,condition_amount string ,condition_num string ,benefit_amount string ,benefit_discount string ,benefit_level string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_activity_rule/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:50,955 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_activity_rule (
+                    id string ,activity_id string ,activity_type string ,condition_amount string ,condition_num string ,benefit_amount string ,benefit_discount string ,benefit_level string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_activity_rule/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:50,955 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_activity_sku (
+                    id string ,activity_id string ,sku_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_activity_sku/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:51,090 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_activity_sku (
+                    id string ,activity_id string ,sku_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_activity_sku/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:51,090 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_attr_info (
+                    id string ,attr_name string ,category_id string ,category_level string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_attr_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:51,161 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_attr_info (
+                    id string ,attr_name string ,category_id string ,category_level string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_attr_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:51,161 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_attr_value (
+                    id string ,value_name string ,attr_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_attr_value/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:51,277 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_attr_value (
+                    id string ,value_name string ,attr_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_attr_value/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:51,277 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_category1 (
+                    id string ,name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_category1/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:51,380 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_category1 (
+                    id string ,name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_category1/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:51,380 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_category2 (
+                    id string ,name string ,category1_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_category2/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:51,534 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_category2 (
+                    id string ,name string ,category1_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_category2/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:51,535 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_category3 (
+                    id string ,name string ,category2_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_category3/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:51,686 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_category3 (
+                    id string ,name string ,category2_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_category3/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:51,686 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_dic (
+                    dic_code string ,dic_name string ,parent_code string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_dic/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:51,801 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_dic (
+                    dic_code string ,dic_name string ,parent_code string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_dic/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:51,802 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_frontend_param (
+                    id string ,code string ,delete_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_frontend_param/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:51,830 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_frontend_param (
+                    id string ,code string ,delete_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_frontend_param/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:51,830 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_province (
+                    id string ,name string ,region_id string ,area_code string ,iso_code string ,iso_3166_2 string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_province/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:51,854 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_province (
+                    id string ,name string ,region_id string ,area_code string ,iso_code string ,iso_3166_2 string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_province/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:51,854 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_region (
+                    id string ,region_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_region/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:51,887 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_region (
+                    id string ,region_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_region/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:51,887 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_sale_attr (
+                    id string ,name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_sale_attr/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:51,909 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_sale_attr (
+                    id string ,name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_sale_attr/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:51,909 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_trademark (
+                    id string ,tm_name string ,logo_url string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_trademark/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:51,929 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_base_trademark (
+                    id string ,tm_name string ,logo_url string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_base_trademark/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:51,929 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_cart_info (
+                    id string ,user_id string ,sku_id string ,cart_price string ,sku_num string ,img_url string ,sku_name string ,is_checked string ,create_time string ,operate_time string ,is_ordered string ,order_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_cart_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:51,950 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_cart_info (
+                    id string ,user_id string ,sku_id string ,cart_price string ,sku_num string ,img_url string ,sku_name string ,is_checked string ,create_time string ,operate_time string ,is_ordered string ,order_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_cart_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:51,950 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_category_compare_dic (
+                    id string ,category_name string ,search_category string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_category_compare_dic/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:51,971 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_category_compare_dic (
+                    id string ,category_name string ,search_category string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_category_compare_dic/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:51,971 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_cms_banner (
+                    id string ,title string ,image_url string ,link_url string ,sort string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_cms_banner/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:51,996 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_cms_banner (
+                    id string ,title string ,image_url string ,link_url string ,sort string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_cms_banner/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:51,996 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_comment_info (
+                    id string ,user_id string ,nick_name string ,head_img string ,sku_id string ,spu_id string ,order_id string ,appraise string ,comment_txt string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_comment_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,016 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_comment_info (
+                    id string ,user_id string ,nick_name string ,head_img string ,sku_id string ,spu_id string ,order_id string ,appraise string ,comment_txt string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_comment_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,016 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_coupon_info (
+                    id string ,coupon_name string ,coupon_type string ,condition_amount string ,condition_num string ,activity_id string ,benefit_amount string ,benefit_discount string ,create_time string ,range_type string ,limit_num string ,taken_count string ,start_time string ,end_time string ,operate_time string ,expire_time string ,range_desc string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_coupon_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,038 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_coupon_info (
+                    id string ,coupon_name string ,coupon_type string ,condition_amount string ,condition_num string ,activity_id string ,benefit_amount string ,benefit_discount string ,create_time string ,range_type string ,limit_num string ,taken_count string ,start_time string ,end_time string ,operate_time string ,expire_time string ,range_desc string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_coupon_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,039 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_coupon_range (
+                    id string ,coupon_id string ,range_type string ,range_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_coupon_range/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,060 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_coupon_range (
+                    id string ,coupon_id string ,range_type string ,range_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_coupon_range/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,060 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_coupon_use (
+                    id string ,coupon_id string ,user_id string ,order_id string ,coupon_status string ,get_time string ,using_time string ,used_time string ,expire_time string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_coupon_use/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,092 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_coupon_use (
+                    id string ,coupon_id string ,user_id string ,order_id string ,coupon_status string ,get_time string ,using_time string ,used_time string ,expire_time string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_coupon_use/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,092 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_favor_info (
+                    id string ,user_id string ,sku_id string ,spu_id string ,is_cancel string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_favor_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,113 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_favor_info (
+                    id string ,user_id string ,sku_id string ,spu_id string ,is_cancel string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_favor_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,113 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_financial_sku_cost (
+                    id string ,sku_id string ,sku_name string ,busi_date string ,is_lastest string ,sku_cost string ,create_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_financial_sku_cost/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,135 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_financial_sku_cost (
+                    id string ,sku_id string ,sku_name string ,busi_date string ,is_lastest string ,sku_cost string ,create_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_financial_sku_cost/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,135 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_detail (
+                    id string ,order_id string ,sku_id string ,sku_name string ,img_url string ,order_price string ,sku_num string ,create_time string ,split_total_amount string ,split_activity_amount string ,split_coupon_amount string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_detail/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,156 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_detail (
+                    id string ,order_id string ,sku_id string ,sku_name string ,img_url string ,order_price string ,sku_num string ,create_time string ,split_total_amount string ,split_activity_amount string ,split_coupon_amount string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_detail/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,156 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_detail_activity (
+                    id string ,order_id string ,order_detail_id string ,activity_id string ,activity_rule_id string ,sku_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_detail_activity/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,188 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_detail_activity (
+                    id string ,order_id string ,order_detail_id string ,activity_id string ,activity_rule_id string ,sku_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_detail_activity/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,188 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_detail_coupon (
+                    id string ,order_id string ,order_detail_id string ,coupon_id string ,coupon_use_id string ,sku_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_detail_coupon/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,210 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_detail_coupon (
+                    id string ,order_id string ,order_detail_id string ,coupon_id string ,coupon_use_id string ,sku_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_detail_coupon/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,210 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_info (
+                    id string ,consignee string ,consignee_tel string ,total_amount string ,order_status string ,user_id string ,payment_way string ,delivery_address string ,order_comment string ,out_trade_no string ,trade_body string ,create_time string ,operate_time string ,expire_time string ,process_status string ,tracking_no string ,parent_order_id string ,img_url string ,province_id string ,activity_reduce_amount string ,coupon_reduce_amount string ,original_total_amount string ,feight_fee string ,feight_fee_reduce string ,refundable_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,231 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_info (
+                    id string ,consignee string ,consignee_tel string ,total_amount string ,order_status string ,user_id string ,payment_way string ,delivery_address string ,order_comment string ,out_trade_no string ,trade_body string ,create_time string ,operate_time string ,expire_time string ,process_status string ,tracking_no string ,parent_order_id string ,img_url string ,province_id string ,activity_reduce_amount string ,coupon_reduce_amount string ,original_total_amount string ,feight_fee string ,feight_fee_reduce string ,refundable_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,231 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_refund_info (
+                    id string ,user_id string ,order_id string ,sku_id string ,refund_type string ,refund_num string ,refund_amount string ,refund_reason_type string ,refund_reason_txt string ,refund_status string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_refund_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,248 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_refund_info (
+                    id string ,user_id string ,order_id string ,sku_id string ,refund_type string ,refund_num string ,refund_amount string ,refund_reason_type string ,refund_reason_txt string ,refund_status string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_refund_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,248 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_status_log (
+                    id string ,order_id string ,order_status string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_status_log/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,265 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_status_log (
+                    id string ,order_id string ,order_status string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_order_status_log/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,265 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_payment_info (
+                    id string ,out_trade_no string ,order_id string ,user_id string ,payment_type string ,trade_no string ,total_amount string ,subject string ,payment_status string ,create_time string ,callback_time string ,callback_content string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_payment_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,297 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_payment_info (
+                    id string ,out_trade_no string ,order_id string ,user_id string ,payment_type string ,trade_no string ,total_amount string ,subject string ,payment_status string ,create_time string ,callback_time string ,callback_content string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_payment_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,297 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_promotion_pos (
+                    id string ,pos_location string ,pos_type string ,promotion_type string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_promotion_pos/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,314 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_promotion_pos (
+                    id string ,pos_location string ,pos_type string ,promotion_type string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_promotion_pos/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,314 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_promotion_refer (
+                    id string ,refer_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_promotion_refer/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,332 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_promotion_refer (
+                    id string ,refer_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_promotion_refer/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,332 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_refund_payment (
+                    id string ,out_trade_no string ,order_id string ,sku_id string ,payment_type string ,trade_no string ,total_amount string ,subject string ,refund_status string ,create_time string ,callback_time string ,callback_content string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_refund_payment/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,350 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_refund_payment (
+                    id string ,out_trade_no string ,order_id string ,sku_id string ,payment_type string ,trade_no string ,total_amount string ,subject string ,refund_status string ,create_time string ,callback_time string ,callback_content string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_refund_payment/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,350 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_sample_order_info (
+                    id string ,plat_from string ,order_id string ,daren_name string ,uid string ,daren_number string ,fans_num string ,daihuo_type string ,daihuo_level string ,sale_num_30_sum string ,chuanyang_time string ,sample_product string ,store_name string ,product_price string ,product_id string ,product_info string ,sale_num string ,medium string ,create_user string ,examine_time string ,sync_erp_time string ,sog_time string ,ts string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_sample_order_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,368 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_sample_order_info (
+                    id string ,plat_from string ,order_id string ,daren_name string ,uid string ,daren_number string ,fans_num string ,daihuo_type string ,daihuo_level string ,sale_num_30_sum string ,chuanyang_time string ,sample_product string ,store_name string ,product_price string ,product_id string ,product_info string ,sale_num string ,medium string ,create_user string ,examine_time string ,sync_erp_time string ,sog_time string ,ts string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_sample_order_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,368 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_seckill_goods (
+                    id string ,spu_id string ,sku_id string ,sku_name string ,sku_default_img string ,price string ,cost_price string ,create_time string ,check_time string ,status string ,start_time string ,end_time string ,num string ,stock_count string ,sku_desc string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_seckill_goods/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,397 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_seckill_goods (
+                    id string ,spu_id string ,sku_id string ,sku_name string ,sku_default_img string ,price string ,cost_price string ,create_time string ,check_time string ,status string ,start_time string ,end_time string ,num string ,stock_count string ,sku_desc string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_seckill_goods/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,397 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_sku_attr_value (
+                    id string ,attr_id string ,value_id string ,sku_id string ,attr_name string ,value_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_sku_attr_value/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,412 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_sku_attr_value (
+                    id string ,attr_id string ,value_id string ,sku_id string ,attr_name string ,value_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_sku_attr_value/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,412 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_sku_image (
+                    id string ,sku_id string ,img_name string ,img_url string ,spu_img_id string ,is_default string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_sku_image/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,427 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_sku_image (
+                    id string ,sku_id string ,img_name string ,img_url string ,spu_img_id string ,is_default string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_sku_image/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,427 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_sku_info (
+                    id string ,spu_id string ,price string ,sku_name string ,sku_desc string ,weight string ,tm_id string ,category3_id string ,sku_default_img string ,is_sale string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_sku_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,443 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_sku_info (
+                    id string ,spu_id string ,price string ,sku_name string ,sku_desc string ,weight string ,tm_id string ,category3_id string ,sku_default_img string ,is_sale string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_sku_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,443 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_sku_sale_attr_value (
+                    id string ,sku_id string ,spu_id string ,sale_attr_value_id string ,sale_attr_id string ,sale_attr_name string ,sale_attr_value_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_sku_sale_attr_value/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,460 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_sku_sale_attr_value (
+                    id string ,sku_id string ,spu_id string ,sale_attr_value_id string ,sale_attr_id string ,sale_attr_name string ,sale_attr_value_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_sku_sale_attr_value/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,460 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_spu_image (
+                    id string ,spu_id string ,img_name string ,img_url string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_spu_image/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,479 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_spu_image (
+                    id string ,spu_id string ,img_name string ,img_url string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_spu_image/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,479 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_spu_info (
+                    id string ,spu_name string ,description string ,category3_id string ,tm_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_spu_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,511 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_spu_info (
+                    id string ,spu_name string ,description string ,category3_id string ,tm_id string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_spu_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,511 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_spu_poster (
+                    id string ,spu_id string ,img_name string ,img_url string ,create_time string ,operate_time string ,is_deleted string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_spu_poster/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,527 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_spu_poster (
+                    id string ,spu_id string ,img_name string ,img_url string ,create_time string ,operate_time string ,is_deleted string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_spu_poster/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,527 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_spu_sale_attr (
+                    id string ,spu_id string ,base_sale_attr_id string ,sale_attr_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_spu_sale_attr/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,544 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_spu_sale_attr (
+                    id string ,spu_id string ,base_sale_attr_id string ,sale_attr_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_spu_sale_attr/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,545 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_spu_sale_attr_value (
+                    id string ,spu_id string ,base_sale_attr_id string ,sale_attr_value_name string ,sale_attr_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_spu_sale_attr_value/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,560 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_spu_sale_attr_value (
+                    id string ,spu_id string ,base_sale_attr_id string ,sale_attr_value_name string ,sale_attr_name string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_spu_sale_attr_value/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,560 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_user_address (
+                    id string ,user_id string ,province_id string ,user_address string ,consignee string ,phone_num string ,is_default string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_user_address/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,576 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_user_address (
+                    id string ,user_id string ,province_id string ,user_address string ,consignee string ,phone_num string ,is_default string ,create_time string ,operate_time string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_user_address/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,576 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_user_info (
+                    id string ,login_name string ,nick_name string ,passwd string ,name string ,phone_num string ,email string ,head_img string ,user_level string ,birthday string ,gender string ,create_time string ,operate_time string ,status string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_user_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,599 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_user_info (
+                    id string ,login_name string ,nick_name string ,passwd string ,name string ,phone_num string ,email string ,head_img string ,user_level string ,birthday string ,gender string ,create_time string ,operate_time string ,status string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_user_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,599 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_user_info_sup_msg (
+                    id string ,uid string ,gender string ,height string ,unit_height string ,weight string ,unit_weight string ,flag string ,create_ts string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_user_info_sup_msg/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,613 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_user_info_sup_msg (
+                    id string ,uid string ,gender string ,height string ,unit_height string ,weight string ,unit_weight string ,flag string ,create_ts string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_user_info_sup_msg/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,613 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_ware_info (
+                    id string ,name string ,address string ,areacode string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_ware_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,629 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_ware_info (
+                    id string ,name string ,address string ,areacode string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_ware_info/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,629 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_ware_order_task (
+                    id string ,order_id string ,consignee string ,consignee_tel string ,delivery_address string ,order_comment string ,payment_way string ,task_status string ,order_body string ,tracking_no string ,create_time string ,ware_id string ,task_comment string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_ware_order_task/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,645 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_ware_order_task (
+                    id string ,order_id string ,consignee string ,consignee_tel string ,delivery_address string ,order_comment string ,payment_way string ,task_status string ,order_body string ,tracking_no string ,create_time string ,ware_id string ,task_comment string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_ware_order_task/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,645 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_ware_order_task_detail (
+                    id string ,sku_id string ,sku_name string ,sku_num string ,task_id string ,refund_status string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_ware_order_task_detail/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,664 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_ware_order_task_detail (
+                    id string ,sku_id string ,sku_name string ,sku_num string ,task_id string ,refund_status string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_ware_order_task_detail/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,664 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_ware_sku (
+                    id string ,sku_id string ,warehouse_id string ,stock string ,stock_name string ,stock_locked string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_ware_sku/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,680 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_ware_sku (
+                    id string ,sku_id string ,warehouse_id string ,stock string ,stock_name string ,stock_locked string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_ware_sku/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,680 - INFO - exec create hive ddl: 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_z_log (
+                    id string ,log string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_z_log/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+            
+2025-09-16 19:41:52,697 - INFO - 
+                create external table if not exists bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_z_log (
+                    id string ,log string )
+                PARTITIONED BY (ds STRING)
+                STORED AS PARQUET
+                LOCATION 'hdfs://cdh01:8020/bigdata_warehouse/bigdata_offline_warehouse_v1/ods_mysql8_realtime_v1_z_log/'
+                TBLPROPERTIES (
+                    'parquet.compress' = 'SNAPPY',
+                    'external.table.purge' = 'true'
+                );    
+             is success !
+2025-09-16 19:41:52,697 - INFO - Closing down clientserver connection
+2025-09-16 19:55:02,338 - INFO - Closing down clientserver connection
+2025-09-16 19:56:11,545 - INFO - Closing down clientserver connection
+2025-09-16 19:56:39,771 - INFO - Closing down clientserver connection
+2025-09-16 20:00:28,974 - INFO - Closing down clientserver connection
+2025-09-16 20:02:01,188 - INFO - Closing down clientserver connection
+2025-09-16 20:02:57,664 - INFO - Closing down clientserver connection
+2025-09-16 20:03:22,224 - INFO - Closing down clientserver connection
+2025-09-16 20:03:32,211 - INFO - Closing down clientserver connection
+2025-09-16 20:04:02,416 - INFO - Closing down clientserver connection
+2025-09-16 20:04:22,047 - INFO - Closing down clientserver connection
+2025-09-16 20:04:34,940 - INFO - Closing down clientserver connection
+2025-09-16 20:15:02,252 - INFO - Closing down clientserver connection
+2025-09-16 20:20:59,405 - INFO - Closing down clientserver connection
+2025-09-16 20:27:16,408 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_info.conf
+2025-09-16 20:27:16,409 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule.conf
+2025-09-16 20:27:16,409 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_sku.conf
+2025-09-16 20:27:16,409 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_attr_info.conf
+2025-09-16 20:27:16,410 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_attr_value.conf
+2025-09-16 20:27:16,410 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category1.conf
+2025-09-16 20:27:16,410 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category2.conf
+2025-09-16 20:27:16,411 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category3.conf
+2025-09-16 20:27:16,411 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_dic.conf
+2025-09-16 20:27:16,411 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_frontend_param.conf
+2025-09-16 20:27:16,411 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_province.conf
+2025-09-16 20:27:16,411 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_region.conf
+2025-09-16 20:27:16,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_sale_attr.conf
+2025-09-16 20:27:16,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_trademark.conf
+2025-09-16 20:27:16,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_cart_info.conf
+2025-09-16 20:27:16,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_category_compare_dic.conf
+2025-09-16 20:27:16,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_cms_banner.conf
+2025-09-16 20:27:16,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_comment_info.conf
+2025-09-16 20:27:16,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_info.conf
+2025-09-16 20:27:16,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_range.conf
+2025-09-16 20:27:16,413 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_use.conf
+2025-09-16 20:27:16,413 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_favor_info.conf
+2025-09-16 20:27:16,413 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_financial_sku_cost.conf
+2025-09-16 20:27:16,413 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail.conf
+2025-09-16 20:27:16,413 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail_activity.conf
+2025-09-16 20:27:16,413 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail_coupon.conf
+2025-09-16 20:27:16,414 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_info.conf
+2025-09-16 20:27:16,414 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_refund_info.conf
+2025-09-16 20:27:16,414 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_status_log.conf
+2025-09-16 20:27:16,414 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_payment_info.conf
+2025-09-16 20:27:16,414 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_promotion_pos.conf
+2025-09-16 20:27:16,414 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_promotion_refer.conf
+2025-09-16 20:27:16,415 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_refund_payment.conf
+2025-09-16 20:27:16,415 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_sample_order_info.conf
+2025-09-16 20:27:16,415 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_seckill_goods.conf
+2025-09-16 20:27:16,415 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_attr_value.conf
+2025-09-16 20:27:16,415 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_image.conf
+2025-09-16 20:27:16,415 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_info.conf
+2025-09-16 20:27:16,415 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_sale_attr_value.conf
+2025-09-16 20:27:16,415 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_image.conf
+2025-09-16 20:27:16,416 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_info.conf
+2025-09-16 20:27:16,416 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_poster.conf
+2025-09-16 20:27:16,416 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_sale_attr.conf
+2025-09-16 20:27:16,416 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_sale_attr_value.conf
+2025-09-16 20:27:16,416 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_address.conf
+2025-09-16 20:27:16,416 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_info.conf
+2025-09-16 20:27:16,416 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_info_sup_msg.conf
+2025-09-16 20:27:16,416 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_info.conf
+2025-09-16 20:27:16,416 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_order_task.conf
+2025-09-16 20:27:16,417 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_order_task_detail.conf
+2025-09-16 20:27:16,417 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_sku.conf
+2025-09-16 20:27:16,417 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_z_log.conf
+2025-09-16 20:27:16,417 - INFO - Closing down clientserver connection
+2025-09-16 20:30:27,408 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_info.conf
+2025-09-16 20:30:27,408 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule.conf
+2025-09-16 20:30:27,408 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_sku.conf
+2025-09-16 20:30:27,408 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_attr_info.conf
+2025-09-16 20:30:27,408 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_attr_value.conf
+2025-09-16 20:30:27,409 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category1.conf
+2025-09-16 20:30:27,409 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category2.conf
+2025-09-16 20:30:27,409 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category3.conf
+2025-09-16 20:30:27,409 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_dic.conf
+2025-09-16 20:30:27,409 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_frontend_param.conf
+2025-09-16 20:30:27,409 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_province.conf
+2025-09-16 20:30:27,409 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_region.conf
+2025-09-16 20:30:27,409 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_sale_attr.conf
+2025-09-16 20:30:27,409 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_trademark.conf
+2025-09-16 20:30:27,409 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_cart_info.conf
+2025-09-16 20:30:27,409 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_category_compare_dic.conf
+2025-09-16 20:30:27,410 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_cms_banner.conf
+2025-09-16 20:30:27,410 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_comment_info.conf
+2025-09-16 20:30:27,410 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_info.conf
+2025-09-16 20:30:27,410 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_range.conf
+2025-09-16 20:30:27,410 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_use.conf
+2025-09-16 20:30:27,410 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_favor_info.conf
+2025-09-16 20:30:27,410 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_financial_sku_cost.conf
+2025-09-16 20:30:27,410 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail.conf
+2025-09-16 20:30:27,410 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail_activity.conf
+2025-09-16 20:30:27,411 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail_coupon.conf
+2025-09-16 20:30:27,411 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_info.conf
+2025-09-16 20:30:27,411 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_refund_info.conf
+2025-09-16 20:30:27,411 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_status_log.conf
+2025-09-16 20:30:27,411 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_payment_info.conf
+2025-09-16 20:30:27,411 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_promotion_pos.conf
+2025-09-16 20:30:27,411 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_promotion_refer.conf
+2025-09-16 20:30:27,411 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_refund_payment.conf
+2025-09-16 20:30:27,411 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_sample_order_info.conf
+2025-09-16 20:30:27,411 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_seckill_goods.conf
+2025-09-16 20:30:27,411 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_attr_value.conf
+2025-09-16 20:30:27,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_image.conf
+2025-09-16 20:30:27,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_info.conf
+2025-09-16 20:30:27,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_sale_attr_value.conf
+2025-09-16 20:30:27,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_image.conf
+2025-09-16 20:30:27,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_info.conf
+2025-09-16 20:30:27,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_poster.conf
+2025-09-16 20:30:27,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_sale_attr.conf
+2025-09-16 20:30:27,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_sale_attr_value.conf
+2025-09-16 20:30:27,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_address.conf
+2025-09-16 20:30:27,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_info.conf
+2025-09-16 20:30:27,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_info_sup_msg.conf
+2025-09-16 20:30:27,412 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_info.conf
+2025-09-16 20:30:27,413 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_order_task.conf
+2025-09-16 20:30:27,413 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_order_task_detail.conf
+2025-09-16 20:30:27,413 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_sku.conf
+2025-09-16 20:30:27,413 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_z_log.conf
+2025-09-16 20:30:27,413 - INFO - Closing down clientserver connection
+2025-09-16 20:31:06,897 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_info.conf
+2025-09-16 20:31:06,898 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule.conf
+2025-09-16 20:31:06,898 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_sku.conf
+2025-09-16 20:31:06,899 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_attr_info.conf
+2025-09-16 20:31:06,899 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_attr_value.conf
+2025-09-16 20:31:06,899 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category1.conf
+2025-09-16 20:31:06,900 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category2.conf
+2025-09-16 20:31:06,900 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category3.conf
+2025-09-16 20:31:06,900 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_dic.conf
+2025-09-16 20:31:06,900 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_frontend_param.conf
+2025-09-16 20:31:06,901 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_province.conf
+2025-09-16 20:31:06,901 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_region.conf
+2025-09-16 20:31:06,901 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_sale_attr.conf
+2025-09-16 20:31:06,901 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_trademark.conf
+2025-09-16 20:31:06,902 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_cart_info.conf
+2025-09-16 20:31:06,902 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_category_compare_dic.conf
+2025-09-16 20:31:06,902 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_cms_banner.conf
+2025-09-16 20:31:06,902 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_comment_info.conf
+2025-09-16 20:31:06,902 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_info.conf
+2025-09-16 20:31:06,903 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_range.conf
+2025-09-16 20:31:06,903 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_use.conf
+2025-09-16 20:31:06,903 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_favor_info.conf
+2025-09-16 20:31:06,903 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_financial_sku_cost.conf
+2025-09-16 20:31:06,903 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail.conf
+2025-09-16 20:31:06,904 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail_activity.conf
+2025-09-16 20:31:06,904 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail_coupon.conf
+2025-09-16 20:31:06,904 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_info.conf
+2025-09-16 20:31:06,904 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_refund_info.conf
+2025-09-16 20:31:06,904 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_status_log.conf
+2025-09-16 20:31:06,905 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_payment_info.conf
+2025-09-16 20:31:06,905 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_promotion_pos.conf
+2025-09-16 20:31:06,905 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_promotion_refer.conf
+2025-09-16 20:31:06,905 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_refund_payment.conf
+2025-09-16 20:31:06,905 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_sample_order_info.conf
+2025-09-16 20:31:06,906 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_seckill_goods.conf
+2025-09-16 20:31:06,906 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_attr_value.conf
+2025-09-16 20:31:06,906 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_image.conf
+2025-09-16 20:31:06,906 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_info.conf
+2025-09-16 20:31:06,906 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_sale_attr_value.conf
+2025-09-16 20:31:06,907 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_image.conf
+2025-09-16 20:31:06,907 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_info.conf
+2025-09-16 20:31:06,907 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_poster.conf
+2025-09-16 20:31:06,907 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_sale_attr.conf
+2025-09-16 20:31:06,907 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_sale_attr_value.conf
+2025-09-16 20:31:06,908 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_address.conf
+2025-09-16 20:31:06,908 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_info.conf
+2025-09-16 20:31:06,908 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_info_sup_msg.conf
+2025-09-16 20:31:06,908 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_info.conf
+2025-09-16 20:31:06,908 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_order_task.conf
+2025-09-16 20:31:06,909 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_order_task_detail.conf
+2025-09-16 20:31:06,909 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_sku.conf
+2025-09-16 20:31:06,909 - INFO - AT update Setting Is: ../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_z_log.conf
+2025-09-16 20:31:06,909 - INFO - Closing down clientserver connection
+2025-09-16 20:45:19,446 - INFO - Closing down clientserver connection
+2025-09-16 20:48:13,719 - INFO - Closing down clientserver connection
+2025-09-16 20:53:24,690 - INFO - Closing down clientserver connection
+2025-09-16 20:54:24,099 - INFO - Closing down clientserver connection
+2025-09-16 20:54:54,181 - INFO - Closing down clientserver connection
+2025-09-16 20:55:09,417 - INFO - Closing down clientserver connection
+2025-09-16 20:56:46,518 - INFO - Closing down clientserver connection
+2025-09-16 20:56:49,814 - INFO - Closing down clientserver connection
+2025-09-16 20:57:22,621 - INFO - Closing down clientserver connection
+2025-09-16 20:58:52,752 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_poster.conf
+2025-09-16 20:58:53,266 - INFO - 作业提交成功! Job ID: 1020317854093803521, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_poster_task
+2025-09-16 20:58:53,267 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_category_compare_dic.conf
+2025-09-16 20:58:53,745 - INFO - 作业提交成功! Job ID: 1020317854094065665, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_category_compare_dic_task
+2025-09-16 20:58:53,747 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_favor_info.conf
+2025-09-16 20:58:54,185 - INFO - 作业提交成功! Job ID: 1020317854094393345, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_favor_info_task
+2025-09-16 20:58:54,186 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_image.conf
+2025-09-16 20:58:54,684 - INFO - 作业提交成功! Job ID: 1020317854094655489, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_image_task
+2025-09-16 20:58:54,686 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_attr_value.conf
+2025-09-16 20:58:55,230 - INFO - 作业提交成功! Job ID: 1020317854095114241, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_attr_value_task
+2025-09-16 20:58:55,232 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_promotion_refer.conf
+2025-09-16 20:58:55,717 - INFO - 作业提交成功! Job ID: 1020317854095376385, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_promotion_refer_task
+2025-09-16 20:58:55,718 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category1.conf
+2025-09-16 20:58:56,187 - INFO - 作业提交成功! Job ID: 1020317854095704065, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category1_task
+2025-09-16 20:58:56,189 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_info.conf
+2025-09-16 20:58:56,700 - INFO - 作业提交成功! Job ID: 1020317854096031745, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_info_task
+2025-09-16 20:58:56,702 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_info_sup_msg.conf
+2025-09-16 20:58:57,190 - INFO - 作业提交成功! Job ID: 1020317854096359425, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_info_sup_msg_task
+2025-09-16 20:58:57,192 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_sale_attr.conf
+2025-09-16 20:58:57,741 - INFO - 作业提交成功! Job ID: 1020317854096687105, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_sale_attr_task
+2025-09-16 20:58:57,743 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_frontend_param.conf
+2025-09-16 20:58:58,264 - INFO - 作业提交成功! Job ID: 1020317854097080321, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_frontend_param_task
+2025-09-16 20:58:58,267 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_status_log.conf
+2025-09-16 20:58:58,659 - INFO - 作业提交成功! Job ID: 1020317854097604609, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_status_log_task
+2025-09-16 20:58:58,660 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule.conf
+2025-09-16 20:58:59,036 - INFO - 作业提交成功! Job ID: 1020317854097932289, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule_task
+2025-09-16 20:58:59,037 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail_activity.conf
+2025-09-16 20:58:59,583 - INFO - 作业提交成功! Job ID: 1020317854098259969, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail_activity_task
+2025-09-16 20:58:59,584 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_z_log.conf
+2025-09-16 20:59:00,021 - INFO - 作业提交成功! Job ID: 1020317854098653185, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_z_log_task
+2025-09-16 20:59:00,022 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_sale_attr_value.conf
+2025-09-16 20:59:00,443 - INFO - 作业提交成功! Job ID: 1020317854098915329, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_sale_attr_value_task
+2025-09-16 20:59:00,444 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_promotion_pos.conf
+2025-09-16 20:59:00,808 - INFO - 作业提交成功! Job ID: 1020317854099243009, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_promotion_pos_task
+2025-09-16 20:59:00,809 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_payment_info.conf
+2025-09-16 20:59:01,351 - INFO - 作业提交成功! Job ID: 1020317854099636225, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_payment_info_task
+2025-09-16 20:59:01,352 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_info.conf
+2025-09-16 20:59:01,730 - INFO - 作业提交成功! Job ID: 1020317854100226049, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_info_task
+2025-09-16 20:59:01,731 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_sku.conf
+2025-09-16 20:59:02,154 - INFO - 作业提交成功! Job ID: 1020317890240708609, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_sku_task
+2025-09-16 20:59:02,155 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail.conf
+2025-09-16 20:59:02,530 - INFO - 作业提交成功! Job ID: 1020317890241101825, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail_task
+2025-09-16 20:59:02,531 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_attr_info.conf
+2025-09-16 20:59:02,920 - INFO - 作业提交成功! Job ID: 1020317890241691649, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_attr_info_task
+2025-09-16 20:59:02,922 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_use.conf
+2025-09-16 20:59:03,321 - INFO - 作业提交成功! Job ID: 1020317890242281473, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_use_task
+2025-09-16 20:59:03,322 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_sale_attr_value.conf
+2025-09-16 20:59:03,729 - INFO - 作业提交成功! Job ID: 1020317890242478081, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_sale_attr_value_task
+2025-09-16 20:59:03,730 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_dic.conf
+2025-09-16 20:59:04,199 - INFO - 作业提交成功! Job ID: 1020317890242936833, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_dic_task
+2025-09-16 20:59:04,201 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail_coupon.conf
+2025-09-16 20:59:04,597 - INFO - 作业提交成功! Job ID: 1020317890243526657, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail_coupon_task
+2025-09-16 20:59:04,597 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_image.conf
+2025-09-16 20:59:05,246 - INFO - 作业提交成功! Job ID: 1020317890244837377, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_image_task
+2025-09-16 20:59:05,247 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_attr_value.conf
+2025-09-16 20:59:05,634 - INFO - 作业提交成功! Job ID: 1020317890245427201, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_attr_value_task
+2025-09-16 20:59:05,635 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_address.conf
+2025-09-16 20:59:06,042 - INFO - 作业提交成功! Job ID: 1020317890245820417, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_address_task
+2025-09-16 20:59:06,043 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_trademark.conf
+2025-09-16 20:59:06,428 - INFO - 作业提交成功! Job ID: 1020317890246803457, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_trademark_task
+2025-09-16 20:59:06,429 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_refund_payment.conf
+2025-09-16 20:59:06,785 - INFO - 作业提交成功! Job ID: 1020317909765062657, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_refund_payment_task
+2025-09-16 20:59:06,787 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_info.conf
+2025-09-16 20:59:07,291 - INFO - 作业提交成功! Job ID: 1020317909765390337, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_info_task
+2025-09-16 20:59:07,292 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_financial_sku_cost.conf
+2025-09-16 20:59:07,664 - INFO - 作业提交成功! Job ID: 1020317909766045697, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_financial_sku_cost_task
+2025-09-16 20:59:07,665 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sample_order_info.conf
+2025-09-16 20:59:08,055 - INFO - 作业提交成功! Job ID: 1020317909766307841, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sample_order_info_task
+2025-09-16 20:59:08,055 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_order_task.conf
+2025-09-16 20:59:08,417 - INFO - 作业提交成功! Job ID: 1020317909767094273, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_order_task_task
+2025-09-16 20:59:08,419 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_cart_info.conf
+2025-09-16 20:59:08,809 - INFO - 作业提交成功! Job ID: 1020317909767290881, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_cart_info_task
+2025-09-16 20:59:08,810 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_sale_attr.conf
+2025-09-16 20:59:09,177 - INFO - 作业提交成功! Job ID: 1020317909767356417, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_sale_attr_task
+2025-09-16 20:59:09,178 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_refund_info.conf
+2025-09-16 20:59:09,569 - INFO - 作业提交成功! Job ID: 1020317909767421953, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_refund_info_task
+2025-09-16 20:59:09,570 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_info.conf
+2025-09-16 20:59:09,990 - INFO - 作业提交成功! Job ID: 1020317909770043393, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_info_task
+2025-09-16 20:59:09,990 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_comment_info.conf
+2025-09-16 20:59:10,361 - INFO - 作业提交成功! Job ID: 1020317909770633217, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_comment_info_task
+2025-09-16 20:59:10,362 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_province.conf
+2025-09-16 20:59:10,849 - INFO - 作业提交成功! Job ID: 1020317909771288577, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_province_task
+2025-09-16 20:59:10,851 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category2.conf
+2025-09-16 20:59:11,222 - INFO - 作业提交成功! Job ID: 1020317927943438337, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category2_task
+2025-09-16 20:59:11,223 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category3.conf
+2025-09-16 20:59:11,613 - INFO - 作业提交成功! Job ID: 1020317927943700481, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category3_task
+2025-09-16 20:59:11,614 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_info.conf
+2025-09-16 20:59:11,987 - INFO - 作业提交成功! Job ID: 1020317927944028161, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_info_task
+2025-09-16 20:59:11,987 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_order_task_detail.conf
+2025-09-16 20:59:12,367 - INFO - 作业提交成功! Job ID: 1020317927944290305, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_order_task_detail_task
+2025-09-16 20:59:12,368 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_seckill_goods.conf
+2025-09-16 20:59:12,948 - INFO - 作业提交成功! Job ID: 1020317927944683521, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_seckill_goods_task
+2025-09-16 20:59:12,949 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_sku.conf
+2025-09-16 20:59:13,573 - INFO - 作业提交成功! Job ID: 1020317927946518529, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_sku_task
+2025-09-16 20:59:13,574 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_info.conf
+2025-09-16 20:59:13,934 - INFO - 作业提交成功! Job ID: 1020317927948746753, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_info_task
+2025-09-16 20:59:13,935 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_cms_banner.conf
+2025-09-16 20:59:14,268 - INFO - 作业提交成功! Job ID: 1020317927949074433, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_cms_banner_task
+2025-09-16 20:59:14,269 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_info.conf
+2025-09-16 20:59:14,726 - INFO - 作业提交成功! Job ID: 1020317944271339521, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_info_task
+2025-09-16 20:59:14,727 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_region.conf
+2025-09-16 20:59:15,201 - INFO - 作业提交成功! Job ID: 1020317944272191489, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_region_task
+2025-09-16 20:59:15,202 - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_range.conf
+2025-09-16 20:59:15,547 - INFO - 作业提交成功! Job ID: 1020317944272781313, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_range_task
+2025-09-16 20:59:15,550 - INFO - Closing down clientserver connection

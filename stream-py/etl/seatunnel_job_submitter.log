@@ -1,0 +1,104 @@
+2025-09-16 20:58:52 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_poster.conf
+2025-09-16 20:58:53 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854093803521, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_poster_task
+2025-09-16 20:58:53 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_category_compare_dic.conf
+2025-09-16 20:58:53 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854094065665, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_category_compare_dic_task
+2025-09-16 20:58:53 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_favor_info.conf
+2025-09-16 20:58:54 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854094393345, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_favor_info_task
+2025-09-16 20:58:54 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_image.conf
+2025-09-16 20:58:54 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854094655489, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_image_task
+2025-09-16 20:58:54 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_attr_value.conf
+2025-09-16 20:58:55 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854095114241, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_attr_value_task
+2025-09-16 20:58:55 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_promotion_refer.conf
+2025-09-16 20:58:55 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854095376385, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_promotion_refer_task
+2025-09-16 20:58:55 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category1.conf
+2025-09-16 20:58:56 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854095704065, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category1_task
+2025-09-16 20:58:56 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_info.conf
+2025-09-16 20:58:56 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854096031745, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_info_task
+2025-09-16 20:58:56 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_info_sup_msg.conf
+2025-09-16 20:58:57 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854096359425, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_info_sup_msg_task
+2025-09-16 20:58:57 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_sale_attr.conf
+2025-09-16 20:58:57 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854096687105, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_sale_attr_task
+2025-09-16 20:58:57 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_frontend_param.conf
+2025-09-16 20:58:58 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854097080321, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_frontend_param_task
+2025-09-16 20:58:58 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_status_log.conf
+2025-09-16 20:58:58 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854097604609, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_status_log_task
+2025-09-16 20:58:58 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule.conf
+2025-09-16 20:58:59 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854097932289, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule_task
+2025-09-16 20:58:59 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail_activity.conf
+2025-09-16 20:58:59 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854098259969, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail_activity_task
+2025-09-16 20:58:59 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_z_log.conf
+2025-09-16 20:59:00 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854098653185, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_z_log_task
+2025-09-16 20:59:00 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_sale_attr_value.conf
+2025-09-16 20:59:00 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854098915329, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_sale_attr_value_task
+2025-09-16 20:59:00 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_promotion_pos.conf
+2025-09-16 20:59:00 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854099243009, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_promotion_pos_task
+2025-09-16 20:59:00 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_payment_info.conf
+2025-09-16 20:59:01 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854099636225, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_payment_info_task
+2025-09-16 20:59:01 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_info.conf
+2025-09-16 20:59:01 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317854100226049, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_info_task
+2025-09-16 20:59:01 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_sku.conf
+2025-09-16 20:59:02 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317890240708609, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_sku_task
+2025-09-16 20:59:02 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail.conf
+2025-09-16 20:59:02 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317890241101825, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail_task
+2025-09-16 20:59:02 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_attr_info.conf
+2025-09-16 20:59:02 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317890241691649, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_attr_info_task
+2025-09-16 20:59:02 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_use.conf
+2025-09-16 20:59:03 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317890242281473, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_use_task
+2025-09-16 20:59:03 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_sale_attr_value.conf
+2025-09-16 20:59:03 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317890242478081, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_sale_attr_value_task
+2025-09-16 20:59:03 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_dic.conf
+2025-09-16 20:59:04 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317890242936833, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_dic_task
+2025-09-16 20:59:04 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail_coupon.conf
+2025-09-16 20:59:04 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317890243526657, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_detail_coupon_task
+2025-09-16 20:59:04 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_image.conf
+2025-09-16 20:59:05 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317890244837377, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_image_task
+2025-09-16 20:59:05 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_attr_value.conf
+2025-09-16 20:59:05 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317890245427201, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_attr_value_task
+2025-09-16 20:59:05 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_address.conf
+2025-09-16 20:59:06 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317890245820417, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_user_address_task
+2025-09-16 20:59:06 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_trademark.conf
+2025-09-16 20:59:06 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317890246803457, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_trademark_task
+2025-09-16 20:59:06 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_refund_payment.conf
+2025-09-16 20:59:06 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317909765062657, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_refund_payment_task
+2025-09-16 20:59:06 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_info.conf
+2025-09-16 20:59:07 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317909765390337, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_info_task
+2025-09-16 20:59:07 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_financial_sku_cost.conf
+2025-09-16 20:59:07 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317909766045697, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_financial_sku_cost_task
+2025-09-16 20:59:07 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sample_order_info.conf
+2025-09-16 20:59:08 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317909766307841, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sample_order_info_task
+2025-09-16 20:59:08 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_order_task.conf
+2025-09-16 20:59:08 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317909767094273, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_order_task_task
+2025-09-16 20:59:08 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_cart_info.conf
+2025-09-16 20:59:08 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317909767290881, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_cart_info_task
+2025-09-16 20:59:08 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_sale_attr.conf
+2025-09-16 20:59:09 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317909767356417, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_sale_attr_task
+2025-09-16 20:59:09 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_refund_info.conf
+2025-09-16 20:59:09 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317909767421953, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_refund_info_task
+2025-09-16 20:59:09 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_info.conf
+2025-09-16 20:59:09 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317909770043393, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_sku_info_task
+2025-09-16 20:59:09 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_comment_info.conf
+2025-09-16 20:59:10 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317909770633217, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_comment_info_task
+2025-09-16 20:59:10 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_province.conf
+2025-09-16 20:59:10 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317909771288577, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_province_task
+2025-09-16 20:59:10 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category2.conf
+2025-09-16 20:59:11 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317927943438337, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category2_task
+2025-09-16 20:59:11 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category3.conf
+2025-09-16 20:59:11 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317927943700481, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_category3_task
+2025-09-16 20:59:11 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_info.conf
+2025-09-16 20:59:11 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317927944028161, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_order_info_task
+2025-09-16 20:59:11 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_order_task_detail.conf
+2025-09-16 20:59:12 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317927944290305, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_order_task_detail_task
+2025-09-16 20:59:12 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_seckill_goods.conf
+2025-09-16 20:59:12 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317927944683521, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_seckill_goods_task
+2025-09-16 20:59:12 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_sku.conf
+2025-09-16 20:59:13 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317927946518529, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_ware_sku_task
+2025-09-16 20:59:13 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_info.conf
+2025-09-16 20:59:13 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317927948746753, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_info_task
+2025-09-16 20:59:13 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_cms_banner.conf
+2025-09-16 20:59:14 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317927949074433, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_cms_banner_task
+2025-09-16 20:59:14 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_info.conf
+2025-09-16 20:59:14 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317944271339521, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_spu_info_task
+2025-09-16 20:59:14 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_region.conf
+2025-09-16 20:59:15 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317944272191489, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_base_region_task
+2025-09-16 20:59:15 - SeatunnelJobSubmitter - INFO - 正在提交配置文件: sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_range.conf
+2025-09-16 20:59:15 - SeatunnelJobSubmitter - INFO - 作业提交成功! Job ID: 1020317944272781313, Job Name: sync_mysql8_to_hive3_bigdata_offline_ws_ods_coupon_range_task
