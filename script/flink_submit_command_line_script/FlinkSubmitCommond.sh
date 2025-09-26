@@ -2,6 +2,7 @@
 ./flink run-application \
 -d \
 -t yarn-application \
+-p 2
 -ynm DbusCdc2DimHbase \
 -yjm 900 \
 -ytm 900 \

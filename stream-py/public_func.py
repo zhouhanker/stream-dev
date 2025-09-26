@@ -11,6 +11,7 @@ from sqlalchemy.exc import SQLAlchemyError
 import requests
 import os
 import logging
+
 urllib3.disable_warnings()
 
 
@@ -204,7 +205,6 @@ def get_java_properties():
         return javaproperties.load(f)
 
 
-
 def submit_seatunnel_restful_v2_job(config_path, host='http://cdh03:14321/submit-job/upload', job_name=None):
     """
     提交作业配置文件到服务器
@@ -252,9 +252,3 @@ def submit_seatunnel_restful_v2_job(config_path, host='http://cdh03:14321/submit
     finally:
         files['config_file'].close()
         log.debug("配置文件句柄已关闭")
-
-
-
-
-
-

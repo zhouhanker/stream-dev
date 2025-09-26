@@ -73,17 +73,4 @@ public class SourceAlarmConfig implements SourceFunction<List<String>> {
         }
     }
 
-    public String getConfigUrl() {
-        return configUrl;
-    }
-
-    public long getRefreshInterval() {
-        return refreshInterval;
-    }
-
-    public TimeUnit getTimeUnit() {
-        return timeUnit;
-    }
-
-
 }

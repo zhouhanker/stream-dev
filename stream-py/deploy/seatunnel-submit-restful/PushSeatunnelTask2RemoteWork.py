@@ -77,6 +77,6 @@ def submit_seatunnel_restful_v2_job(config_path, host='http://cdh03:14321/submit
 
 if __name__ == '__main__':
     # sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_info_tbl_conf = '../../../script/seatunnel-conf/batch/bigdata_offline_ws/sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_info_tbl.conf'
-    sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule_tbl_conf = '../../../script/seatunnel-conf/batch/bigdata_offline_ws/sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule_tbl.conf'
+    sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule_tbl_conf = '../../../script/seatunnel-conf/batch/bigdata_offline_v1/sync_mysql8_to_hive3_bigdata_offline_ws_ods_sample_order_info.conf'
 
-    submit_seatunnel_restful_v2_job(sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule_tbl_conf, job_name='sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule_tbl')
+    submit_seatunnel_restful_v2_job(sync_mysql8_to_hive3_bigdata_offline_ws_ods_activity_rule_tbl_conf, job_name='sync_mysql8_to_hive3_bigdata_offline_ws_ods_sample_order_info')

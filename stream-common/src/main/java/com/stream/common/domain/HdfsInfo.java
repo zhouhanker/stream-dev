@@ -65,4 +65,9 @@ public class HdfsInfo implements Serializable {
                 ", hdfsPartitionField='" + hdfsPartitionField + '\'' +
                 '}';
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

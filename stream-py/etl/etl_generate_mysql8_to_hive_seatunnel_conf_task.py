@@ -3,11 +3,10 @@
 import logging
 import os
 from pyspark.sql import SparkSession
-
-
 import public_func
 
 os.environ["HADOOP_USER_NAME"] = "root"
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -188,5 +187,5 @@ class EtlGenerateMysql8ToHive3SeatunnelConfTask:
 
 if __name__ == '__main__':
     EtlGenerateMysql8ToHive3SeatunnelConfTask().generate_hive_tables_func()
-    EtlGenerateMysql8ToHive3SeatunnelConfTask().generate_seatunnel_setting_conf_func()
+    # EtlGenerateMysql8ToHive3SeatunnelConfTask().generate_seatunnel_setting_conf_func()
     EtlGenerateMysql8ToHive3SeatunnelConfTask().exec_seatunnel_script()

@@ -66,7 +66,10 @@ public class DbusLoadingPgCdc2Kafka {
                 .uid("map_source_data_to_json" + FLINK_UID_VERSION)
                 .name("_map_source_data_to_json");
 
-        SingleOutputStreamOperator<JSONObject> processSnapshotDs = mapData2JsonDs.keyBy(r -> "static_key").process(new KeyedProcessSnapshotCompletionDetectorFunc()).setParallelism(1);
+        SingleOutputStreamOperator<JSONObject> processSnapshotDs = mapData2JsonDs
+                .keyBy(r -> "static_key")
+                .process(new KeyedProcessSnapshotCompletionDetectorFunc())
+                .setParallelism(1);
 
         SingleOutputStreamOperator<JSONObject> hisAfterDataNotNullDs = processSnapshotDs.filter(data -> "r".equals(data.getString("op")))
                 .filter(Objects::nonNull)

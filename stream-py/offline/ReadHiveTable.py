@@ -6,7 +6,6 @@
 """
 from pyspark.sql import SparkSession
 
-
 spark = SparkSession.builder \
     .appName("HiveExternalTableExample") \
     .config("hive.metastore.uris", "thrift://cdh02:9083") \
@@ -30,8 +29,19 @@ exec_sql = """
     on c1.id = c2.category1_id;
 """
 
+sql = """
+    select *
+    from (
+        select id,
+               consignee,
+               consignee_tel,
+               reflect("org.apache.commons.lang.math.NumberUtils","isNumber",consignee_tel) as flag
+        from bigdata_offline_warehouse_v1.ods_mysql8_realtime_v1_order_info
+         ) as t
+    where flag = "false";
+"""
 
-print(exec_sql)
-spark.sql(exec_sql).show()
+df_exec_setting_tbl = spark.sql(sql)
+df_exec_setting_tbl.show()
 
 spark.stop()

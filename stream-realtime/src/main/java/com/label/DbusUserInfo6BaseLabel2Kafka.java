@@ -161,7 +161,8 @@ public class DbusUserInfo6BaseLabel2Kafka {
         SingleOutputStreamOperator<JSONObject> processStagePageLogDs = keyedStreamLogPageMsg.process(new ProcessFilterRepeatTsDataFunc());
 
         // 2 min 分钟窗口
-        SingleOutputStreamOperator<JSONObject> win2MinutesPageLogsDs = processStagePageLogDs.keyBy(data -> data.getString("uid"))
+        SingleOutputStreamOperator<JSONObject> win2MinutesPageLogsDs = processStagePageLogDs
+                .keyBy(data -> data.getString("uid"))
                 .process(new AggregateUserDataProcessFunction())
                 .keyBy(data -> data.getString("uid"))
                 .window(TumblingProcessingTimeWindows.of(Time.minutes(2)))

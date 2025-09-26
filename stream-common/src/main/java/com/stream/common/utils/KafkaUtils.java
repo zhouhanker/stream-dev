@@ -212,25 +212,25 @@ public final class KafkaUtils {
         try(AdminClient adminClient = AdminClient.create(props)) {
             boolean topicExists = kafkaTopicExists(bootstrapServers, topicName);
             if (topicExists && recreateIfExists){
-                logger.info("主题 {} 已存在，开始删除...", topicName);
+                logger.info("主题 {} 已存在, 开始删除...", topicName);
                 boolean deleteSuccess = delTopic(bootstrapServers, topicName);
                 if (!deleteSuccess) {
-                    logger.error("删除主题 {} 失败，终止创建", topicName);
+                    logger.error("删除主题 {} 失败, 终止创建", topicName);
                 }
                 Thread.sleep(2000);
             }
 
             if (!kafkaTopicExists(bootstrapServers, topicName)){
-                logger.info("开始创建主题 {}，分区数：{}，副本数：{}", topicName, partitions, replicationFactor);
+                logger.info("开始创建主题 {}, 分区数：{}, 副本数：{}", topicName, partitions, replicationFactor);
                 NewTopic newTopic = new NewTopic(topicName, partitions, replicationFactor);
                 adminClient.createTopics(Collections.singleton(newTopic)).all().get();
                 if (kafkaTopicExists(bootstrapServers, topicName)) {
                     logger.info("主题 {} 创建成功", topicName);
                 } else {
-                    logger.error("主题 {} 创建失败，验证不存在", topicName);
+                    logger.error("主题 {} 创建失败, 验证不存在", topicName);
                 }
             }else {
-                logger.info("主题 {} 已存在，且无需删除，直接返回", topicName);
+                logger.info("主题 {} 已存在, 且无需删除 ", topicName);
             }
 
         } catch (InterruptedException | ExecutionException e) {

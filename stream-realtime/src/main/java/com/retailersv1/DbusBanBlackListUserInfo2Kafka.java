@@ -12,6 +12,7 @@ import lombok.SneakyThrows;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
+import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import java.util.Date;
@@ -59,7 +60,7 @@ public class DbusBanBlackListUserInfo2Kafka {
         SingleOutputStreamOperator<JSONObject> bloomFilterDs = mapJsonStr.keyBy(data -> data.getLong("order_id"))
                 .filter(new FilterBloomDeduplicatorFunc(1000000, 0.01));
 
-        // {"msg":"\n\nTCL 85Q6电视效果与价格不匹配！,西毒是共党","consignee":"臧宁欣","violation_grade":"P0","user_id":221,"violation_msg":"西毒是共党","is_violation":1,"ts_ms":1746596800252,"ds":"20250507"}
+        // {"msg":"\n\nTCL 85Q6电视效果与价格不匹配！,西毒是g党","consignee":"臧宁欣","violation_grade":"P0","user_id":221,"violation_msg":"西毒是共党","is_violation":1,"ts_ms":1746596800252,"ds":"20250507"}
         SingleOutputStreamOperator<JSONObject> SensitiveWordsDs = bloomFilterDs.map(new MapCheckRedisSensitiveWordsFunc())
                 .uid("MapCheckRedisSensitiveWord")
                 .name("MapCheckRedisSensitiveWord");
